@@ -1,29 +1,32 @@
+/*        :::::::::::            GRAPHICS SETUP            :::::::::::        */
 function setup (){
     createCanvas (windowWidth, windowHeight);
-    graphicBuffer = createGraphics(windowWidth, windowHeight);
-    frameRate(5);
-    pattern = new basicPattern(0,0);   
+    graphicBuffer = createGraphics(windowWidth, windowHeight); //Creates and returns a new p5.Renderer object. Use this class if you need to draw into an off-screen graphics buffer
+    frameRate(20);
+    pattern = new basicPattern(0,0);
 }
 
+
+
+/*        :::::::::::            GRID GENERATOR            :::::::::::        */
 function draw(){
     background(000);
-/*        :::::::::::            GRID GENERATOR            :::::::::::        */ 
     let shift = 0;
 
     for (row = 0; row <= floor(windowHeight/pattern.getArrayElement(15).yvalue()); row++){
         shift = row*1.5*pattern.getArrayElement(1).xvalue()
-        for(repx = 0; repx <= floor(windowWidth/(3*pattern.getArrayElement(4).xvalue())); repx++){
+        for(col = 0; col <= floor(windowWidth/(3*pattern.getArrayElement(4).xvalue())); col++){
 
                 push()
-                translate(pattern.getArrayElement(0).xvalue() + repx*3*pattern.getArrayElement(4).xvalue() + shift, pattern.getArrayElement(0).yvalue() + row*pattern.getArrayElement(15).yvalue())
+                translate(pattern.getArrayElement(0).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift, pattern.getArrayElement(0).yvalue() + row*pattern.getArrayElement(15).yvalue())
                 pattern.drawPattern()
                 pop()
                 push()
-                translate(pattern.getArrayElement(14).xvalue() + repx*3*pattern.getArrayElement(4).xvalue() + shift, pattern.getArrayElement(14).yvalue() + row*pattern.getArrayElement(15).yvalue())
+                translate(pattern.getArrayElement(14).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift, pattern.getArrayElement(14).yvalue() + row*pattern.getArrayElement(15).yvalue())
                 pattern.drawPattern()
                 pop()
                 push()
-                translate(pattern.getArrayElement(9).xvalue() + pattern.getArrayElement(4).xvalue() + repx*3*pattern.getArrayElement(4).xvalue() + shift, pattern.getArrayElement(9).yvalue() + row*pattern.getArrayElement(15).yvalue())
+                translate(pattern.getArrayElement(9).xvalue() + pattern.getArrayElement(4).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift, pattern.getArrayElement(9).yvalue() + row*pattern.getArrayElement(15).yvalue())
                 pattern.drawPattern()
                 pop()
         }
@@ -33,71 +36,180 @@ function draw(){
 
 /*        :::::::::::            KEY PRESS            :::::::::::        */
 
-/*function keyPressed() {
-    if (keyCode === LEFT_ARROW) {
-        pattern.getArrayElement(0).isActive = 1;
-    } else if (keyCode === RIGHT_ARROW) {
-        pattern.getArrayElement(0).isActive = 0;
-    }
-}
-*/
-
-/*
-k = KeyboardEvent; // how can i get a keyboard event without using the HTML interaction??
-function keyPressed(k){
-    if(k.code == KeyA){
-        pattern.getArrayElement(2).isActive = !pattern.getArrayElement(2).isActive
-    }
-}
-*/
-
-/*
-document.addEventListener('keydown', function(event){
-    if(event.key.toUpperCase() == "A"){
-        pattern.getArrayElement(2).isActive = true;
-        //alert(event.key);
-    } else if(event.key.toUpperCase() == "B")
-        pattern.getArrayElement(2).isActive = false
-    });
-*/
-
-
-// NOTES on key events
+// some personal notes on key events
 // KeyboardEvent.repeat (Boolean that is true if the key is being held down such that it is automatically repeating.)
 // https://keycode.info/
 // event.keydown (it returns a key code), same for keyup
 
 
-
-//CHORD TEST FOR BRILLIS
-
+//CHORD(triangle) TEST , NOT WORKING PROPERLY, see boudaries
 document.addEventListener('keydown', function(event){
-    if(event.key.toUpperCase() == "A"){
-        pattern.getArrayElement(0).isActive = !pattern.getArrayElement(0).isActive
+    // 1st KEYBOARD ROW [ 1 2 3 4 5 ]
+    key = event.key.toUpperCase();
+    if(key == "1" || key == "6" || key == "Z" || key == "N"){
+        pattern.getArrayElement(0).isActive = true
+        pattern.getArrayElement(14).isActive = true
+        pattern.getArrayElement(15).isActive = true
+    } else if(key == "2" || key == "7" || key == "X" || key == "M"){
+        pattern.getArrayElement(1).isActive = true
+        pattern.getArrayElement(16).isActive = true
+    } else if(key == "3" || key == "8" || key == "C"){
+        pattern.getArrayElement(2).isActive = true
+        pattern.getArrayElement(17).isActive = true
+    } else if(key == "4" || key == "9" || key == "V"){
+        pattern.getArrayElement(3).isActive = true
+        pattern.getArrayElement(18).isActive = true
+    } else if(key == "5" || key == "0" || key == "B"){
+        pattern.getArrayElement(4).isActive = true
+        pattern.getArrayElement(5).isActive = true
+        pattern.getArrayElement(19).isActive = true
+    } else
+
+    // 2nd KEYBOARD ROW [ Q W E R T ]
+    if(key == "Q" || key == "Y"){
+        pattern.getArrayElement(4).isActive = true
+        pattern.getArrayElement(5).isActive = true
+        pattern.getArrayElement(19).isActive = true
+    } else if(key == "W" || key == "U"){
+        pattern.getArrayElement(6).isActive = true
+    } else if(key == "E" || key == "I"){
+        pattern.getArrayElement(7).isActive = true
+    } else if(key == "R" || key == "O"){
+        pattern.getArrayElement(8).isActive = true
+    } else if(key == "T" || key == "P"){
+        pattern.getArrayElement(9).isActive = true
+        pattern.getArrayElement(10).isActive = true
+    } else
+
+    // 3rd KEYBOARD ROW [ A S D F G ]
+    if(key == "A" || key == "H"){
+        pattern.getArrayElement(9).isActive = true
+        pattern.getArrayElement(10).isActive = true
+    } else if(key == "S" || key == "J"){
+        pattern.getArrayElement(11).isActive = true
+    } else if(key == "D" || key == "K"){
+        pattern.getArrayElement(12).isActive = true
+    } else if(key == "F" || key == "L"){
+        pattern.getArrayElement(13).isActive = true
+    } else if(key == "G"){
+        pattern.getArrayElement(0).isActive = true
+        pattern.getArrayElement(14).isActive = true
+        pattern.getArrayElement(15).isActive = true
     }
-    if(event.repeat){
-        pattern.getArrayElement(0).isActive = !pattern.getArrayElement(0).isActive
-    }
+
 } );
 
-document.addEventListener('keydown', function(event){
-    if(event.key.toUpperCase() == "S"){
-        pattern.getArrayElement(1).isActive = !pattern.getArrayElement(1).isActive
+
+document.addEventListener('keyup', function(event){
+    // 1st KEYBOARD ROW [ 1 2 3 4 5 ]
+    key = event.key.toUpperCase();
+    if(key == "1" || key == "6" || key == "Z" || key == "N"){
+        pattern.getArrayElement(0).isActive = false
+        pattern.getArrayElement(14).isActive = false
+        pattern.getArrayElement(15).isActive = false
+    } else if(key == "2" || key == "7" || key == "X" || key == "M"){
+        pattern.getArrayElement(1).isActive = false
+        pattern.getArrayElement(16).isActive = false
+    } else if(key == "3" || key == "8" || key == "C"){
+        pattern.getArrayElement(2).isActive = false
+        pattern.getArrayElement(17).isActive = false
+    } else if(key == "4" || key == "9" || key == "V"){
+        pattern.getArrayElement(3).isActive = false
+        pattern.getArrayElement(18).isActive = false
+    } else if(key == "5" || key == "0" || key == "B"){
+        pattern.getArrayElement(4).isActive = false
+        pattern.getArrayElement(5).isActive = false
+        pattern.getArrayElement(19).isActive = false
+    } else
+
+    // 2nd KEYBOARD ROW [ Q W E R T ]
+    if(key == "Q" || key == "Y"){
+        pattern.getArrayElement(4).isActive = false
+        pattern.getArrayElement(5).isActive = false
+        pattern.getArrayElement(19).isActive = false
+    } else if(key == "W" || key == "U"){
+        pattern.getArrayElement(6).isActive = false
+    } else if(key == "E" || key == "I"){
+        pattern.getArrayElement(7).isActive = false
+    } else if(key == "R" || key == "O"){
+        pattern.getArrayElement(8).isActive = false
+    } else if(key == "T" || key == "P"){
+        pattern.getArrayElement(9).isActive = false
+        pattern.getArrayElement(10).isActive = false
+    } else
+
+    // 3rd KEYBOARD ROW [ A S D F G ]
+    if(key == "A" || key == "H"){
+        pattern.getArrayElement(9).isActive = false
+        pattern.getArrayElement(10).isActive = false
+    } else if(key == "S" || key == "J"){
+        pattern.getArrayElement(11).isActive = false
+    } else if(key == "D" || key == "K"){
+        pattern.getArrayElement(12).isActive = false
+    } else if(key == "F" || key == "L"){
+        pattern.getArrayElement(13).isActive = false
+    } else if(key == "G"){
+        pattern.getArrayElement(0).isActive = false
+        pattern.getArrayElement(14).isActive = false
+        pattern.getArrayElement(15).isActive = false
     }
-    if(event.repeat){
-        pattern.getArrayElement(1).isActive = !pattern.getArrayElement(1).isActive
-    }
+
 } );
 
-document.addEventListener('keydown', function(event){
-    if(event.key.toUpperCase() == "D"){
-        pattern.getArrayElement(5).isActive = !pattern.getArrayElement(5).isActive
-    }
-    if(event.repeat){
-        pattern.getArrayElement(5).isActive = !pattern.getArrayElement(5).isActive
-    }
-} );
 
 
+//another test USING SWITCH() command
+//in this case i wasn't able to figure out the problem relative to the multiple true cases (e.g 2 or plus different case in the switch that satisfies the conditions aren't able to be executed)
+/*
+var KEY = {
+  RIGHT:39,
+  UP:38,
+  LEFT:37,
+  DOWN:40
+};
+//in this array i'll put the keyboard mapping for the tonnetz grid, so e.g G#:23,25,64,34 and so on ... where the numbers are the keyCode of the keyboard's button
 
-//switch ()
+
+function press(event) {
+  var code = event.keyCode; //PROBLEM !!! DEBUG STAGE: the browser didn't recognize the keyCode command !!
+  switch(code) {
+    case KEY.RIGHT:
+    pattern.getArrayElement(0).isActive = true; break;
+
+    case KEY.UP:
+    pattern.getArrayElement(1).isActive = true; break;
+
+    case KEY.LEFT:
+    pattern.getArrayElement(2).isActive = true; break;
+
+    case KEY.DOWN:
+    pattern.getArrayElement(3).isActive = true; break;
+
+  }
+}
+
+
+function release(event) {
+  var code = event.keyCode;
+  switch(code) {
+    case KEY.RIGHT:
+    pattern.getArrayElement(0).isActive = false; break;
+
+    case KEY.UP:
+    pattern.getArrayElement(1).isActive = false; break;
+
+    case KEY.LEFT:
+    pattern.getArrayElement(2).isActive = false; break;
+
+    case KEY.DOWN:
+    pattern.getArrayElement(3).isActive = false; break;
+
+  }
+}
+
+document.addEventListener("keydown", press(event));
+document.addEventListener("keyup", release(event));
+*/
+
+
+// TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST

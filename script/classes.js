@@ -1,4 +1,4 @@
-/*        :::::::::::            BASIC PATTERN CLASS            :::::::::::        */        
+/*        :::::::::::            BASIC PATTERN CLASS            :::::::::::        */
 class basicPattern {
   constructor(x, y) {
     this.x = x;
@@ -22,33 +22,33 @@ class basicPattern {
     this.notesList.push(new Note("F",800,346));      //13
     this.notesList.push(new Note("C",1000,346));     //14
     this.notesList.push(new Note("C",300,519));      //15
-    this.notesList.push(new Note("G",500,519));      //16    
+    this.notesList.push(new Note("G",500,519));      //16
     this.notesList.push(new Note("D",700,519));      //17
     this.notesList.push(new Note("A",900,519));      //18
     this.notesList.push(new Note("E",1100,519));     //19
 
     /*        :::::::::::            INTERVALs ARRAY            :::::::::::        */
-    this.intervalsList = [];    
+    this.intervalsList = [];
     this.intervalsList.push(new Interval(this.notesList[0],this.notesList[1]));  //1st ROW
     this.intervalsList.push(new Interval(this.notesList[1],this.notesList[2]));
     this.intervalsList.push(new Interval(this.notesList[2],this.notesList[3]));
     this.intervalsList.push(new Interval(this.notesList[3],this.notesList[4]));
-  
+
     this.intervalsList.push(new Interval(this.notesList[5],this.notesList[6]));  //2nd
     this.intervalsList.push(new Interval(this.notesList[6],this.notesList[7]));
     this.intervalsList.push(new Interval(this.notesList[7],this.notesList[8]));
     this.intervalsList.push(new Interval(this.notesList[8],this.notesList[9]));
-  
+
     this.intervalsList.push(new Interval(this.notesList[10],this.notesList[11]));  //3rd
     this.intervalsList.push(new Interval(this.notesList[11],this.notesList[12]));
     this.intervalsList.push(new Interval(this.notesList[12],this.notesList[13]));
     this.intervalsList.push(new Interval(this.notesList[13],this.notesList[14]));
-  
-    this.intervalsList.push(new Interval(this.notesList[15],this.notesList[16]));  //4th 
+
+    this.intervalsList.push(new Interval(this.notesList[15],this.notesList[16]));  //4th
     this.intervalsList.push(new Interval(this.notesList[16],this.notesList[17]));
     this.intervalsList.push(new Interval(this.notesList[17],this.notesList[18]));
     this.intervalsList.push(new Interval(this.notesList[18],this.notesList[19]));
-  
+
     this.intervalsList.push(new Interval(this.notesList[0],this.notesList[5]));    //1st DIAG dx
     this.intervalsList.push(new Interval(this.notesList[5],this.notesList[10]));
     this.intervalsList.push(new Interval(this.notesList[10],this.notesList[15]));
@@ -60,33 +60,33 @@ class basicPattern {
     this.intervalsList.push(new Interval(this.notesList[2],this.notesList[7]));    //3rd
     this.intervalsList.push(new Interval(this.notesList[7],this.notesList[12]));
     this.intervalsList.push(new Interval(this.notesList[12],this.notesList[17]));
-    
+
     this.intervalsList.push(new Interval(this.notesList[3],this.notesList[8]));    //4th
     this.intervalsList.push(new Interval(this.notesList[8],this.notesList[13]));
     this.intervalsList.push(new Interval(this.notesList[13],this.notesList[18]));
-   
+
     this.intervalsList.push(new Interval(this.notesList[4],this.notesList[9]));    //5th
-    this.intervalsList.push(new Interval(this.notesList[9],this.notesList[14])); 
+    this.intervalsList.push(new Interval(this.notesList[9],this.notesList[14]));
     this.intervalsList.push(new Interval(this.notesList[14],this.notesList[19]));
 
     this.intervalsList.push(new Interval(this.notesList[1],this.notesList[5]));    //1st DIAG sx
-    
+
     this.intervalsList.push(new Interval(this.notesList[2],this.notesList[6]));    //2nd
     this.intervalsList.push(new Interval(this.notesList[6],this.notesList[10]));
-    
+
     this.intervalsList.push(new Interval(this.notesList[3],this.notesList[7]));    //3rd
     this.intervalsList.push(new Interval(this.notesList[7],this.notesList[11]));
     this.intervalsList.push(new Interval(this.notesList[11],this.notesList[15]));
-    
+
     this.intervalsList.push(new Interval(this.notesList[4],this.notesList[8]));    //4th
     this.intervalsList.push(new Interval(this.notesList[8],this.notesList[12]));
     this.intervalsList.push(new Interval(this.notesList[12],this.notesList[16]));
-    
+
     this.intervalsList.push(new Interval(this.notesList[9],this.notesList[13]));   //5th
     this.intervalsList.push(new Interval(this.notesList[13],this.notesList[17]));
-    
+
     this.intervalsList.push(new Interval(this.notesList[14],this.notesList[18]));  //6th
-    
+
     /*        :::::::::::            CHORDs ARRAY            :::::::::::        */
     this.chordsList = [];    
     this.chordsList.push(new Chord(this.notesList[0],this.notesList[1],this.notesList[5]));     //1st ROW DOWN
@@ -104,7 +104,7 @@ class basicPattern {
     this.chordsList.push(new Chord(this.notesList[12],this.notesList[13],this.notesList[17]));
     this.chordsList.push(new Chord(this.notesList[13],this.notesList[14],this.notesList[18]));
 
-    this.chordsList.push(new Chord(this.notesList[5],this.notesList[6],this.notesList[1]));     //1st ROW UP 
+    this.chordsList.push(new Chord(this.notesList[5],this.notesList[6],this.notesList[1]));     //1st ROW UP
     this.chordsList.push(new Chord(this.notesList[6],this.notesList[7],this.notesList[2]));
     this.chordsList.push(new Chord(this.notesList[7],this.notesList[8],this.notesList[3]));
     this.chordsList.push(new Chord(this.notesList[8],this.notesList[9],this.notesList[4]));
@@ -124,17 +124,17 @@ class basicPattern {
     let i = 0;
 
     for (i = 0; i < this.chordsList.length; i++){
-      this.chordsList[i].draw(); 
+      this.chordsList[i].draw();
     }
     for (i = 0; i < this.intervalsList.length; i++){
       this.intervalsList[i].draw();
     }
     for (i = 0; i < this.notesList.length; i++){
       this.notesList[i].draw();
-    }   
+    }
   }
-  
-  getArrayElement(idx = 0){
+
+  getArrayElement(idx = 0) {
     return this.notesList[idx]
   }
 
@@ -149,7 +149,7 @@ class Note {
     this.y = y;
     this.isActive = false;
   }
-  
+
   draw() {
     if (this.isActive === true){
       fill("#556B2F");
@@ -159,7 +159,7 @@ class Note {
     noStroke();
     circle(this.x, this.y, 70);
     //nb multiply the radius for the zoom factor
-    
+
     textAlign(CENTER, CENTER);
     textSize(30);
     fill("#000000");
@@ -168,7 +168,7 @@ class Note {
 
   xvalue() {
     return this.x;
-  } 
+  }
 
   yvalue() {
     return this.y;
@@ -180,11 +180,11 @@ class Note {
 class Interval {
   constructor(note1 ,note2){
     this.note1 = note1;
-    this.note2 = note2; 
+    this.note2 = note2;
     this.isActive = false;
   }
-  
-  draw(){
+
+  draw() {
     strokeWeight(2);
     if (this.note1.isActive === true && this.note2.isActive === true){
       strokeWeight(5);
@@ -205,7 +205,7 @@ class Chord {
     this.note3 = note3;
     this.isActive = 0;
   }
-  
+
   draw(){
     if (this.note1.isActive === true && this.note2.isActive === true && this.note3.isActive === true){
       fill("#556B2F");
@@ -214,12 +214,5 @@ class Chord {
     }
     noStroke();
     triangle(this.note1.x, this.note1.y, this.note2.x, this.note2.y, this.note3.x, this.note3.y);
-  } 
+  }
 }
-
-
-
-
-
-
-
