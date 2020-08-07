@@ -88,7 +88,7 @@ class basicPattern {
     this.intervalsList.push(new Interval(this.notesList[14],this.notesList[18]));  //6th
 
     /*        :::::::::::            CHORDs ARRAY            :::::::::::        */
-    this.chordsList = [];    
+    this.chordsList = [];
     this.chordsList.push(new Chord(this.notesList[0],this.notesList[1],this.notesList[5]));     //1st ROW DOWN
     this.chordsList.push(new Chord(this.notesList[1],this.notesList[2],this.notesList[6]));
     this.chordsList.push(new Chord(this.notesList[2],this.notesList[3],this.notesList[7]));
@@ -134,8 +134,8 @@ class basicPattern {
     }
   }
 
-  getArrayElement(idx = 0) {
-    return this.notesList[idx]
+  getArrayElement(i) {
+    return this.notesList[i]
   }
 
 }

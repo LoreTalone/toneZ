@@ -1,12 +1,13 @@
+//p5.disableFriendlyErrors = true;
 /*        :::::::::::            GRAPHICS SETUP            :::::::::::        */
 function setup (){
     createCanvas (windowWidth, windowHeight);
-    graphicBuffer = createGraphics(windowWidth, windowHeight); //Creates and returns a new p5.Renderer object. Use this class if you need to draw into an off-screen graphics buffer
+    //graphicBuffer = createGraphics(windowWidth, windowHeight); //Creates and returns a new p5.Renderer object. Use this class if you need to draw into an off-screen graphics buffer
     frameRate(20);
+    //noLoop();
     pattern = new basicPattern(0,0);
+
 }
-
-
 
 /*        :::::::::::            GRID GENERATOR            :::::::::::        */
 function draw(){
@@ -33,6 +34,9 @@ function draw(){
     }
 }
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
 
 /*        :::::::::::            KEY PRESS            :::::::::::        */
 
@@ -96,7 +100,7 @@ document.addEventListener('keydown', function(event){
         pattern.getArrayElement(14).isActive = true
         pattern.getArrayElement(15).isActive = true
     }
-
+    //redraw();
 } );
 
 
@@ -153,9 +157,8 @@ document.addEventListener('keyup', function(event){
         pattern.getArrayElement(14).isActive = false
         pattern.getArrayElement(15).isActive = false
     }
-
+    //redraw();
 } );
-
 
 
 //another test USING SWITCH() command
