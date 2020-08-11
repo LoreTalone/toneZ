@@ -13,21 +13,26 @@ function setup (){
 function draw(){
     background(000);
     let shift = 0;
+//adjust variables for the full screen view
+adj_row = 0;
+adj_col = 1;
+off_x = -2400;
+off_y = -300;
 
-    for (row = 0; row <= floor(windowHeight/pattern.getArrayElement(15).yvalue()); row++){
+    for (row = 0; row <= floor(windowHeight/pattern.getArrayElement(15).yvalue() + adj_row); row++){
         shift = row*1.5*pattern.getArrayElement(1).xvalue()
-        for(col = 0; col <= floor(windowWidth/(3*pattern.getArrayElement(4).xvalue())); col++){
+        for(col = 0; col <= floor(windowWidth/(3*pattern.getArrayElement(4).xvalue())+ adj_col); col++){
 
                 push()
-                translate(pattern.getArrayElement(0).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift, pattern.getArrayElement(0).yvalue() + row*pattern.getArrayElement(15).yvalue())
+                translate(pattern.getArrayElement(0).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift + off_x, pattern.getArrayElement(0).yvalue() + row*pattern.getArrayElement(15).yvalue() + off_y)
                 pattern.drawPattern()
                 pop()
                 push()
-                translate(pattern.getArrayElement(14).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift, pattern.getArrayElement(14).yvalue() + row*pattern.getArrayElement(15).yvalue())
+                translate(pattern.getArrayElement(14).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift + off_x, pattern.getArrayElement(14).yvalue() + row*pattern.getArrayElement(15).yvalue() + off_y)
                 pattern.drawPattern()
                 pop()
                 push()
-                translate(pattern.getArrayElement(9).xvalue() + pattern.getArrayElement(4).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift, pattern.getArrayElement(9).yvalue() + row*pattern.getArrayElement(15).yvalue())
+                translate(pattern.getArrayElement(9).xvalue() + pattern.getArrayElement(4).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift + off_x, pattern.getArrayElement(9).yvalue() + row*pattern.getArrayElement(15).yvalue() + off_y)
                 pattern.drawPattern()
                 pop()
         }
@@ -40,13 +45,8 @@ function windowResized() {
 
 /*        :::::::::::            KEY PRESS            :::::::::::        */
 
-// some personal notes on key events
-// KeyboardEvent.repeat (Boolean that is true if the key is being held down such that it is automatically repeating.)
-// https://keycode.info/
-// event.keydown (it returns a key code), same for keyup
 
-
-//CHORD(triangle) TEST , NOT WORKING PROPERLY, see boudaries
+//CHORD(triangle) TEST , NOT WORKING PROPERLY, see boudaries amd ceche the pressed key. It does not match properly the grid (GHB)
 document.addEventListener('keydown', function(event){
     // 1st KEYBOARD ROW [ 1 2 3 4 5 ]
     key = event.key.toUpperCase();
@@ -159,60 +159,3 @@ document.addEventListener('keyup', function(event){
     }
     //redraw();
 } );
-
-
-//another test USING SWITCH() command
-//in this case i wasn't able to figure out the problem relative to the multiple true cases (e.g 2 or plus different case in the switch that satisfies the conditions aren't able to be executed)
-/*
-var KEY = {
-  RIGHT:39,
-  UP:38,
-  LEFT:37,
-  DOWN:40
-};
-//in this array i'll put the keyboard mapping for the tonnetz grid, so e.g G#:23,25,64,34 and so on ... where the numbers are the keyCode of the keyboard's button
-
-
-function press(event) {
-  var code = event.keyCode; //PROBLEM !!! DEBUG STAGE: the browser didn't recognize the keyCode command !!
-  switch(code) {
-    case KEY.RIGHT:
-    pattern.getArrayElement(0).isActive = true; break;
-
-    case KEY.UP:
-    pattern.getArrayElement(1).isActive = true; break;
-
-    case KEY.LEFT:
-    pattern.getArrayElement(2).isActive = true; break;
-
-    case KEY.DOWN:
-    pattern.getArrayElement(3).isActive = true; break;
-
-  }
-}
-
-
-function release(event) {
-  var code = event.keyCode;
-  switch(code) {
-    case KEY.RIGHT:
-    pattern.getArrayElement(0).isActive = false; break;
-
-    case KEY.UP:
-    pattern.getArrayElement(1).isActive = false; break;
-
-    case KEY.LEFT:
-    pattern.getArrayElement(2).isActive = false; break;
-
-    case KEY.DOWN:
-    pattern.getArrayElement(3).isActive = false; break;
-
-  }
-}
-
-document.addEventListener("keydown", press(event));
-document.addEventListener("keyup", release(event));
-*/
-
-
-// TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST
