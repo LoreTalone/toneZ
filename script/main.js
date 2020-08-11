@@ -12,27 +12,31 @@ function setup (){
 function draw(){
     background(000);
     let shift = 0;
+//adjust variables for the full screen view
+adj_row = 0;
+adj_col = 1;
+off_x = -2400;
+off_y = -300;
 
-    for (row = 0; row <= floor(windowHeight/pattern.getArrayElement(15).yvalue()); row++){
+    for (row = 0; row <= floor(windowHeight/pattern.getArrayElement(15).yvalue() + adj_row); row++){
         shift = row*1.5*pattern.getArrayElement(1).xvalue()
-        for(col = 0; col <= floor(windowWidth/(3*pattern.getArrayElement(4).xvalue())); col++){
+        for(col = 0; col <= floor(windowWidth/(3*pattern.getArrayElement(4).xvalue())+ adj_col); col++){
 
                 push()
-                translate(pattern.getArrayElement(0).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift, pattern.getArrayElement(0).yvalue() + row*pattern.getArrayElement(15).yvalue())
+                translate(pattern.getArrayElement(0).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift + off_x, pattern.getArrayElement(0).yvalue() + row*pattern.getArrayElement(15).yvalue() + off_y)
                 pattern.drawPattern()
                 pop()
                 push()
-                translate(pattern.getArrayElement(14).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift, pattern.getArrayElement(14).yvalue() + row*pattern.getArrayElement(15).yvalue())
+                translate(pattern.getArrayElement(14).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift + off_x, pattern.getArrayElement(14).yvalue() + row*pattern.getArrayElement(15).yvalue() + off_y)
                 pattern.drawPattern()
                 pop()
                 push()
-                translate(pattern.getArrayElement(9).xvalue() + pattern.getArrayElement(4).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift, pattern.getArrayElement(9).yvalue() + row*pattern.getArrayElement(15).yvalue())
+                translate(pattern.getArrayElement(9).xvalue() + pattern.getArrayElement(4).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift + off_x, pattern.getArrayElement(9).yvalue() + row*pattern.getArrayElement(15).yvalue() + off_y)
                 pattern.drawPattern()
                 pop()
         }
     }
 }
-
 
 /*        :::::::::::            KEY PRESS            :::::::::::        */
 
