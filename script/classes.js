@@ -120,17 +120,17 @@ class basicPattern {
     this.chordsList.push(new Chord(this.notesList[18],this.notesList[19],this.notesList[14]));
   }
 
-  drawPattern() {
+  drawPattern(canvas) {
     let i = 0;
 
     for (i = 0; i < this.chordsList.length; i++){
-      this.chordsList[i].draw();
+      this.chordsList[i].draw(canvas);
     }
     for (i = 0; i < this.intervalsList.length; i++){
-      this.intervalsList[i].draw();
+      this.intervalsList[i].draw(canvas);
     }
     for (i = 0; i < this.notesList.length; i++){
-      this.notesList[i].draw();
+      this.notesList[i].draw(canvas);
     }
   }
 
@@ -150,20 +150,20 @@ class Note {
     this.isActive = false;
   }
 
-  draw() {
+  draw(canvas) {
     if (this.isActive === true){
-      fill("#556B2F");
+      canvas.fill("#556B2F");
     } else {
-      fill("#C0C0C0");
+      canvas.fill("#C0C0C0");
     }
-    noStroke();
-    circle(this.x, this.y, 70);
+    canvas.noStroke();
+    canvas.circle(this.x, this.y, 70);
     //nb multiply the radius for the zoom factor
 
-    textAlign(CENTER, CENTER);
-    textSize(30);
-    fill("#000000");
-    text(this.id, this.x, this.y);
+    canvas.textAlign(CENTER, CENTER);
+    canvas.textSize(30);
+    canvas.fill("#000000");
+    canvas.text(this.id, this.x, this.y);
   }
 
   xvalue() {
@@ -184,15 +184,15 @@ class Interval {
     this.isActive = false;
   }
 
-  draw() {
-    strokeWeight(2);
+  draw(canvas) {
+    canvas.strokeWeight(2);
     if (this.note1.isActive === true && this.note2.isActive === true){
-      strokeWeight(5);
-      stroke("#556B2F");
+      canvas.strokeWeight(5);
+      canvas.stroke("#556B2F");
     } else {
-      stroke("#808080");
+      canvas.stroke("#808080");
     }
-    line(this.note1.x, this.note1.y, this.note2.x, this.note2.y);
+    canvas.line(this.note1.x, this.note1.y, this.note2.x, this.note2.y);
   }
 }
 
@@ -206,13 +206,13 @@ class Chord {
     this.isActive = 0;
   }
 
-  draw(){
+  draw(canvas){
     if (this.note1.isActive === true && this.note2.isActive === true && this.note3.isActive === true){
-      fill("#556B2F");
+      canvas.fill("#556B2F");
     } else {
-      fill("#000000");
+      canvas.fill("#000000");
     }
-    noStroke();
-    triangle(this.note1.x, this.note1.y, this.note2.x, this.note2.y, this.note3.x, this.note3.y);
+    canvas.noStroke();
+    canvas.triangle(this.note1.x, this.note1.y, this.note2.x, this.note2.y, this.note3.x, this.note3.y);
   }
 }
