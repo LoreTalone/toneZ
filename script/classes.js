@@ -3,6 +3,7 @@ class basicPattern {
   constructor(x, y) {
     this.x = x;
     this.y = y;
+    this.canvas = offScr; //default screen for printing
 
     /*        :::::::::::            NOTESs ARRAY            :::::::::::        */
     this.notesList = [];
@@ -121,15 +122,13 @@ class basicPattern {
   }
 
   drawPattern(canvas) {
-    let i = 0;
-
-    for (i = 0; i < this.chordsList.length; i++){
+    for (let i = 0; i < this.chordsList.length; i++){
       this.chordsList[i].draw(canvas);
     }
-    for (i = 0; i < this.intervalsList.length; i++){
+    for (let  i = 0; i < this.intervalsList.length; i++){
       this.intervalsList[i].draw(canvas);
     }
-    for (i = 0; i < this.notesList.length; i++){
+    for (let i = 0; i < this.notesList.length; i++){
       this.notesList[i].draw(canvas);
     }
   }

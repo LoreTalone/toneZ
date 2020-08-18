@@ -1,9 +1,11 @@
 //p5.disableFriendlyErrors = true;
 /*        :::::::::::            GRAPHICS SETUP            :::::::::::        */
 function setup (){
-    onScr = createCanvas (windowWidth, windowHeight);
+    createCanvas (windowWidth, windowHeight);
+    onScr = createGraphics(windowWidth, windowWidth);
     offScr = createGraphics(windowWidth, windowWidth);
     //noLoop();
+    frameRate(30);
     pixelDensity(1);
     pattern = new basicPattern(0,0);
 
@@ -11,16 +13,16 @@ function setup (){
 
 /*        :::::::::::            GRID GENERATOR            :::::::::::        */
 function draw(){
-    background(000);
+  background(000);
 
-    let shift = 0;
+  let shift = 0;
 //adjust variables for the full screen view
-adj_row = 0;
-adj_col = 1;
-off_x = -2400;
-off_y = -300;
+  adj_row = 0;
+  adj_col = 1;
+  off_x = -2400;
+  off_y = -300;
 
-let screen = offScr; //variable screen initialization
+let screen = onScr; //variable screen initialization
 
     for (row = 0; row <= floor(windowHeight/pattern.getArrayElement(15).yvalue() + adj_row); row++){
         shift = row*1.5*pattern.getArrayElement(1).xvalue();
@@ -42,7 +44,7 @@ let screen = offScr; //variable screen initialization
     }
 
 
-image(offScr,0,0);
+image(onScr,0,0);
 }
 
 function windowResized() {
