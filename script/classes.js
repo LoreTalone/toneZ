@@ -3,7 +3,8 @@ class basicPattern {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.canvas = offScr; //default screen for printing
+    this.redrawRequired = true;
+    this.offScr = createGraphics(1200, 619);
 
     /*        :::::::::::            NOTESs ARRAY            :::::::::::        */
     this.notesList = [];
@@ -133,8 +134,9 @@ class basicPattern {
     }
   }
 
+
   getArrayElement(i) {
-    return this.notesList[i]
+    return this.notesList[i];
   }
 
 }
@@ -151,9 +153,10 @@ class Note {
 
   draw(canvas) {
     if (this.isActive === true){
-      canvas.fill("#556B2F");
+      canvas.fill(colorNoteActive);
+      //basicPattern.updateRequired = true;
     } else {
-      canvas.fill("#C0C0C0");
+      canvas.fill(colorNote);
     }
     canvas.noStroke();
     canvas.circle(this.x, this.y, 70);
@@ -161,7 +164,7 @@ class Note {
 
     canvas.textAlign(CENTER, CENTER);
     canvas.textSize(30);
-    canvas.fill("#000000");
+    canvas.fill(colorBackground);
     canvas.text(this.id, this.x, this.y);
   }
 
@@ -186,10 +189,10 @@ class Interval {
   draw(canvas) {
     canvas.strokeWeight(2);
     if (this.note1.isActive === true && this.note2.isActive === true){
-      canvas.strokeWeight(5);
-      canvas.stroke("#556B2F");
+      canvas.strokeWeight(7);
+      canvas.stroke(colorIntervalActive);
     } else {
-      canvas.stroke("#808080");
+      canvas.stroke(colorInterval);
     }
     canvas.line(this.note1.x, this.note1.y, this.note2.x, this.note2.y);
   }
@@ -207,9 +210,9 @@ class Chord {
 
   draw(canvas){
     if (this.note1.isActive === true && this.note2.isActive === true && this.note3.isActive === true){
-      canvas.fill("#556B2F");
+      canvas.fill(colorChordActive);
     } else {
-      canvas.fill("#000000");
+      canvas.fill(colorChord);
     }
     canvas.noStroke();
     canvas.triangle(this.note1.x, this.note1.y, this.note2.x, this.note2.y, this.note3.x, this.note3.y);

@@ -2,60 +2,65 @@
 /*        :::::::::::            GRAPHICS SETUP            :::::::::::        */
 function setup (){
     createCanvas (windowWidth, windowHeight);
-    onScr = createGraphics(windowWidth, windowWidth);
-    offScr = createGraphics(windowWidth, windowWidth);
-    //noLoop();
     frameRate(30);
-    pixelDensity(1);
+    //pixelDensity(1);
     pattern = new basicPattern(0,0);
 
 }
 
-/*        :::::::::::            GRID GENERATOR            :::::::::::        */
 function draw(){
-  background(000);
+  //cyclic call
+  //when we have changes we have to redraw the grid
+  if (pattern.redrawRequired) redrawAll();
+}
 
+/*        :::::::::::            GRID GENERATOR            :::::::::::        */
+function redrawAll(){
+  background(colorBackground);
+  pattern.drawPattern(pattern.offScr); //draw the basic pattern into a grafic buffer
+
+  //we generate the entire grid, placing each graphic buffer image next to each other
   let shift = 0;
-//adjust variables for the full screen view
+  //adjust variables for the full screen view
   adj_row = 0;
   adj_col = 1;
   off_x = -2400;
   off_y = -300;
 
-let screen = onScr; //variable screen initialization
-
-    for (row = 0; row <= floor(windowHeight/pattern.getArrayElement(15).yvalue() + adj_row); row++){
-        shift = row*1.5*pattern.getArrayElement(1).xvalue();
-        for(col = 0; col <= floor(windowWidth/(3*pattern.getArrayElement(4).xvalue())+ adj_col); col++){
-
-                push();
-                translate(pattern.getArrayElement(0).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift + off_x, pattern.getArrayElement(0).yvalue() + row*pattern.getArrayElement(15).yvalue() + off_y);
-                pattern.drawPattern(screen);
-                pop();
-                push();
-                translate(pattern.getArrayElement(14).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift + off_x, pattern.getArrayElement(14).yvalue() + row*pattern.getArrayElement(15).yvalue() + off_y);
-                pattern.drawPattern(screen);
-                pop();
-                push();
-                translate(pattern.getArrayElement(9).xvalue() + pattern.getArrayElement(4).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift + off_x, pattern.getArrayElement(9).yvalue() + row*pattern.getArrayElement(15).yvalue() + off_y);
-                pattern.drawPattern(screen);
-                pop();
-        }
+  for (row = 0; row <= floor(windowHeight/pattern.getArrayElement(15).yvalue() + adj_row); row++){
+    shift = row*1.5*pattern.getArrayElement(1).xvalue();
+    for(col = 0; col <= floor(windowWidth/(3*pattern.getArrayElement(4).xvalue())+ adj_col); col++){
+      push();
+      translate(pattern.getArrayElement(0).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift + off_x, pattern.getArrayElement(0).yvalue() + row*pattern.getArrayElement(15).yvalue() + off_y);
+      image(pattern.offScr,0,0);
+      pop();
+      push();
+      translate(pattern.getArrayElement(14).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift + off_x, pattern.getArrayElement(14).yvalue() + row*pattern.getArrayElement(15).yvalue() + off_y);
+      image(pattern.offScr,0,0);
+      pop();
+      push();
+      translate(pattern.getArrayElement(9).xvalue() + pattern.getArrayElement(4).xvalue() + col*3*pattern.getArrayElement(4).xvalue() + shift + off_x, pattern.getArrayElement(9).yvalue() + row*pattern.getArrayElement(15).yvalue() + off_y);
+      image(pattern.offScr,0,0);
+      pop();
     }
-
-
-image(onScr,0,0);
+  }
+  //once we have redrawed all, we can set the redrawRequired to false, to prevent the looping draw behaviour, so less cpu consuption
+  pattern.redrawRequired = false;
 }
 
 function windowResized() {
+  //resize/redraw the sketch every time we resize the window
   resizeCanvas(windowWidth, windowHeight);
+  pattern.redrawRequired = true;
 }
 
-/*        :::::::::::            KEY PRESS            :::::::::::        */
+/*        :::::::::::            KEY EVENT            :::::::::::        */
 
 
 //CHORD(triangle) TEST , NOT WORKING PROPERLY, see boudaries amd ceche the pressed key. It does not match properly the grid (GHB)
 document.addEventListener('keydown', function(event){
+    //we trigger the redrawAll function through the redrawRequired boolean
+    pattern.redrawRequired = true;
     // 1st KEYBOARD ROW [ 1 2 3 4 5 ]
     key = event.key.toUpperCase();
     if(key == "1" || key == "6" || key == "Z" || key == "N"){
@@ -108,11 +113,12 @@ document.addEventListener('keydown', function(event){
         pattern.getArrayElement(14).isActive = true;
         pattern.getArrayElement(15).isActive = true;
     }
-    //redraw();
 } );
 
 
 document.addEventListener('keyup', function(event){
+    //we trigger the redrawAll function through the redrawRequired boolean
+    pattern.redrawRequired = true;
     // 1st KEYBOARD ROW [ 1 2 3 4 5 ]
     key = event.key.toUpperCase();
     if(key == "1" || key == "6" || key == "Z" || key == "N"){
@@ -165,5 +171,4 @@ document.addEventListener('keyup', function(event){
         pattern.getArrayElement(14).isActive = false;
         pattern.getArrayElement(15).isActive = false;
     }
-    //redraw();
 } );
