@@ -5,7 +5,6 @@ function setup (){
     frameRate(30);
     //pixelDensity(1);
     pattern = new basicPattern(0,0);
-
 }
 
 function draw(){
@@ -219,11 +218,13 @@ function getMIDIMessage(message){
 
 function noteOn(note, velocity){
     activateNoteOnGrid(note);
+    playNote(note, velocity);
     pattern.redrawRequired = true; //in order to trigger the redraw function
 }
 
 function noteOff(note){
     deactivateNoteOnGrid(note);
+    releaseNote(note);
     pattern.redrawRequired = true; //in order to trigger the redraw function
 }
 
@@ -291,9 +292,9 @@ function activateNoteOnGrid(note){
 }
 
 function deactivateNoteOnGrid(note){
-    var noteName = note % 12;
+    let noteNumber = note % 12;
 
-    switch(noteName){
+    switch(noteNumber){
         case 0: //C
             pattern.getArrayElement(0).isActive = false
             pattern.getArrayElement(14).isActive = false
@@ -350,4 +351,29 @@ function deactivateNoteOnGrid(note){
             pattern.getArrayElement(6).isActive = false
         break;
     }
+}
+
+
+
+//SOUND
+const synth = new Tone.PolySynth().toDestination();
+const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
+
+function returnNoteNameString(note){
+    let noteNumber = note % 12;
+    let octaveNumber = Math.floor(note/12);
+    return notes[noteNumber] + octaveNumber;
+}
+
+function playNote(note, velocity){
+    noteName = returnNoteNameString(note);
+    console.log("Note played: " + noteName);
+    let now = Tone.now();
+    synth.triggerAttack(noteName, now, velocity/127);
+}
+
+function releaseNote(note){
+    noteName = returnNoteNameString(note);
+    console.log("Note released: " + noteName);
+    synth.triggerRelease(noteName);
 }
