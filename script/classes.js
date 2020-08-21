@@ -3,6 +3,8 @@ class basicPattern {
   constructor(x, y) {
     this.x = x;
     this.y = y;
+    this.redrawRequired = true;
+    this.offScr = createGraphics(1200, 619);
 
     /*        :::::::::::            NOTESs ARRAY            :::::::::::        */
     this.notesList = [];
@@ -88,7 +90,7 @@ class basicPattern {
     this.intervalsList.push(new Interval(this.notesList[14],this.notesList[18]));  //6th
 
     /*        :::::::::::            CHORDs ARRAY            :::::::::::        */
-    this.chordsList = [];    
+    this.chordsList = [];
     this.chordsList.push(new Chord(this.notesList[0],this.notesList[1],this.notesList[5]));     //1st ROW DOWN
     this.chordsList.push(new Chord(this.notesList[1],this.notesList[2],this.notesList[6]));
     this.chordsList.push(new Chord(this.notesList[2],this.notesList[3],this.notesList[7]));
@@ -120,22 +122,21 @@ class basicPattern {
     this.chordsList.push(new Chord(this.notesList[18],this.notesList[19],this.notesList[14]));
   }
 
-  drawPattern() {
-    let i = 0;
-
-    for (i = 0; i < this.chordsList.length; i++){
-      this.chordsList[i].draw();
+  drawPattern(canvas) {
+    for (let i = 0; i < this.chordsList.length; i++){
+      this.chordsList[i].draw(canvas);
     }
-    for (i = 0; i < this.intervalsList.length; i++){
-      this.intervalsList[i].draw();
+    for (let  i = 0; i < this.intervalsList.length; i++){
+      this.intervalsList[i].draw(canvas);
     }
-    for (i = 0; i < this.notesList.length; i++){
-      this.notesList[i].draw();
+    for (let i = 0; i < this.notesList.length; i++){
+      this.notesList[i].draw(canvas);
     }
   }
 
-  getArrayElement(idx = 0) {
-    return this.notesList[idx]
+
+  getArrayElement(i) {
+    return this.notesList[i];
   }
 
 }
@@ -150,20 +151,21 @@ class Note {
     this.isActive = false;
   }
 
-  draw() {
+  draw(canvas) {
     if (this.isActive === true){
-      fill("#556B2F");
+      canvas.fill(colorNoteActive);
+      //basicPattern.updateRequired = true;
     } else {
-      fill("#C0C0C0");
+      canvas.fill(colorNote);
     }
-    noStroke();
-    circle(this.x, this.y, 70);
+    canvas.noStroke();
+    canvas.circle(this.x, this.y, 70);
     //nb multiply the radius for the zoom factor
 
-    textAlign(CENTER, CENTER);
-    textSize(30);
-    fill("#000000");
-    text(this.id, this.x, this.y);
+    canvas.textAlign(CENTER, CENTER);
+    canvas.textSize(30);
+    canvas.fill(colorBackground);
+    canvas.text(this.id, this.x, this.y);
   }
 
   xvalue() {
@@ -184,15 +186,15 @@ class Interval {
     this.isActive = false;
   }
 
-  draw() {
-    strokeWeight(2);
+  draw(canvas) {
+    canvas.strokeWeight(2);
     if (this.note1.isActive === true && this.note2.isActive === true){
-      strokeWeight(5);
-      stroke("#556B2F");
+      canvas.strokeWeight(7);
+      canvas.stroke(colorIntervalActive);
     } else {
-      stroke("#808080");
+      canvas.stroke(colorInterval);
     }
-    line(this.note1.x, this.note1.y, this.note2.x, this.note2.y);
+    canvas.line(this.note1.x, this.note1.y, this.note2.x, this.note2.y);
   }
 }
 
@@ -206,13 +208,13 @@ class Chord {
     this.isActive = 0;
   }
 
-  draw(){
+  draw(canvas){
     if (this.note1.isActive === true && this.note2.isActive === true && this.note3.isActive === true){
-      fill("#556B2F");
+      canvas.fill(colorChordActive);
     } else {
-      fill("#000000");
+      canvas.fill(colorChord);
     }
-    noStroke();
-    triangle(this.note1.x, this.note1.y, this.note2.x, this.note2.y, this.note3.x, this.note3.y);
+    canvas.noStroke();
+    canvas.triangle(this.note1.x, this.note1.y, this.note2.x, this.note2.y, this.note3.x, this.note3.y);
   }
 }
