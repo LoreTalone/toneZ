@@ -187,11 +187,11 @@ class Interval {
   }
 
   draw(canvas) {
-    canvas.strokeWeight(2);
     if (this.note1.isActive === true && this.note2.isActive === true){
-      canvas.strokeWeight(7);
+      canvas.strokeWeight(10);
       canvas.stroke(colorIntervalActive);
     } else {
+      canvas.strokeWeight(2);
       canvas.stroke(colorInterval);
     }
     canvas.line(this.note1.x, this.note1.y, this.note2.x, this.note2.y);

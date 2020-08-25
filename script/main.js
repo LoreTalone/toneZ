@@ -57,125 +57,166 @@ function windowResized() {
 /*        :::::::::::            KEY EVENT            :::::::::::        */
 
 
-//CHORD(triangle) TEST , NOT WORKING PROPERLY, see boudaries amd ceche the pressed key. It does not match properly the grid (GHB)
-document.addEventListener('keydown', function(event){
-    //we trigger the redrawAll function through the redrawRequired boolean
+function activateNoteOnGridBuiltInKey(code){
     pattern.redrawRequired = true;
-    // 1st KEYBOARD ROW [ 1 2 3 4 5 ]
-    key = event.key.toUpperCase();
-    if(key == "1" || key == "6" || key == "Z" || key == "N"){
-        pattern.getArrayElement(0).isActive = true;
-        pattern.getArrayElement(14).isActive = true;
-        pattern.getArrayElement(15).isActive = true;
-    } else if(key == "2" || key == "7" || key == "X" || key == "M"){
-        pattern.getArrayElement(1).isActive = true;
-        pattern.getArrayElement(16).isActive = true;
-    } else if(key == "3" || key == "8" || key == "C"){
-        pattern.getArrayElement(2).isActive = true;
-        pattern.getArrayElement(17).isActive = true;
-    } else if(key == "4" || key == "9" || key == "V"){
-        pattern.getArrayElement(3).isActive = true;
-        pattern.getArrayElement(18).isActive = true;
-    } else if(key == "5" || key == "0" || key == "B"){
-        pattern.getArrayElement(4).isActive = true;
-        pattern.getArrayElement(5).isActive = true;
-        pattern.getArrayElement(19).isActive = true;
-    } else
+    val = code.keyCode;
 
-    // 2nd KEYBOARD ROW [ Q W E R T ]
-    if(key == "Q" || key == "Y"){
-        pattern.getArrayElement(4).isActive = true;
-        pattern.getArrayElement(5).isActive = true;
-        pattern.getArrayElement(19).isActive = true;
-    } else if(key == "W" || key == "U"){
-        pattern.getArrayElement(6).isActive = true;
-    } else if(key == "E" || key == "I"){
-        pattern.getArrayElement(7).isActive = true;
-    } else if(key == "R" || key == "O"){
-        pattern.getArrayElement(8).isActive = true;
-    } else if(key == "T" || key == "P"){
-        pattern.getArrayElement(9).isActive = true;
-        pattern.getArrayElement(10).isActive = true;
-    } else
+    switch(val){
+        case 81:
+        case 66:
+        case 76: //C
+            pattern.getArrayElement(0).isActive = true;
+            pattern.getArrayElement(14).isActive = true;
+            pattern.getArrayElement(15).isActive = true;
+        break;
 
-    // 3rd KEYBOARD ROW [ A S D F G ]
-    if(key == "A" || key == "H"){
-        pattern.getArrayElement(9).isActive = true;
-        pattern.getArrayElement(10).isActive = true;
-    } else if(key == "S" || key == "J"){
-        pattern.getArrayElement(11).isActive = true;
-    } else if(key == "D" || key == "K"){
-        pattern.getArrayElement(12).isActive = true;
-    } else if(key == "F" || key == "L"){
-        pattern.getArrayElement(13).isActive = true;
-    } else if(key == "G"){
-        pattern.getArrayElement(0).isActive = true;
-        pattern.getArrayElement(14).isActive = true;
-        pattern.getArrayElement(15).isActive = true;
+        case 73:
+        case 70: //C#
+            pattern.getArrayElement(8).isActive = true;
+        break;
+
+        case 69:
+        case 77: //D
+            pattern.getArrayElement(2).isActive = true;
+            pattern.getArrayElement(17).isActive = true;
+        break;
+
+        case 80:
+        case 72:
+        case 88: //D#
+            pattern.getArrayElement(11).isActive = true;
+        break;
+
+        case 84:
+        case 65: //E
+            pattern.getArrayElement(4).isActive = true;
+            pattern.getArrayElement(5).isActive = true;
+            pattern.getArrayElement(19).isActive = true;
+        break;
+
+        case 75:
+        case 86: //F
+            pattern.getArrayElement(13).isActive = true;
+        break;
+
+        case 85:
+        case 68: //F#
+            pattern.getArrayElement(7).isActive = true;
+        break;
+
+        case 87:
+        case 78: //G
+            pattern.getArrayElement(1).isActive = true;
+            pattern.getArrayElement(16).isActive = true;
+        break;
+
+        case 79:
+        case 71:
+        case 90: //G#
+            pattern.getArrayElement(9).isActive = true;
+            pattern.getArrayElement(10).isActive = true;
+        break;
+
+        case 82: //A
+            pattern.getArrayElement(3).isActive = true;
+            pattern.getArrayElement(18).isActive = true;
+        break;
+
+        case 74:
+        case 67: //A#
+            pattern.getArrayElement(12).isActive = true;
+        break;
+
+        case 89:
+        case 83: //B
+            pattern.getArrayElement(6).isActive = true;
+        break;
     }
-} );
+}
 
-
-document.addEventListener('keyup', function(event){
-    //we trigger the redrawAll function through the redrawRequired boolean
+function deactivateNoteOnGridBuiltInKey(code){
     pattern.redrawRequired = true;
-    // 1st KEYBOARD ROW [ 1 2 3 4 5 ]
-    key = event.key.toUpperCase();
-    if(key == "1" || key == "6" || key == "Z" || key == "N"){
-        pattern.getArrayElement(0).isActive = false;
-        pattern.getArrayElement(14).isActive = false;
-        pattern.getArrayElement(15).isActive = false;
-    } else if(key == "2" || key == "7" || key == "X" || key == "M"){
-        pattern.getArrayElement(1).isActive = false;
-        pattern.getArrayElement(16).isActive = false;
-    } else if(key == "3" || key == "8" || key == "C"){
-        pattern.getArrayElement(2).isActive = false;
-        pattern.getArrayElement(17).isActive = false;
-    } else if(key == "4" || key == "9" || key == "V"){
-        pattern.getArrayElement(3).isActive = false;
-        pattern.getArrayElement(18).isActive = false;
-    } else if(key == "5" || key == "0" || key == "B"){
-        pattern.getArrayElement(4).isActive = false;
-        pattern.getArrayElement(5).isActive = false;
-        pattern.getArrayElement(19).isActive = false;
-    } else
+    val = code.keyCode;
 
-    // 2nd KEYBOARD ROW [ Q W E R T ]
-    if(key == "Q" || key == "Y"){
-        pattern.getArrayElement(4).isActive = false;
-        pattern.getArrayElement(5).isActive = false;
-        pattern.getArrayElement(19).isActive = false;
-    } else if(key == "W" || key == "U"){
-        pattern.getArrayElement(6).isActive = false;
-    } else if(key == "E" || key == "I"){
-        pattern.getArrayElement(7).isActive = false;
-    } else if(key == "R" || key == "O"){
-        pattern.getArrayElement(8).isActive = false;
-    } else if(key == "T" || key == "P"){
-        pattern.getArrayElement(9).isActive = false;
-        pattern.getArrayElement(10).isActive = false;
-    } else
+    switch(val){
+        case 81:
+        case 66:
+        case 76: //C
+            pattern.getArrayElement(0).isActive = false;
+            pattern.getArrayElement(14).isActive = false;
+            pattern.getArrayElement(15).isActive = false;
+        break;
 
-    // 3rd KEYBOARD ROW [ A S D F G ]
-    if(key == "A" || key == "H"){
-        pattern.getArrayElement(9).isActive = false;
-        pattern.getArrayElement(10).isActive = false;
-    } else if(key == "S" || key == "J"){
-        pattern.getArrayElement(11).isActive = false;
-    } else if(key == "D" || key == "K"){
-        pattern.getArrayElement(12).isActive = false;
-    } else if(key == "F" || key == "L"){
-        pattern.getArrayElement(13).isActive = false;
-    } else if(key == "G"){
-        pattern.getArrayElement(0).isActive = false;
-        pattern.getArrayElement(14).isActive = false;
-        pattern.getArrayElement(15).isActive = false;
+        case 73:
+        case 70: //C#
+            pattern.getArrayElement(8).isActive = false;
+        break;
+
+        case 69:
+        case 77: //D
+            pattern.getArrayElement(2).isActive = false;
+            pattern.getArrayElement(17).isActive = false;
+        break;
+
+        case 80:
+        case 72:
+        case 88: //D#
+            pattern.getArrayElement(11).isActive = false;
+        break;
+
+        case 84:
+        case 65: //E
+            pattern.getArrayElement(4).isActive = false;
+            pattern.getArrayElement(5).isActive = false;
+            pattern.getArrayElement(19).isActive = false;
+        break;
+
+        case 75:
+        case 86: //F
+            pattern.getArrayElement(13).isActive = false;
+        break;
+
+        case 85:
+        case 68: //F#
+            pattern.getArrayElement(7).isActive = false;
+        break;
+
+        case 87:
+        case 78: //G
+            pattern.getArrayElement(1).isActive = false;
+            pattern.getArrayElement(16).isActive = false;
+        break;
+
+        case 79:
+        case 71:
+        case 90: //G#
+            pattern.getArrayElement(9).isActive = false;
+            pattern.getArrayElement(10).isActive = false;
+        break;
+
+        case 82: //A
+            pattern.getArrayElement(3).isActive = false;
+            pattern.getArrayElement(18).isActive = false;
+        break;
+
+        case 74:
+        case 67: //A#
+            pattern.getArrayElement(12).isActive = false;
+        break;
+
+        case 89:
+        case 83: //B
+            pattern.getArrayElement(6).isActive = false;
+        break;
     }
-} );
+}
 
+document.addEventListener('keydown', activateNoteOnGridBuiltInKey);
+document.addEventListener('keyup', deactivateNoteOnGridBuiltInKey);
 
 
 /*        :::::::::::            MIDI FUNCTIONALITIES            :::::::::::        */
+
 
 if (navigator.requestMIDIAccess) {
     console.log('This browser supports WebMIDI!');
