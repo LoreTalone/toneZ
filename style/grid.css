@@ -1,0 +1,14 @@
+body{
+    margin:0; 
+    padding:0; 
+    overflow: hidden;
+}
+
+.dropdown-menu{
+    background: rgb(167, 167, 167);
+}
+
+.navbar{
+    position: fixed;
+    width:100%;
+}
