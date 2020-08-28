@@ -234,204 +234,1234 @@ function voicingOn(btn){
       case 53:
       case 81:
       case 66:
-      case 76: //if i press C, some specific note will be highlighted
-          pattern.turnOnVoiceNote("D");
-          pattern.turnOnVoiceNote("A");
-      break;
-
-      case 73:
-      case 70: //C#
-          pattern.turnOnVoiceNote("A#");
-          pattern.turnOnVoiceNote("F#");
+      case 76: //C
+        pattern.turnOnVoiceNote("E");
+        pattern.turnOnVoiceNote("B");
       break;
 
       case 55:
       case 69:
       case 77: //D
-          pattern.getArrayElement(2).isVoice = true;
-          pattern.getArrayElement(17).isVoice = true;
+        pattern.turnOnVoiceNote("F");
+        pattern.turnOnVoiceNote("C");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOnVoiceNote("G");
+        pattern.turnOnVoiceNote("D");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOnVoiceNote("A");
+        pattern.turnOnVoiceNote("E");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOnVoiceNote("B");
+        pattern.turnOnVoiceNote("F");
+      break;
+
+      case 56:
+      case 82: //A
+        pattern.turnOnVoiceNote("C");
+        pattern.turnOnVoiceNote("G");
+      break;
+
+      case 48:
+      case 89:
+      case 83: //B
+        pattern.turnOnVoiceNote("D");
+        pattern.turnOnVoiceNote("A");
+      break;
+    }
+  } else if (musicalScales.Cshrp) {
+    switch(code){
+      case 73:
+      case 70: //C#
+        pattern.turnOnVoiceNote("E#");
+        pattern.turnOnVoiceNote("B#");
       break;
 
       case 50:
       case 80:
       case 72:
       case 88: //D#
-          pattern.getArrayElement(11).isVoice = true;
-      break;
-
-      case 57:
-      case 84:
-      case 65: //E
-          pattern.getArrayElement(4).isVoice = true;
-          pattern.getArrayElement(5).isVoice = true;
-          pattern.getArrayElement(19).isVoice = true;
+        pattern.turnOnVoiceNote("F#");
+        pattern.turnOnVoiceNote("C#");
       break;
 
       case 52:
       case 75:
-      case 86: //F
-          pattern.getArrayElement(13).isVoice = true;
+      case 86: //F (E#)
+        pattern.turnOnVoiceNote("G#");
+        pattern.turnOnVoiceNote("D#");
       break;
 
       case 85:
       case 68: //F#
-          pattern.getArrayElement(7).isVoice = true;
-      break;
-
-      case 54:
-      case 87:
-      case 78: //G
-          pattern.getArrayElement(1).isVoice = true;
-          pattern.getArrayElement(16).isVoice = true;
+        pattern.turnOnVoiceNote("A#");
+        pattern.turnOnVoiceNote("E#");
       break;
 
       case 49:
       case 79:
       case 71:
       case 90: //G#
-          pattern.getArrayElement(9).isVoice = true;
-          pattern.getArrayElement(10).isVoice = true;
-      break;
-
-      case 56:
-      case 82: //A
-          pattern.getArrayElement(3).isVoice = true;
-          pattern.getArrayElement(18).isVoice = true;
+        pattern.turnOnVoiceNote("B#");
+        pattern.turnOnVoiceNote("F#");
       break;
 
       case 51:
       case 74:
       case 67: //A#
-          pattern.getArrayElement(12).isVoice = true;
+        pattern.turnOnVoiceNote("C#");
+        pattern.turnOnVoiceNote("G#");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C (B#)
+        pattern.turnOnVoiceNote("D#");
+        pattern.turnOnVoiceNote("A#");
+      break;
+    }
+  } else if (musicalScales.D){
+    switch(code){
+      case 55:
+      case 69:
+      case 77: //D
+        pattern.turnOnVoiceNote("F#");
+        pattern.turnOnVoiceNote("C#");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOnVoiceNote("G");
+        pattern.turnOnVoiceNote("D");
+      break;
+
+      case 85:
+      case 68: //F#
+        pattern.turnOnVoiceNote("A");
+        pattern.turnOnVoiceNote("E");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOnVoiceNote("B");
+        pattern.turnOnVoiceNote("F#");
+      break;
+
+      case 56:
+      case 82: //A
+        pattern.turnOnVoiceNote("C#");
+        pattern.turnOnVoiceNote("G");
       break;
 
       case 48:
       case 89:
       case 83: //B
-          pattern.getArrayElement(6).isVoice = true;
+        pattern.turnOnVoiceNote("D");
+        pattern.turnOnVoiceNote("A");
       break;
-    } //[TO FIX] i have to hard code the right notes to highlight
-  } else if (musicalScales.Cshrp) {
 
-  } else if (musicalScales.D){
-
+      case 73:
+      case 70: //C#
+        pattern.turnOnVoiceNote("E");
+        pattern.turnOnVoiceNote("B");
+      break;
+    }
   } else if (musicalScales.Dshrp){
+    switch(code){
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+        pattern.turnOnVoiceNote("F##");
+        pattern.turnOnVoiceNote("C##");
+      break;
 
+      case 52:
+      case 75:
+      case 86: //F (E#)
+        pattern.turnOnVoiceNote("G#");
+        pattern.turnOnVoiceNote("D#");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G (F##)
+        pattern.turnOnVoiceNote("A#");
+        pattern.turnOnVoiceNote("E#");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+        pattern.turnOnVoiceNote("B#");
+        pattern.turnOnVoiceNote("F##");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //A#
+        pattern.turnOnVoiceNote("C##");
+        pattern.turnOnVoiceNote("G#");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C (B#)
+        pattern.turnOnVoiceNote("D#");
+        pattern.turnOnVoiceNote("A#");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D (C##)
+        pattern.turnOnVoiceNote("E#");
+        pattern.turnOnVoiceNote("B#");
+      break;
+    }
   } else if (musicalScales.E){
+    switch(code){
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOnVoiceNote("G#");
+        pattern.turnOnVoiceNote("D#");
+      break;
 
+      case 85:
+      case 68: //F#
+        pattern.turnOnVoiceNote("A");
+        pattern.turnOnVoiceNote("E");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+        pattern.turnOnVoiceNote("B");
+        pattern.turnOnVoiceNote("F#");
+      break;
+
+      case 56:
+      case 82: //A
+        pattern.turnOnVoiceNote("C#");
+        pattern.turnOnVoiceNote("G#");
+      break;
+
+      case 48:
+      case 89:
+      case 83: //B
+        pattern.turnOnVoiceNote("D#");
+        pattern.turnOnVoiceNote("A");
+      break;
+
+      case 73:
+      case 70: //C#
+        pattern.turnOnVoiceNote("E");
+        pattern.turnOnVoiceNote("B");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+        pattern.turnOnVoiceNote("F#");
+        pattern.turnOnVoiceNote("C#");
+      break;
+    }
   } else if (musicalScales.F){
+    switch(code){
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOnVoiceNote("A");
+        pattern.turnOnVoiceNote("E");
+      break;
 
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOnVoiceNote("Bb");
+        pattern.turnOnVoiceNote("F");
+      break;
+
+      case 56:
+      case 82: //A
+        pattern.turnOnVoiceNote("C");
+        pattern.turnOnVoiceNote("G");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //A# (Bb)
+        pattern.turnOnVoiceNote("D");
+        pattern.turnOnVoiceNote("A");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C
+        pattern.turnOnVoiceNote("E");
+        pattern.turnOnVoiceNote("Bb");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D
+        pattern.turnOnVoiceNote("F");
+        pattern.turnOnVoiceNote("C");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOnVoiceNote("G");
+        pattern.turnOnVoiceNote("D");
+      break;
+    }
   } else if (musicalScales.Fshrp){
+    switch(code){
+      case 85:
+      case 68: //F#
+        pattern.turnOnVoiceNote("A#");
+        pattern.turnOnVoiceNote("E#");
+      break;
 
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+        pattern.turnOnVoiceNote("B");
+        pattern.turnOnVoiceNote("F#");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //A#
+        pattern.turnOnVoiceNote("C#");
+        pattern.turnOnVoiceNote("G#");
+      break;
+
+      case 48:
+      case 89:
+      case 83: //B
+        pattern.turnOnVoiceNote("D#");
+        pattern.turnOnVoiceNote("A#");
+      break;
+
+      case 73:
+      case 70: //C#
+        pattern.turnOnVoiceNote("E#");
+        pattern.turnOnVoiceNote("B");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+        pattern.turnOnVoiceNote("F#");
+        pattern.turnOnVoiceNote("C#");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F (E#)
+        pattern.turnOnVoiceNote("G#");
+        pattern.turnOnVoiceNote("D#");
+      break;
+    }
   } else if (musicalScales.G){
+    switch(code){
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOnVoiceNote("B");
+        pattern.turnOnVoiceNote("F#");
+      break;
 
+      case 56:
+      case 82: //A
+        pattern.turnOnVoiceNote("C");
+        pattern.turnOnVoiceNote("G");
+      break;
+
+      case 48:
+      case 89:
+      case 83: //B
+        pattern.turnOnVoiceNote("D");
+        pattern.turnOnVoiceNote("A");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C
+        pattern.turnOnVoiceNote("E");
+        pattern.turnOnVoiceNote("B");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D
+        pattern.turnOnVoiceNote("F#");
+        pattern.turnOnVoiceNote("C");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOnVoiceNote("G");
+        pattern.turnOnVoiceNote("D");
+      break;
+
+      case 85:
+      case 68: //F#
+        pattern.turnOnVoiceNote("A");
+        pattern.turnOnVoiceNote("E");
+      break;
+    }
   } else if (musicalScales.Gshrp){
+    switch(code){
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+        pattern.turnOnVoiceNote("B#");
+        pattern.turnOnVoiceNote("F##");
+      break;
 
+      case 51:
+      case 74:
+      case 67: //A#
+        pattern.turnOnVoiceNote("C#");
+        pattern.turnOnVoiceNote("G#");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C (B#)
+        pattern.turnOnVoiceNote("D#");
+        pattern.turnOnVoiceNote("A#");
+      break;
+
+      case 73:
+      case 70: //C#
+        pattern.turnOnVoiceNote("E#");
+        pattern.turnOnVoiceNote("B#");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+        pattern.turnOnVoiceNote("F##");
+        pattern.turnOnVoiceNote("C#");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F (E#)
+        pattern.turnOnVoiceNote("G#");
+        pattern.turnOnVoiceNote("D#");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G (F##)
+        pattern.turnOnVoiceNote("A#");
+        pattern.turnOnVoiceNote("E#");
+      break;
+    }
   } else if (musicalScales.A){
+    switch(code){
+      case 56:
+      case 82: //A
+        pattern.turnOnVoiceNote("C#");
+        pattern.turnOnVoiceNote("G#");
+      break;
 
+      case 48:
+      case 89:
+      case 83: //B
+        pattern.turnOnVoiceNote("D");
+        pattern.turnOnVoiceNote("A");
+      break;
+
+      case 73:
+      case 70: //C#
+        pattern.turnOnVoiceNote("E");
+        pattern.turnOnVoiceNote("B");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D
+        pattern.turnOnVoiceNote("F#");
+        pattern.turnOnVoiceNote("C#");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOnVoiceNote("G#");
+        pattern.turnOnVoiceNote("D");
+      break;
+
+      case 85:
+      case 68: //F#
+        pattern.turnOnVoiceNote("A");
+        pattern.turnOnVoiceNote("E");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+        pattern.turnOnVoiceNote("B");
+        pattern.turnOnVoiceNote("F#");
+      break;
+    }
   } else if (musicalScales.Ashrp){
+    switch(code){
+      case 51:
+      case 74:
+      case 67: //A#
+        pattern.turnOnVoiceNote("C##");
+        pattern.turnOnVoiceNote("G##");
+      break;
 
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C (B#)
+        pattern.turnOnVoiceNote("D#");
+        pattern.turnOnVoiceNote("A#");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D (C##)
+        pattern.turnOnVoiceNote("E#");
+        pattern.turnOnVoiceNote("B#");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+        pattern.turnOnVoiceNote("F##");
+        pattern.turnOnVoiceNote("C##");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F (E#)
+        pattern.turnOnVoiceNote("G##");
+        pattern.turnOnVoiceNote("D#");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G (F##)
+        pattern.turnOnVoiceNote("A#");
+        pattern.turnOnVoiceNote("E#");
+      break;
+
+      case 56:
+      case 82: //A (G##)
+        pattern.turnOnVoiceNote("B#");
+        pattern.turnOnVoiceNote("F##");
+      break;
+    }
   } else if (musicalScales.B){
+    switch(code){
+      case 48:
+      case 89:
+      case 83: //B
+        pattern.turnOnVoiceNote("D#");
+        pattern.turnOnVoiceNote("A#");
+      break;
 
+      case 73:
+      case 70: //C#
+        pattern.turnOnVoiceNote("E");
+        pattern.turnOnVoiceNote("B");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+        pattern.turnOnVoiceNote("F#");
+        pattern.turnOnVoiceNote("C#");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOnVoiceNote("G#");
+        pattern.turnOnVoiceNote("D#");
+      break;
+
+      case 85:
+      case 68: //F#
+        pattern.turnOnVoiceNote("A#");
+        pattern.turnOnVoiceNote("E");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+        pattern.turnOnVoiceNote("B");
+        pattern.turnOnVoiceNote("F#");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //A#
+        pattern.turnOnVoiceNote("C#");
+        pattern.turnOnVoiceNote("G#");
+      break;
+    }
   }
 }
 
-//[TO FIX] COPY and PASTE the code above changing turnOffVoiceNote();
+//[TO FIX] change the if else condition
 function voicingOff(btn){
   pattern.redrawRequired = true;
   code = btn.keyCode;
 
-  //FOR EACH SCALE, we check the pressed note. NOW, FOR EACH NOTE we can highlights the relative "right choice" for the voicing criteria
-
-  if (musicalModes[0] == "ionian") {
+  if (musicalScales.C) {
     switch(code){
       case 53:
       case 81:
       case 66:
-      case 76: //if i press C, some note will be highlighted, and so on
-          pattern.getArrayElement(1).isVoice = false;
-          pattern.getArrayElement(16).isVoice = false;
-          pattern.getArrayElement(12).isVoice = false;
-      break;
-
-      case 73:
-      case 70: //C#
-          pattern.getArrayElement(8).isVoice = false;
+      case 76: //C
+        pattern.turnOffVoiceNote("E");
+        pattern.turnOffVoiceNote("B");
       break;
 
       case 55:
       case 69:
       case 77: //D
-          pattern.getArrayElement(2).isVoice = false;
-          pattern.getArrayElement(17).isVoice = false;
+        pattern.turnOffVoiceNote("F");
+        pattern.turnOffVoiceNote("C");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOffVoiceNote("G");
+        pattern.turnOffVoiceNote("D");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOffVoiceNote("A");
+        pattern.turnOffVoiceNote("E");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOffVoiceNote("B");
+        pattern.turnOffVoiceNote("F");
+      break;
+
+      case 56:
+      case 82: //A
+        pattern.turnOffVoiceNote("C");
+        pattern.turnOffVoiceNote("G");
+      break;
+
+      case 48:
+      case 89:
+      case 83: //B
+        pattern.turnOffVoiceNote("D");
+        pattern.turnOffVoiceNote("A");
+      break;
+    }
+  } else if (musicalScales.Cshrp) {
+    switch(code){
+      case 73:
+      case 70: //C#
+        pattern.turnOffVoiceNote("E#");
+        pattern.turnOffVoiceNote("B#");
       break;
 
       case 50:
       case 80:
       case 72:
       case 88: //D#
-          pattern.getArrayElement(11).isVoice = false;
-      break;
-
-      case 57:
-      case 84:
-      case 65: //E
-          pattern.getArrayElement(4).isVoice = false;
-          pattern.getArrayElement(5).isVoice = false;
-          pattern.getArrayElement(19).isVoice = false;
+        pattern.turnOffVoiceNote("F#");
+        pattern.turnOffVoiceNote("C#");
       break;
 
       case 52:
       case 75:
-      case 86: //F
-          pattern.getArrayElement(13).isVoice = false;
+      case 86: //F (E#)
+        pattern.turnOffVoiceNote("G#");
+        pattern.turnOffVoiceNote("D#");
       break;
 
       case 85:
       case 68: //F#
-          pattern.getArrayElement(7).isVoice = false;
-      break;
-
-      case 54:
-      case 87:
-      case 78: //G
-          pattern.getArrayElement(1).isVoice = false;
-          pattern.getArrayElement(16).isVoice = false;
+        pattern.turnOffVoiceNote("A#");
+        pattern.turnOffVoiceNote("E#");
       break;
 
       case 49:
       case 79:
       case 71:
       case 90: //G#
-          pattern.getArrayElement(9).isVoice = false;
-          pattern.getArrayElement(10).isVoice = false;
-      break;
-
-      case 56:
-      case 82: //A
-          pattern.getArrayElement(3).isVoice = false;
-          pattern.getArrayElement(18).isVoice = false;
+        pattern.turnOffVoiceNote("B#");
+        pattern.turnOffVoiceNote("F#");
       break;
 
       case 51:
       case 74:
       case 67: //A#
-          pattern.getArrayElement(12).isVoice = false;
+        pattern.turnOffVoiceNote("C#");
+        pattern.turnOffVoiceNote("G#");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C (B#)
+        pattern.turnOffVoiceNote("D#");
+        pattern.turnOffVoiceNote("A#");
+      break;
+    }
+  } else if (musicalScales.D){
+    switch(code){
+      case 55:
+      case 69:
+      case 77: //D
+        pattern.turnOffVoiceNote("F#");
+        pattern.turnOffVoiceNote("C#");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOffVoiceNote("G");
+        pattern.turnOffVoiceNote("D");
+      break;
+
+      case 85:
+      case 68: //F#
+        pattern.turnOffVoiceNote("A");
+        pattern.turnOffVoiceNote("E");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOffVoiceNote("B");
+        pattern.turnOffVoiceNote("F#");
+      break;
+
+      case 56:
+      case 82: //A
+        pattern.turnOffVoiceNote("C#");
+        pattern.turnOffVoiceNote("G");
       break;
 
       case 48:
       case 89:
       case 83: //B
-          pattern.getArrayElement(6).isVoice = false;
+        pattern.turnOffVoiceNote("D");
+        pattern.turnOffVoiceNote("A");
+      break;
+
+      case 73:
+      case 70: //C#
+        pattern.turnOffVoiceNote("E");
+        pattern.turnOffVoiceNote("B");
       break;
     }
+  } else if (musicalScales.Dshrp){
+    switch(code){
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+        pattern.turnOffVoiceNote("F##");
+        pattern.turnOffVoiceNote("C##");
+      break;
 
-  } else if (musicalModes[3] == "dorian") {
+      case 52:
+      case 75:
+      case 86: //F (E#)
+        pattern.turnOffVoiceNote("G#");
+        pattern.turnOffVoiceNote("D#");
+      break;
 
-  } else {
-    console.log("bye");
+      case 54:
+      case 87:
+      case 78: //G (F##)
+        pattern.turnOffVoiceNote("A#");
+        pattern.turnOffVoiceNote("E#");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+        pattern.turnOffVoiceNote("B#");
+        pattern.turnOffVoiceNote("F##");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //A#
+        pattern.turnOffVoiceNote("C##");
+        pattern.turnOffVoiceNote("G#");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C (B#)
+        pattern.turnOffVoiceNote("D#");
+        pattern.turnOffVoiceNote("A#");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D (C##)
+        pattern.turnOffVoiceNote("E#");
+        pattern.turnOffVoiceNote("B#");
+      break;
+    }
+  } else if (musicalScales.E){
+    switch(code){
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOffVoiceNote("G#");
+        pattern.turnOffVoiceNote("D#");
+      break;
+
+      case 85:
+      case 68: //F#
+        pattern.turnOffVoiceNote("A");
+        pattern.turnOffVoiceNote("E");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+        pattern.turnOffVoiceNote("B");
+        pattern.turnOffVoiceNote("F#");
+      break;
+
+      case 56:
+      case 82: //A
+        pattern.turnOffVoiceNote("C#");
+        pattern.turnOffVoiceNote("G#");
+      break;
+
+      case 48:
+      case 89:
+      case 83: //B
+        pattern.turnOffVoiceNote("D#");
+        pattern.turnOffVoiceNote("A");
+      break;
+
+      case 73:
+      case 70: //C#
+        pattern.turnOffVoiceNote("E");
+        pattern.turnOffVoiceNote("B");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+        pattern.turnOffVoiceNote("F#");
+        pattern.turnOffVoiceNote("C#");
+      break;
+    }
+  } else if (musicalScales.F){
+    switch(code){
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOffVoiceNote("A");
+        pattern.turnOffVoiceNote("E");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOffVoiceNote("Bb");
+        pattern.turnOffVoiceNote("F");
+      break;
+
+      case 56:
+      case 82: //A
+        pattern.turnOffVoiceNote("C");
+        pattern.turnOffVoiceNote("G");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //A# (Bb)
+        pattern.turnOffVoiceNote("D");
+        pattern.turnOffVoiceNote("A");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C
+        pattern.turnOffVoiceNote("E");
+        pattern.turnOffVoiceNote("Bb");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D
+        pattern.turnOffVoiceNote("F");
+        pattern.turnOffVoiceNote("C");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOffVoiceNote("G");
+        pattern.turnOffVoiceNote("D");
+      break;
+    }
+  } else if (musicalScales.Fshrp){
+    switch(code){
+      case 85:
+      case 68: //F#
+        pattern.turnOffVoiceNote("A#");
+        pattern.turnOffVoiceNote("E#");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+        pattern.turnOffVoiceNote("B");
+        pattern.turnOffVoiceNote("F#");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //A#
+        pattern.turnOffVoiceNote("C#");
+        pattern.turnOffVoiceNote("G#");
+      break;
+
+      case 48:
+      case 89:
+      case 83: //B
+        pattern.turnOffVoiceNote("D#");
+        pattern.turnOffVoiceNote("A#");
+      break;
+
+      case 73:
+      case 70: //C#
+        pattern.turnOffVoiceNote("E#");
+        pattern.turnOffVoiceNote("B");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+        pattern.turnOffVoiceNote("F#");
+        pattern.turnOffVoiceNote("C#");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F (E#)
+        pattern.turnOffVoiceNote("G#");
+        pattern.turnOffVoiceNote("D#");
+      break;
+    }
+  } else if (musicalScales.G){
+    switch(code){
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOffVoiceNote("B");
+        pattern.turnOffVoiceNote("F#");
+      break;
+
+      case 56:
+      case 82: //A
+        pattern.turnOffVoiceNote("C");
+        pattern.turnOffVoiceNote("G");
+      break;
+
+      case 48:
+      case 89:
+      case 83: //B
+        pattern.turnOffVoiceNote("D");
+        pattern.turnOffVoiceNote("A");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C
+        pattern.turnOffVoiceNote("E");
+        pattern.turnOffVoiceNote("B");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D
+        pattern.turnOffVoiceNote("F#");
+        pattern.turnOffVoiceNote("C");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOffVoiceNote("G");
+        pattern.turnOffVoiceNote("D");
+      break;
+
+      case 85:
+      case 68: //F#
+        pattern.turnOffVoiceNote("A");
+        pattern.turnOffVoiceNote("E");
+      break;
+    }
+  } else if (musicalScales.Gshrp){
+    switch(code){
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+        pattern.turnOffVoiceNote("B#");
+        pattern.turnOffVoiceNote("F##");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //A#
+        pattern.turnOffVoiceNote("C#");
+        pattern.turnOffVoiceNote("G#");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C (B#)
+        pattern.turnOffVoiceNote("D#");
+        pattern.turnOffVoiceNote("A#");
+      break;
+
+      case 73:
+      case 70: //C#
+        pattern.turnOffVoiceNote("E#");
+        pattern.turnOffVoiceNote("B#");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+        pattern.turnOffVoiceNote("F##");
+        pattern.turnOffVoiceNote("C#");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F (E#)
+        pattern.turnOffVoiceNote("G#");
+        pattern.turnOffVoiceNote("D#");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G (F##)
+        pattern.turnOffVoiceNote("A#");
+        pattern.turnOffVoiceNote("E#");
+      break;
+    }
+  } else if (musicalScales.A){
+    switch(code){
+      case 56:
+      case 82: //A
+        pattern.turnOffVoiceNote("C#");
+        pattern.turnOffVoiceNote("G#");
+      break;
+
+      case 48:
+      case 89:
+      case 83: //B
+        pattern.turnOffVoiceNote("D");
+        pattern.turnOffVoiceNote("A");
+      break;
+
+      case 73:
+      case 70: //C#
+        pattern.turnOffVoiceNote("E");
+        pattern.turnOffVoiceNote("B");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D
+        pattern.turnOffVoiceNote("F#");
+        pattern.turnOffVoiceNote("C#");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOffVoiceNote("G#");
+        pattern.turnOffVoiceNote("D");
+      break;
+
+      case 85:
+      case 68: //F#
+        pattern.turnOffVoiceNote("A");
+        pattern.turnOffVoiceNote("E");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+        pattern.turnOffVoiceNote("B");
+        pattern.turnOffVoiceNote("F#");
+      break;
+    }
+  } else if (musicalScales.Ashrp){
+    switch(code){
+      case 51:
+      case 74:
+      case 67: //A#
+        pattern.turnOffVoiceNote("C##");
+        pattern.turnOffVoiceNote("G##");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C (B#)
+        pattern.turnOffVoiceNote("D#");
+        pattern.turnOffVoiceNote("A#");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D (C##)
+        pattern.turnOffVoiceNote("E#");
+        pattern.turnOffVoiceNote("B#");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+        pattern.turnOffVoiceNote("F##");
+        pattern.turnOffVoiceNote("C##");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F (E#)
+        pattern.turnOffVoiceNote("G##");
+        pattern.turnOffVoiceNote("D#");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G (F##)
+        pattern.turnOffVoiceNote("A#");
+        pattern.turnOffVoiceNote("E#");
+      break;
+
+      case 56:
+      case 82: //A (G##)
+        pattern.turnOffVoiceNote("B#");
+        pattern.turnOffVoiceNote("F##");
+      break;
+    }
+  } else if (musicalScales.B){
+    switch(code){
+      case 48:
+      case 89:
+      case 83: //B
+        pattern.turnOffVoiceNote("D#");
+        pattern.turnOffVoiceNote("A#");
+      break;
+
+      case 73:
+      case 70: //C#
+        pattern.turnOffVoiceNote("E");
+        pattern.turnOffVoiceNote("B");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+        pattern.turnOffVoiceNote("F#");
+        pattern.turnOffVoiceNote("C#");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOffVoiceNote("G#");
+        pattern.turnOffVoiceNote("D#");
+      break;
+
+      case 85:
+      case 68: //F#
+        pattern.turnOffVoiceNote("A#");
+        pattern.turnOffVoiceNote("E");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+        pattern.turnOffVoiceNote("B");
+        pattern.turnOffVoiceNote("F#");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //A#
+        pattern.turnOffVoiceNote("C#");
+        pattern.turnOffVoiceNote("G#");
+      break;
+    }
   }
-
 }
 
 document.addEventListener('keydown', voicingOn);
