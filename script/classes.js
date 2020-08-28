@@ -5,6 +5,7 @@ class basicPattern {
     this.y = y;
     this.redrawRequired = true;
     this.offScr = createGraphics(1200, 619);
+    this.ghostQueue = [];
 
     /*        :::::::::::            NOTESs ARRAY            :::::::::::        */
     this.notesList = [];
@@ -134,9 +135,53 @@ class basicPattern {
     }
   }
 
-
   getArrayElement(i) {
     return this.notesList[i];
+  }
+
+  getGhostElement(i) {
+    return this.ghostQueue[i];
+  }
+
+  getIntervalArrayElement(i) {
+    return this.intervalsList[i];
+  }
+
+  turnOnVoiceNote(noteName){
+    let note;
+    for (note of this.notesList){
+      if (note.id == noteName) note.isVoice = true;
+    }
+  }
+
+  turnOffVoiceNote(noteName){
+    let note;
+    for (note of this.notesList){
+      if (note.id == noteName) note.isVoice = false;
+    }
+  }
+
+  turnOnNote(noteName){
+    let note;
+    for (note of this.notesList){
+      if (note.id == noteName) note.isActive = true;
+    }
+  }
+
+  turnOffNote(noteName){
+    let note;
+    for (note of this.notesList){
+      if (note.id == noteName) note.isActive = false;
+    }
+  }
+
+  changeNoteId(array){
+    pattern.redrawRequired = true;
+    //here i give an array of note to the this.notesList array in order to change the id of the pattern grid
+    for(let value of array){
+      noteId = array[i];
+      pattern.getArrayElement[i].id = noteId;
+    }
   }
 
 }
@@ -149,18 +194,20 @@ class Note {
     this.x = x;
     this.y = y;
     this.isActive = false;
+    this.isVoice = false;
+    this.isGhost = false;
   }
 
   draw(canvas) {
     if (this.isActive === true){
       canvas.fill(colorNoteActive);
-      //basicPattern.updateRequired = true;
+    } else if (this.isVoice === true) {
+      canvas.fill(colorVoicing);
     } else {
       canvas.fill(colorNote);
     }
     canvas.noStroke();
     canvas.circle(this.x, this.y, 70);
-    //nb multiply the radius for the zoom factor
 
     canvas.textAlign(CENTER, CENTER);
     canvas.textSize(30);
@@ -184,6 +231,7 @@ class Interval {
     this.note1 = note1;
     this.note2 = note2;
     this.isActive = false;
+    this.isGhost = false;
   }
 
   draw(canvas) {
@@ -205,7 +253,8 @@ class Chord {
     this.note1 = note1;
     this.note2 = note2;
     this.note3 = note3;
-    this.isActive = 0;
+    this.isActive = false;
+    this.isGhost = false;
   }
 
   draw(canvas){

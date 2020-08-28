@@ -5,7 +5,6 @@ function setup (){
     frameRate(30);
     //pixelDensity(1);
     pattern = new basicPattern(0,0);
-
 }
 
 function draw(){
@@ -17,13 +16,14 @@ function draw(){
 /*        :::::::::::            GRID GENERATOR            :::::::::::        */
 function redrawAll(){
   background(colorBackground);
-  pattern.drawPattern(pattern.offScr); //draw the basic pattern into a grafic buffer
+  translate(0,-150); //in order to avoid the blank part of the repeated grid
+  pattern.drawPattern(pattern.offScr); //draw the basic pattern into a graphic buffer
 
   //we generate the entire grid, placing each graphic buffer image next to each other
   let shift = 0;
   //adjust variables for the full screen view
-  adj_row = 0;
-  adj_col = 1;
+  adj_row = 1;
+  adj_col = 2;
   off_x = -2400;
   off_y = -300;
 
@@ -57,338 +57,388 @@ function windowResized() {
 /*        :::::::::::            KEY EVENT            :::::::::::        */
 
 
-function activateNoteOnGridBuiltInKey(code){
+function pressedKey(btn){
+  pattern.redrawRequired = true;
+  code = btn.keyCode;
+
+  switch(code){
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C
+        pattern.turnOnNote("C");
+      break;
+
+      case 73:
+      case 70: //C#
+        pattern.turnOnNote("C#");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D
+        pattern.turnOnNote("D");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+        pattern.turnOnNote("D#");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOnNote("E");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOnNote("F");
+      break;
+
+      case 85:
+      case 68: //F#
+        pattern.turnOnNote("F#");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOnNote("G");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+        pattern.turnOnNote("G#");
+      break;
+
+      case 56:
+      case 82: //A
+        pattern.turnOnNote("A");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //A#
+        pattern.turnOnNote("A#");
+      break;
+
+      case 48:
+      case 89:
+      case 83: //B
+        pattern.turnOnNote("B");
+      break;
+    }
+}
+
+function releasedKey(btn){
     pattern.redrawRequired = true;
-    val = code.keyCode;
+    code = btn.keyCode;
 
-    switch(val){
-        case 81:
-        case 66:
-        case 76: //C
-            pattern.getArrayElement(0).isActive = true;
-            pattern.getArrayElement(14).isActive = true;
-            pattern.getArrayElement(15).isActive = true;
-        break;
+    switch(code){
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C
+        pattern.turnOffNote("C");
+      break;
 
-        case 73:
-        case 70: //C#
-            pattern.getArrayElement(8).isActive = true;
-        break;
+      case 73:
+      case 70: //C#
+        pattern.turnOffNote("C#");
+      break;
 
-        case 69:
-        case 77: //D
-            pattern.getArrayElement(2).isActive = true;
-            pattern.getArrayElement(17).isActive = true;
-        break;
+      case 55:
+      case 69:
+      case 77: //D
+        pattern.turnOffNote("D");
+      break;
 
-        case 80:
-        case 72:
-        case 88: //D#
-            pattern.getArrayElement(11).isActive = true;
-        break;
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+        pattern.turnOffNote("D#");
+      break;
 
-        case 84:
-        case 65: //E
-            pattern.getArrayElement(4).isActive = true;
-            pattern.getArrayElement(5).isActive = true;
-            pattern.getArrayElement(19).isActive = true;
-        break;
+      case 57:
+      case 84:
+      case 65: //E
+        pattern.turnOffNote("E");
+      break;
 
-        case 75:
-        case 86: //F
-            pattern.getArrayElement(13).isActive = true;
-        break;
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOffNote("F");
+      break;
 
-        case 85:
-        case 68: //F#
-            pattern.getArrayElement(7).isActive = true;
-        break;
+      case 85:
+      case 68: //F#
+        pattern.turnOffNote("F#");
+      break;
 
-        case 87:
-        case 78: //G
-            pattern.getArrayElement(1).isActive = true;
-            pattern.getArrayElement(16).isActive = true;
-        break;
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOffNote("G");
+      break;
 
-        case 79:
-        case 71:
-        case 90: //G#
-            pattern.getArrayElement(9).isActive = true;
-            pattern.getArrayElement(10).isActive = true;
-        break;
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+        pattern.turnOffNote("G#");
+      break;
 
-        case 82: //A
-            pattern.getArrayElement(3).isActive = true;
-            pattern.getArrayElement(18).isActive = true;
-        break;
+      case 56:
+      case 82: //A
+        pattern.turnOffNote("A");
+      break;
 
-        case 74:
-        case 67: //A#
-            pattern.getArrayElement(12).isActive = true;
-        break;
+      case 51:
+      case 74:
+      case 67: //A#
+        pattern.turnOffNote("A#");
+      break;
 
-        case 89:
-        case 83: //B
-            pattern.getArrayElement(6).isActive = true;
-        break;
+      case 48:
+      case 89:
+      case 83: //B
+        pattern.turnOffNote("B");
+      break;
     }
 }
 
-function deactivateNoteOnGridBuiltInKey(code){
-    pattern.redrawRequired = true;
-    val = code.keyCode;
+document.addEventListener('keydown', pressedKey);
+document.addEventListener('keyup', releasedKey);
 
-    switch(val){
-        case 81:
-        case 66:
-        case 76: //C
-            pattern.getArrayElement(0).isActive = false;
-            pattern.getArrayElement(14).isActive = false;
-            pattern.getArrayElement(15).isActive = false;
-        break;
 
-        case 73:
-        case 70: //C#
-            pattern.getArrayElement(8).isActive = false;
-        break;
+/*        :::::::::::            VOICING REPRESENTATION           :::::::::::        */
 
-        case 69:
-        case 77: //D
-            pattern.getArrayElement(2).isActive = false;
-            pattern.getArrayElement(17).isActive = false;
-        break;
 
-        case 80:
-        case 72:
-        case 88: //D#
-            pattern.getArrayElement(11).isActive = false;
-        break;
+// NB VOICING IS THE SAME FOR A SPECIFIC SCALE BECAUSE EVERY MODE CAN BE RESET TO THE IONIAN ONE FOR A SPECIFIC NOTE
+function voicingOn(btn){
+  pattern.redrawRequired = true;
+  code = btn.keyCode;
 
-        case 84:
-        case 65: //E
-            pattern.getArrayElement(4).isActive = false;
-            pattern.getArrayElement(5).isActive = false;
-            pattern.getArrayElement(19).isActive = false;
-        break;
+//FOR EACH SCALE, we check the pressed note. NOW, FOR EACH NOTE we can highlights the relative3rd and 7th note for the voicing criteria
+//for some pressed notes THERE AREN'T higlighted note !! it depends on the selected scales on musicalScales
+  if (musicalScales.C) {
+    switch(code){
+      case 53:
+      case 81:
+      case 66:
+      case 76: //if i press C, some specific note will be highlighted
+          pattern.turnOnVoiceNote("D");
+          pattern.turnOnVoiceNote("A");
+      break;
 
-        case 75:
-        case 86: //F
-            pattern.getArrayElement(13).isActive = false;
-        break;
+      case 73:
+      case 70: //C#
+          pattern.turnOnVoiceNote("A#");
+          pattern.turnOnVoiceNote("F#");
+      break;
 
-        case 85:
-        case 68: //F#
-            pattern.getArrayElement(7).isActive = false;
-        break;
+      case 55:
+      case 69:
+      case 77: //D
+          pattern.getArrayElement(2).isVoice = true;
+          pattern.getArrayElement(17).isVoice = true;
+      break;
 
-        case 87:
-        case 78: //G
-            pattern.getArrayElement(1).isActive = false;
-            pattern.getArrayElement(16).isActive = false;
-        break;
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+          pattern.getArrayElement(11).isVoice = true;
+      break;
 
-        case 79:
-        case 71:
-        case 90: //G#
-            pattern.getArrayElement(9).isActive = false;
-            pattern.getArrayElement(10).isActive = false;
-        break;
+      case 57:
+      case 84:
+      case 65: //E
+          pattern.getArrayElement(4).isVoice = true;
+          pattern.getArrayElement(5).isVoice = true;
+          pattern.getArrayElement(19).isVoice = true;
+      break;
 
-        case 82: //A
-            pattern.getArrayElement(3).isActive = false;
-            pattern.getArrayElement(18).isActive = false;
-        break;
+      case 52:
+      case 75:
+      case 86: //F
+          pattern.getArrayElement(13).isVoice = true;
+      break;
 
-        case 74:
-        case 67: //A#
-            pattern.getArrayElement(12).isActive = false;
-        break;
+      case 85:
+      case 68: //F#
+          pattern.getArrayElement(7).isVoice = true;
+      break;
 
-        case 89:
-        case 83: //B
-            pattern.getArrayElement(6).isActive = false;
-        break;
+      case 54:
+      case 87:
+      case 78: //G
+          pattern.getArrayElement(1).isVoice = true;
+          pattern.getArrayElement(16).isVoice = true;
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+          pattern.getArrayElement(9).isVoice = true;
+          pattern.getArrayElement(10).isVoice = true;
+      break;
+
+      case 56:
+      case 82: //A
+          pattern.getArrayElement(3).isVoice = true;
+          pattern.getArrayElement(18).isVoice = true;
+      break;
+
+      case 51:
+      case 74:
+      case 67: //A#
+          pattern.getArrayElement(12).isVoice = true;
+      break;
+
+      case 48:
+      case 89:
+      case 83: //B
+          pattern.getArrayElement(6).isVoice = true;
+      break;
+    } //[TO FIX] i have to hard code the right notes to highlight
+  } else if (musicalScales.Cshrp) {
+
+  } else if (musicalScales.D){
+
+  } else if (musicalScales.Dshrp){
+
+  } else if (musicalScales.E){
+
+  } else if (musicalScales.F){
+
+  } else if (musicalScales.Fshrp){
+
+  } else if (musicalScales.G){
+
+  } else if (musicalScales.Gshrp){
+
+  } else if (musicalScales.A){
+
+  } else if (musicalScales.Ashrp){
+
+  } else if (musicalScales.B){
+
+  }
+}
+
+//[TO FIX] COPY and PASTE the code above changing turnOffVoiceNote();
+function voicingOff(btn){
+  pattern.redrawRequired = true;
+  code = btn.keyCode;
+
+  //FOR EACH SCALE, we check the pressed note. NOW, FOR EACH NOTE we can highlights the relative "right choice" for the voicing criteria
+
+  if (musicalModes[0] == "ionian") {
+    switch(code){
+      case 53:
+      case 81:
+      case 66:
+      case 76: //if i press C, some note will be highlighted, and so on
+          pattern.getArrayElement(1).isVoice = false;
+          pattern.getArrayElement(16).isVoice = false;
+          pattern.getArrayElement(12).isVoice = false;
+      break;
+
+      case 73:
+      case 70: //C#
+          pattern.getArrayElement(8).isVoice = false;
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D
+          pattern.getArrayElement(2).isVoice = false;
+          pattern.getArrayElement(17).isVoice = false;
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //D#
+          pattern.getArrayElement(11).isVoice = false;
+      break;
+
+      case 57:
+      case 84:
+      case 65: //E
+          pattern.getArrayElement(4).isVoice = false;
+          pattern.getArrayElement(5).isVoice = false;
+          pattern.getArrayElement(19).isVoice = false;
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F
+          pattern.getArrayElement(13).isVoice = false;
+      break;
+
+      case 85:
+      case 68: //F#
+          pattern.getArrayElement(7).isVoice = false;
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G
+          pattern.getArrayElement(1).isVoice = false;
+          pattern.getArrayElement(16).isVoice = false;
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //G#
+          pattern.getArrayElement(9).isVoice = false;
+          pattern.getArrayElement(10).isVoice = false;
+      break;
+
+      case 56:
+      case 82: //A
+          pattern.getArrayElement(3).isVoice = false;
+          pattern.getArrayElement(18).isVoice = false;
+      break;
+
+      case 51:
+      case 74:
+      case 67: //A#
+          pattern.getArrayElement(12).isVoice = false;
+      break;
+
+      case 48:
+      case 89:
+      case 83: //B
+          pattern.getArrayElement(6).isVoice = false;
+      break;
     }
+
+  } else if (musicalModes[3] == "dorian") {
+
+  } else {
+    console.log("bye");
+  }
+
 }
 
-document.addEventListener('keydown', activateNoteOnGridBuiltInKey);
-document.addEventListener('keyup', deactivateNoteOnGridBuiltInKey);
+document.addEventListener('keydown', voicingOn);
+document.addEventListener('keyup', voicingOff);
 
 
-/*        :::::::::::            MIDI FUNCTIONALITIES            :::::::::::        */
+/*        :::::::::::            GHOST FUNCTION            :::::::::::        */
 
 
-if (navigator.requestMIDIAccess) {
-    console.log('This browser supports WebMIDI!');
-} else {
-    console.log('WebMIDI is not supported in this browser.');
-}
-
-navigator.requestMIDIAccess().then(onMIDISuccess, onMIDIFailure);
-
-function onMIDIFailure() {
-    console.log('Could not access any MIDI device.');
-}
-
-function onMIDISuccess(midiAccess) {
-    for (var input of midiAccess.inputs.values()){
-        input.onmidimessage = getMIDIMessage;
-    }
-}
-
-function getMIDIMessage(message){
-    var command = message.data[0];
-    var note = message.data[1];
-    var velocity = (message.data.length > 2) ? message.data[2] : 0; // a velocity value might not be included with a noteOff command
-
-    console.log("Command: " + command + "; Note: " + note + "; Velocity: " + velocity);
-
-    switch (command) {
-        case 144: // noteOn
-            if (velocity > 0) {
-                noteOn(note, velocity);
-            } else {
-                noteOff(note);
-            }
-            break;
-        case 128: // noteOff
-            noteOff(note);
-            break;
-        // we could easily expand this switch statement to cover other types of commands such as controllers or sysex
-    }
-}
-
-function noteOn(note, velocity){
-    activateNoteOnGrid(note);
-    pattern.redrawRequired = true; //in order to trigger the redraw function
-}
-
-function noteOff(note){
-    deactivateNoteOnGrid(note);
-    pattern.redrawRequired = true; //in order to trigger the redraw function
-}
-
-function activateNoteOnGrid(note){
-    var noteName = note % 12;
-
-    switch(noteName){
-        case 0: //C
-            pattern.getArrayElement(0).isActive = true;
-            pattern.getArrayElement(14).isActive = true;
-            pattern.getArrayElement(15).isActive = true;
-        break;
-
-        case 1: //C#
-            pattern.getArrayElement(8).isActive = true;
-        break;
-
-        case 2: //D
-            pattern.getArrayElement(2).isActive = true;
-            pattern.getArrayElement(17).isActive = true;
-        break;
-
-        case 3: //D#
-            pattern.getArrayElement(11).isActive = true;
-        break;
-
-        case 4: //E
-            pattern.getArrayElement(4).isActive = true;
-            pattern.getArrayElement(5).isActive = true;
-            pattern.getArrayElement(19).isActive = true;
-        break;
-
-        case 5: //F
-            pattern.getArrayElement(13).isActive = true;
-        break;
-
-        case 6: //F#
-            pattern.getArrayElement(7).isActive = true;
-        break;
-
-        case 7: //G
-            pattern.getArrayElement(1).isActive = true;
-            pattern.getArrayElement(16).isActive = true;
-        break;
-
-        case 8: //G#
-            pattern.getArrayElement(9).isActive = true;
-            pattern.getArrayElement(10).isActive = true;
-        break;
-
-        case 9: //A
-            pattern.getArrayElement(3).isActive = true;
-            pattern.getArrayElement(18).isActive = true;
-        break;
-
-        case 10: //A#
-            pattern.getArrayElement(12).isActive = true;
-        break;
-
-        case 11: //B
-            pattern.getArrayElement(6).isActive = true;
-        break;
-
-    }
-}
-
-function deactivateNoteOnGrid(note){
-    var noteName = note % 12;
-
-    switch(noteName){
-        case 0: //C
-            pattern.getArrayElement(0).isActive = false;
-            pattern.getArrayElement(14).isActive = false;
-            pattern.getArrayElement(15).isActive = false;
-        break;
-
-        case 1: //C#
-            pattern.getArrayElement(8).isActive = false;
-        break;
-
-        case 2: //D
-            pattern.getArrayElement(2).isActive = false;
-            pattern.getArrayElement(17).isActive = false;
-        break;
-
-        case 3: //D#
-            pattern.getArrayElement(11).isActive = false;
-        break;
-
-        case 4: //E
-            pattern.getArrayElement(4).isActive = false;
-            pattern.getArrayElement(5).isActive = false;
-            pattern.getArrayElement(19).isActive = false;
-        break;
-
-        case 5: //F
-            pattern.getArrayElement(13).isActive = false;
-        break;
-
-        case 6: //F#
-            pattern.getArrayElement(7).isActive = false;
-        break;
-
-        case 7: //G
-            pattern.getArrayElement(1).isActive = false;
-            pattern.getArrayElement(16).isActive = false;
-        break;
-
-        case 8: //G#
-            pattern.getArrayElement(9).isActive = false;
-            pattern.getArrayElement(10).isActive = false;
-        break;
-
-        case 9: //A
-            pattern.getArrayElement(3).isActive = false;
-            pattern.getArrayElement(18).isActive = false;
-        break;
-
-        case 10: //A#
-            pattern.getArrayElement(12).isActive = false;
-        break;
-
-        case 11: //B
-            pattern.getArrayElement(6).isActive = false;
-        break;
-    }
-}
+//queue qrray for an highlights decay
