@@ -5,17 +5,10 @@
 
 <head>
 
-  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>-->
   <script type="text/javascript" src="./script/p5.js"></script>
-
-  <!-- qui inserisco il percorso (link) al file .css-->
-  <!--<link rel="stylesheet" href=".style/style.css">-->
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <meta charset="utf-8">
-
-  <style>
-    body{margin:0; padding:0; overflow: hidden;}
-  </style>
+  <link rel="stylesheet" href="/style/grid.css">
 
   <title>Tonnetz</title>
 
@@ -24,14 +17,56 @@
 
 
 <body>
+  <nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Tonnetz</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span >Options</span>
+      </button>
+
+      <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Oscillator type
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item oscillator-type" onclick="changeOscillatorType('sine');">Sine</a>
+              <a class="dropdown-item oscillator-type" onclick="changeOscillatorType('triangle');">Triangle</a>
+              <a class="dropdown-item oscillator-type" onclick="changeOscillatorType('sawtooth');">Sawtooth</a>
+              <a class="dropdown-item oscillator-type" onclick="changeOscillatorType('square');">Square</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><label for="attack">Attack: </label></a>
+            <input type="range" id="attack" name="attack" min="0.005" max="1" step="0.001" value="0.005" onchange="setAttack(this.value)">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><label for="decay">Decay: </label></a>
+            <input type="range" id="decay" name="decay" min="0" max="1" step="0.001" value="0" onchange="setDecay(this.value)">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><label for="sustain">Sustain: </label></a>
+            <input type="range" id="sustain" name="sustain" min="0" max="10" step="0.001" value="5" onchange="setSustain(this.value)">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><label for="release">Release: </label></a>
+            <input type="range" id="release" name="release" min="0" max="10" step="0.001" value="1" onchange="setRelease(this.value)">
+          </li>
+        </ul>
+
+      </div>
+    </nav>
 
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src=" https://unpkg.com/tone@latest/build/Tone.js"></script>
 
-
-<!-- qui inserisco il percorso (script) al file .js -->
-<script type="text/javascript" src="./script/main.js"></script>
 <script type="text/javascript" src="./script/classes.js"></script>
 <script type="text/javascript" src="./script/global.js"></script>
+<script type="text/javascript" src="./script/main.js"></script>
+<script type="text/javascript" src="./script/synth.js"></script>
 
 </body>
 <!--------------------------------->
