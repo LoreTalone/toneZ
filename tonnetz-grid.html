@@ -25,16 +25,42 @@
 
       <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Oscillator type
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item oscillator-type" onclick="changeOscillatorType('sine');">Sine</a>
-              <a class="dropdown-item oscillator-type" onclick="changeOscillatorType('triangle');">Triangle</a>
-              <a class="dropdown-item oscillator-type" onclick="changeOscillatorType('sawtooth');">Sawtooth</a>
-              <a class="dropdown-item oscillator-type" onclick="changeOscillatorType('square');">Square</a>
-            </div>
+          <li>
+            <label class="navbar-text" for="scales">Scale:  </label>
+            <select name="scales" id="scales" onchange="triggerScaleChange(this);">
+              <option value="none">none</option>
+              <option value="C">C</option>
+              <option value="Cshrp">C#</option>
+              <option value="D">D</option>
+              <option value="Dshrp">D#</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+              <option value="Fshrp">F#</option>
+              <option value="G">G</option>
+              <option value="Gshrp">G#</option>
+              <option value="A">A</option>
+              <option value="Ashrp">A#</option>
+              <option value="B">B</option>
+            </select>
+            <label class="navbar-text" for="modes">Mode:  </label>
+            <select name="modes" id="modes" onchange="triggerModeChange(this);">
+              <option value="ionian">Ionian</option>
+              <option value="dorian">Dorian</option>
+              <option value="phrygian">Phrygian</option>
+              <option value="lydian">Lydian</option>
+              <option value="myxolydian">Myxolydian</option>
+              <option value="aeolian">Aeolian</option>
+              <option value="locrian">Locrian</option>
+            </select>
+          </li>
+          <li>
+            <label class="navbar-text" for="oscillators">Oscillator type:  </label>
+            <select name="oscillators" id="oscillators" onchange="triggerOscillatorChange(this);">
+              <option value="triangle">Triangle</option>
+              <option value="sine">Sine</option>
+              <option value="sawtooth">Sawtooth</option>
+              <option value="square">Square</option>
+            </select>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#"><label for="attack">Attack: </label></a>

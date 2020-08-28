@@ -11,19 +11,19 @@ var colorVoicing = "#ff00f9";
 
 var musicalModes = ["ionian", "dorian", "phrygian", "lydian", "mixolydian", "aeolian", "locrian"];
 
-var musicalScales = {
-  "C" : ["C", "D", "E", "F", "G", "A", "B"],
-  "Cshrp" : ["C#", "D#", "F", "F#", "G#", "A#", "C"],
-  "D" : ["D", "E", "F#", "G", "A", "B", "C#"],
-  "Dshrp" : ["D#", "F", "G", "G#", "A#", "C", "D"],
-  "E" : ["E", "F#", "G#", "A", "B", "C#", "D#"],
-  "F" : ["F", "G", "A", "A#", "C", "D", "E"],
-  "Fshrp" : ["F#", "G#", "A#", "B", "C#", "D#", "F"],
-  "G" : ["G", "A", "B", "C", "D", "E", "F#"],
-  "Gshrp" : ["G#", "A#", "C", "C#", "D#", "F", "G"],
-  "A" : ["A", "B", "C#", "D", "E", "F#", "G#"],
-  "Ashrp" : ["A#", "C", "D", "D#", "F", "G", "A"],
-  "B" : ["B", "C#", "D#", "E", "F#", "G#", "A#"]
-}; //[TO FIX] i have to fix the note's names for a right nomenclature, even if the notes are the same
+const nonEnharmonicExchangedScale = ["C", "G", "D", "A", "E", "E", "B", "F#", "C#", "G#", "G#", "D#", "A#", "F", "C", "C", "G", "D", "A", "E"];
 
+let scaleMap = new Map();
+scaleMap.set("C", nonEnharmonicExchangedScale);
+scaleMap.set("Cshrp", ["B#", "G", "D", "A", "E", "E", "B", "F#", "C#", "G#", "G#", "D#", "A#", "E#", "B#", "B#", "G", "D", "A", "E"]);
+scaleMap.set("D", nonEnharmonicExchangedScale);
+scaleMap.set("Dshrp", ["B#", "F##", "C##", "A", "E", "E", "B", "F#", "C#", "G#", "G#", "D#", "A#", "E#", "B#", "B#", "F##", "C##", "A", "E"]);
+scaleMap.set("E", nonEnharmonicExchangedScale);
+scaleMap.set("F", ["C", "G", "D", "A", "E", "E", "B", "F#", "C#", "G#", "G#", "D#", "Bb", "F", "C", "C", "G", "D", "A", "E"]);
+scaleMap.set("Fshrp", ["C", "G", "D", "A", "E", "E", "B", "F#", "C#", "G#", "G#", "D#", "A#", "E#", "C", "C", "G", "D", "A", "E"]);
+scaleMap.set("G", nonEnharmonicExchangedScale);
+scaleMap.set("Gshrp", ["B#", "F##", "D", "A", "E", "E", "B", "F#", "C#", "G#", "G#", "D#", "A#", "E#", "B#", "B#", "F##", "D", "A", "E"]);
+scaleMap.set("A", nonEnharmonicExchangedScale);
+scaleMap.set("Ashrp", ["B#", "F##", "C##", "G##", "E", "E", "B", "F#", "C#", "G#", "G#", "D#", "A#", "E#", "B#", "B#", "F##", "C##", "G##", "E"]);
+scaleMap.set("B", nonEnharmonicExchangedScale);
 var notesNames = []; //[TO FIX], i give this array to the changeNoteId method of the basicPattern, in order to change the id's of the circle grid

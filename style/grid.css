@@ -12,3 +12,7 @@ body{
     position: fixed;
     width:100%;
 }
+
+.navbar-text{
+    color: rgba(255, 255, 255, 0.75);
+}

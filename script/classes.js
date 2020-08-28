@@ -177,10 +177,9 @@ class basicPattern {
 
   changeNoteId(array){
     pattern.redrawRequired = true;
-    //here i give an array of note to the this.notesList array in order to change the id of the pattern grid
-    for(let value of array){
-      noteId = array[i];
-      pattern.getArrayElement[i].id = noteId;
+    for(var i=0; i<array.length; i++){
+      var noteId = array[i];
+      this.notesList[i].setNoteId = noteId;
     }
   }
 
@@ -221,6 +220,10 @@ class Note {
 
   yvalue() {
     return this.y;
+  }
+
+  set setNoteId(id){
+    this.id = id;
   }
 }
 

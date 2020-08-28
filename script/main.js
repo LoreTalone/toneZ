@@ -442,3 +442,12 @@ document.addEventListener('keyup', voicingOff);
 
 
 //queue qrray for an highlights decay
+
+
+window.triggerScaleChange = function(e){
+  var scale = e.value;
+  console.log("Scala da visualizzare: " + e.value);
+  var array = scaleMap.get(scale);
+  console.log("Note della scala: " + array);
+  pattern.changeNoteId(array);
+}

@@ -216,6 +216,10 @@ function changeOscillatorType(type){
     console.log("oscillator changed to: " + type)
 }
 
+window.triggerOscillatorChange = function(e){
+    changeOscillatorType(e.value);
+}
+
 function setAttack(value){
     synth.set({
         "envelope":{
