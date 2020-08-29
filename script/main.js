@@ -1,5 +1,6 @@
 //p5.disableFriendlyErrors = true;
-var actualScale;
+var currentScale;
+var currentMode = "ionian";
 
 /*        :::::::::::            GRAPHICS SETUP            :::::::::::        */
 function setup (){
@@ -229,7 +230,7 @@ function voicingOn(btn){
 
 //FOR EACH SCALE, we check the pressed note. NOW, FOR EACH NOTE we can highlights the relative3rd and 7th note for the voicing criteria
 //for some pressed notes THERE AREN'T higlighted note !! it depends on the selected scales on musicalScales
-  if (actualScale == "C") {
+  if (currentScale == "C") {
     switch(code){
       case 53:
       case 81:
@@ -280,7 +281,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("A");
       break;
     }
-  } else if (actualScale == "Cshrp") {
+  } else if (currentScale == "Cshrp") {
     switch(code){
       case 73:
       case 70: //C#
@@ -332,7 +333,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("A#");
       break;
     }
-  } else if (actualScale == "D"){
+  } else if (currentScale == "D"){
     switch(code){
       case 55:
       case 69:
@@ -380,7 +381,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("B");
       break;
     }
-  } else if (actualScale == "Dshrp"){
+  } else if (currentScale == "Dshrp"){
     switch(code){
       case 50:
       case 80:
@@ -434,7 +435,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("B#");
       break;
     }
-  } else if (actualScale == "E"){
+  } else if (currentScale == "E"){
     switch(code){
       case 57:
       case 84:
@@ -484,7 +485,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("C#");
       break;
     }
-  } else if (actualScale == "F"){
+  } else if (currentScale == "F"){
     switch(code){
       case 52:
       case 75:
@@ -535,7 +536,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("D");
       break;
     }
-  } else if (actualScale == "Fshrp"){
+  } else if (currentScale == "Fshrp"){
     switch(code){
       case 85:
       case 68: //F#
@@ -586,7 +587,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("D#");
       break;
     }
-  } else if (actualScale == "G"){
+  } else if (currentScale == "G"){
     switch(code){
       case 54:
       case 87:
@@ -636,7 +637,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("E");
       break;
     }
-  } else if (actualScale == "Gshrp"){
+  } else if (currentScale == "Gshrp"){
     switch(code){
       case 49:
       case 79:
@@ -689,7 +690,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("E#");
       break;
     }
-  } else if (actualScale == "A"){
+  } else if (currentScale == "A"){
     switch(code){
       case 56:
       case 82: //A
@@ -738,7 +739,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("F#");
       break;
     }
-  } else if (actualScale == "Ashrp"){
+  } else if (currentScale == "Ashrp"){
     switch(code){
       case 51:
       case 74:
@@ -790,7 +791,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("F##");
       break;
     }
-  } else if (actualScale == "B"){
+  } else if (currentScale == "B"){
     switch(code){
       case 48:
       case 89:
@@ -848,7 +849,7 @@ function voicingOff(btn){
   pattern.redrawRequired = true;
   code = btn.keyCode;
 
-  if (actualScale == "C") {
+  if (currentScale == "C") {
     switch(code){
       case 53:
       case 81:
@@ -899,7 +900,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("A");
       break;
     }
-  } else if (actualScale == "Cshrp") {
+  } else if (currentScale == "Cshrp") {
     switch(code){
       case 73:
       case 70: //C#
@@ -951,7 +952,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("A#");
       break;
     }
-  } else if (actualScale == "D"){
+  } else if (currentScale == "D"){
     switch(code){
       case 55:
       case 69:
@@ -999,7 +1000,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("B");
       break;
     }
-  } else if (actualScale == "Dshrp"){
+  } else if (currentScale == "Dshrp"){
     switch(code){
       case 50:
       case 80:
@@ -1053,7 +1054,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("B#");
       break;
     }
-  } else if (actualScale == "E"){
+  } else if (currentScale == "E"){
     switch(code){
       case 57:
       case 84:
@@ -1103,7 +1104,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("C#");
       break;
     }
-  } else if (actualScale == "F"){
+  } else if (currentScale == "F"){
     switch(code){
       case 52:
       case 75:
@@ -1154,7 +1155,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("D");
       break;
     }
-  } else if (actualScale == "Fshrp"){
+  } else if (currentScale == "Fshrp"){
     switch(code){
       case 85:
       case 68: //F#
@@ -1205,7 +1206,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("D#");
       break;
     }
-  } else if (actualScale == "G"){
+  } else if (currentScale == "G"){
     switch(code){
       case 54:
       case 87:
@@ -1255,7 +1256,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("E");
       break;
     }
-  } else if (actualScale == "Gshrp"){
+  } else if (currentScale == "Gshrp"){
     switch(code){
       case 49:
       case 79:
@@ -1308,7 +1309,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("E#");
       break;
     }
-  } else if (actualScale == "A"){
+  } else if (currentScale == "A"){
     switch(code){
       case 56:
       case 82: //A
@@ -1357,7 +1358,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("F#");
       break;
     }
-  } else if (actualScale == "Ashrp"){
+  } else if (currentScale == "Ashrp"){
     switch(code){
       case 51:
       case 74:
@@ -1409,7 +1410,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("F##");
       break;
     }
-  } else if (actualScale == "B"){
+  } else if (currentScale == "B"){
     switch(code){
       case 48:
       case 89:
@@ -1474,16 +1475,74 @@ document.addEventListener('keyup', voicingOff);
 
 
 /*        :::::::::::            SCALE CHANGE BEHAVIOUR            :::::::::::        */
+const basicNotes = ["C", "Cshrp", "D", "Dshrp", "E", "F", "Fshrp", "G", "Gshrp", "A", "Ashrp", "B"];
+
+function activateScaleNotes(){
+  let offset;
+  let equivalentIonian;
+  let notePosition = basicNotes.indexOf(currentScale);
+
+  switch(currentMode){
+    case "ionian":
+      offset = 0;
+      break;
+    case "dorian":
+      if(notePosition-2 < 0)  
+        offset = -10;
+      else offset = 2;
+      break;
+    case "phrygian":
+      if(notePosition-4 < 0)  
+        offset = -8;
+      else offset = 4;
+      break;
+    case "lydian":
+      if(notePosition-5 < 0)  
+        offset = -7;
+      else offset = 5;
+      break;  
+    case "myxolydian":
+      if(notePosition-7 < 0)  
+        offset = -5;
+      else offset = 7;
+      break;
+    case "aeolian":
+      if(notePosition-9 < 0)  
+        offset = -3;
+      else offset = 9;
+      break;
+    case "locrian":
+      if(notePosition-11 < 0)  
+        offset = -1;
+      else offset = 11;
+      break;
+  }
+
+  var equivalentIonianIndex = notePosition - offset;
+  equivalentIonian = basicNotes[equivalentIonianIndex];
+  var array = scaleMap.get(equivalentIonian);
+  pattern.changeNoteId(array);
+  pattern.turnOnRootNote(currentScale);
+  pattern.turnOnScaleNotes(scaleNotes.get(equivalentIonian));
+}
+
 
 window.triggerScaleChange = function(e){
   pattern.resetNoteStatus();
-  actualScale = e.value;
-  console.log("Scala da visualizzare: " + e.value);
-  var array = scaleMap.get(actualScale);
-  console.log("Note della scala: " + array);
-  pattern.changeNoteId(array);
-
-//graphical representation of the selected ROOT and SCALE
-  pattern.turnOnRootNote(actualScale);
-  pattern.turnOnScaleNotes(scaleNotes.get(actualScale));
+  currentScale = e.value;
+  console.log("Scala da visualizzare: " + currentScale + " " + currentMode);
+  if(currentScale != "none") {
+    activateScaleNotes();
+  }
+  
 };
+
+window.triggerModeChange = function(e){
+  pattern.resetNoteStatus();
+  currentMode = e.value;
+  console.log("Scala da visualizzare: " + currentScale + " " + currentMode);
+  if(currentScale != "none") {
+    activateScaleNotes();
+  }
+}
+
