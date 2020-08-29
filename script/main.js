@@ -1,4 +1,6 @@
 //p5.disableFriendlyErrors = true;
+var actualScale;
+
 /*        :::::::::::            GRAPHICS SETUP            :::::::::::        */
 function setup (){
     createCanvas (windowWidth, windowHeight);
@@ -221,15 +223,13 @@ document.addEventListener('keyup', releasedKey);
 
 /*        :::::::::::            VOICING REPRESENTATION           :::::::::::        */
 
-
-// NB VOICING IS THE SAME FOR A SPECIFIC SCALE BECAUSE EVERY MODE CAN BE RESET TO THE IONIAN ONE FOR A SPECIFIC NOTE
 function voicingOn(btn){
   pattern.redrawRequired = true;
   code = btn.keyCode;
 
 //FOR EACH SCALE, we check the pressed note. NOW, FOR EACH NOTE we can highlights the relative3rd and 7th note for the voicing criteria
 //for some pressed notes THERE AREN'T higlighted note !! it depends on the selected scales on musicalScales
-  if (musicalScales.C) {
+  if (actualScale == "C") {
     switch(code){
       case 53:
       case 81:
@@ -280,7 +280,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("A");
       break;
     }
-  } else if (musicalScales.Cshrp) {
+  } else if (actualScale == "Cshrp") {
     switch(code){
       case 73:
       case 70: //C#
@@ -332,7 +332,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("A#");
       break;
     }
-  } else if (musicalScales.D){
+  } else if (actualScale == "D"){
     switch(code){
       case 55:
       case 69:
@@ -380,7 +380,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("B");
       break;
     }
-  } else if (musicalScales.Dshrp){
+  } else if (actualScale == "Dshrp"){
     switch(code){
       case 50:
       case 80:
@@ -434,7 +434,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("B#");
       break;
     }
-  } else if (musicalScales.E){
+  } else if (actualScale == "E"){
     switch(code){
       case 57:
       case 84:
@@ -484,7 +484,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("C#");
       break;
     }
-  } else if (musicalScales.F){
+  } else if (actualScale == "F"){
     switch(code){
       case 52:
       case 75:
@@ -535,7 +535,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("D");
       break;
     }
-  } else if (musicalScales.Fshrp){
+  } else if (actualScale == "Fshrp"){
     switch(code){
       case 85:
       case 68: //F#
@@ -586,7 +586,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("D#");
       break;
     }
-  } else if (musicalScales.G){
+  } else if (actualScale == "G"){
     switch(code){
       case 54:
       case 87:
@@ -636,7 +636,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("E");
       break;
     }
-  } else if (musicalScales.Gshrp){
+  } else if (actualScale == "Gshrp"){
     switch(code){
       case 49:
       case 79:
@@ -689,7 +689,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("E#");
       break;
     }
-  } else if (musicalScales.A){
+  } else if (actualScale == "A"){
     switch(code){
       case 56:
       case 82: //A
@@ -738,7 +738,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("F#");
       break;
     }
-  } else if (musicalScales.Ashrp){
+  } else if (actualScale == "Ashrp"){
     switch(code){
       case 51:
       case 74:
@@ -790,7 +790,7 @@ function voicingOn(btn){
         pattern.turnOnVoiceNote("F##");
       break;
     }
-  } else if (musicalScales.B){
+  } else if (actualScale == "B"){
     switch(code){
       case 48:
       case 89:
@@ -844,12 +844,11 @@ function voicingOn(btn){
   }
 }
 
-//[TO FIX] change the if else condition
 function voicingOff(btn){
   pattern.redrawRequired = true;
   code = btn.keyCode;
 
-  if (musicalScales.C) {
+  if (actualScale == "C") {
     switch(code){
       case 53:
       case 81:
@@ -900,7 +899,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("A");
       break;
     }
-  } else if (musicalScales.Cshrp) {
+  } else if (actualScale == "Cshrp") {
     switch(code){
       case 73:
       case 70: //C#
@@ -952,7 +951,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("A#");
       break;
     }
-  } else if (musicalScales.D){
+  } else if (actualScale == "D"){
     switch(code){
       case 55:
       case 69:
@@ -1000,7 +999,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("B");
       break;
     }
-  } else if (musicalScales.Dshrp){
+  } else if (actualScale == "Dshrp"){
     switch(code){
       case 50:
       case 80:
@@ -1054,7 +1053,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("B#");
       break;
     }
-  } else if (musicalScales.E){
+  } else if (actualScale == "E"){
     switch(code){
       case 57:
       case 84:
@@ -1104,7 +1103,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("C#");
       break;
     }
-  } else if (musicalScales.F){
+  } else if (actualScale == "F"){
     switch(code){
       case 52:
       case 75:
@@ -1155,7 +1154,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("D");
       break;
     }
-  } else if (musicalScales.Fshrp){
+  } else if (actualScale == "Fshrp"){
     switch(code){
       case 85:
       case 68: //F#
@@ -1206,7 +1205,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("D#");
       break;
     }
-  } else if (musicalScales.G){
+  } else if (actualScale == "G"){
     switch(code){
       case 54:
       case 87:
@@ -1256,7 +1255,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("E");
       break;
     }
-  } else if (musicalScales.Gshrp){
+  } else if (actualScale == "Gshrp"){
     switch(code){
       case 49:
       case 79:
@@ -1309,7 +1308,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("E#");
       break;
     }
-  } else if (musicalScales.A){
+  } else if (actualScale == "A"){
     switch(code){
       case 56:
       case 82: //A
@@ -1358,7 +1357,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("F#");
       break;
     }
-  } else if (musicalScales.Ashrp){
+  } else if (actualScale == "Ashrp"){
     switch(code){
       case 51:
       case 74:
@@ -1410,7 +1409,7 @@ function voicingOff(btn){
         pattern.turnOffVoiceNote("F##");
       break;
     }
-  } else if (musicalScales.B){
+  } else if (actualScale == "B"){
     switch(code){
       case 48:
       case 89:
@@ -1474,10 +1473,17 @@ document.addEventListener('keyup', voicingOff);
 //queue qrray for an highlights decay
 
 
+/*        :::::::::::            SCALE CHANGE BEHAVIOUR            :::::::::::        */
+
 window.triggerScaleChange = function(e){
-  var scale = e.value;
+  pattern.resetNoteStatus();
+  actualScale = e.value;
   console.log("Scala da visualizzare: " + e.value);
-  var array = scaleMap.get(scale);
+  var array = scaleMap.get(actualScale);
   console.log("Note della scala: " + array);
   pattern.changeNoteId(array);
-}
+
+//graphical representation of the selected ROOT and SCALE
+  pattern.turnOnRootNote(actualScale);
+  pattern.turnOnScaleNotes(scaleNotes.get(actualScale));
+};

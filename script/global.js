@@ -5,6 +5,9 @@ var colorIntervalActive = "#00701e";
 var colorInterval = "#7c807c";
 var colorChordActive = "#3b8c37";
 var colorChord = "#000000";
+var colorRoot = "#ff0000";
+var colorScale = "#3e3e3e";
+var colorText = "#e6e6e6"
 
 var colorGhost = "#ff0000";
 var colorVoicing = "#ff00f9";
@@ -26,4 +29,17 @@ scaleMap.set("Gshrp", ["B#", "F##", "D", "A", "E", "E", "B", "F#", "C#", "G#", "
 scaleMap.set("A", nonEnharmonicExchangedScale);
 scaleMap.set("Ashrp", ["B#", "F##", "C##", "G##", "E", "E", "B", "F#", "C#", "G#", "G#", "D#", "A#", "E#", "B#", "B#", "F##", "C##", "G##", "E"]);
 scaleMap.set("B", nonEnharmonicExchangedScale);
-var notesNames = []; //[TO FIX], i give this array to the changeNoteId method of the basicPattern, in order to change the id's of the circle grid
+
+let scaleNotes = new Map();
+scaleNotes.set("C", ["C", "D", "E", "F", "G", "A", "B"] );
+scaleNotes.set("Cshrp", ["C#", "D#", "E#", "F#", "G#", "A#", "B#"]);
+scaleNotes.set("D", ["D", "E", "F#", "G", "A", "B", "C#"]);
+scaleNotes.set("Dshrp", ["D#", "E#", "F##", "G#", "A#", "B#", "C##"]);
+scaleNotes.set("E", ["E", "F#", "G#", "A", "B", "C#", "D#"]);
+scaleNotes.set("F", ["F", "G", "A", "Bb", "C", "D", "E"]);
+scaleNotes.set("Fshrp", ["C", "D", "E", "F", "G", "A", "B"]);
+scaleNotes.set("G", ["G", "A", "B", "C", "D", "E", "F#"]);
+scaleNotes.set("Gshrp", ["G#", "A#", "B#", "C#", "D#", "E#", "F##"]);
+scaleNotes.set("A", ["A", "B", "C#", "D", "E", "F#", "G#"]);
+scaleNotes.set("Ashrp", ["A#", "B#", "C##", "D#", "E#", "F##", "G##"]);
+scaleNotes.set("B", ["B", "C#", "D#", "E", "F#", "G#", "A#"]);

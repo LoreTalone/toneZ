@@ -175,6 +175,33 @@ class basicPattern {
     }
   }
 
+  turnOnRootNote(noteName){
+    let correctedNote = noteName.replace("shrp","#");
+    let note;
+    for (note of this.notesList){
+      if (note.id == correctedNote) note.isRoot = true;
+    }
+  }
+
+  turnOnScaleNotes(array){
+    pattern.redrawRequired = true;
+    let scaleNote, gridNote;
+    for (scaleNote of array){
+      for(gridNote of pattern.notesList){
+        if (gridNote.id == scaleNote) gridNote.isScale = true;
+      }
+    }
+  }
+
+  resetNoteStatus(){
+    let note;
+    for (note of this.notesList){
+      note.isRoot = false;
+      note.isScale = false;
+    }
+    pattern.redrawRequired = true;
+  }
+
   changeNoteId(array){
     pattern.redrawRequired = true;
     for(var i=0; i<array.length; i++){
@@ -194,6 +221,8 @@ class Note {
     this.y = y;
     this.isActive = false;
     this.isVoice = false;
+    this.isRoot = false;
+    this.isScale = false;
     this.isGhost = false;
   }
 
@@ -202,15 +231,25 @@ class Note {
       canvas.fill(colorNoteActive);
     } else if (this.isVoice === true) {
       canvas.fill(colorVoicing);
+    } else if (this.isScale === true) {
+      canvas.fill(colorScale);
     } else {
-      canvas.fill(colorNote);
+      canvas.fill(colorBackground);
     }
+
     canvas.noStroke();
     canvas.circle(this.x, this.y, 70);
 
+    if (this.isRoot === true) {
+      canvas.strokeWeight(2);
+      canvas.stroke(colorRoot);
+      canvas.noFill();
+      canvas.circle(this.x, this.y, 70);
+    }
+
     canvas.textAlign(CENTER, CENTER);
     canvas.textSize(30);
-    canvas.fill(colorBackground);
+    canvas.fill(colorText);
     canvas.text(this.id, this.x, this.y);
   }
 
