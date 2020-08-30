@@ -17,6 +17,7 @@ function draw(){
 
 /*        :::::::::::            GRID GENERATOR            :::::::::::        */
 function redrawAll(){
+  pattern.offScr.clear(); //this resolve the previous graphical bugs
   background(colorBackground);
   translate(0,-150); //in order to avoid the blank part of the repeated grid
   pattern.drawPattern(pattern.offScr); //draw the basic pattern into a graphic buffer
@@ -68,72 +69,72 @@ function pressedKey(btn){
       case 81:
       case 66:
       case 76: //C
-        pattern.turnOnNote("C");
+        pattern.turnOnNote([0, 14, 15]);
       break;
 
       case 73:
       case 70: //C#
-        pattern.turnOnNote("C#");
+        pattern.turnOnNote([8]);
       break;
 
       case 55:
       case 69:
       case 77: //D
-        pattern.turnOnNote("D");
+        pattern.turnOnNote([2, 17]);
       break;
 
       case 50:
       case 80:
       case 72:
       case 88: //D#
-        pattern.turnOnNote("D#");
+        pattern.turnOnNote([11]);
       break;
 
       case 57:
       case 84:
       case 65: //E
-        pattern.turnOnNote("E");
+        pattern.turnOnNote([4, 5]);
       break;
 
       case 52:
       case 75:
       case 86: //F
-        pattern.turnOnNote("F");
+        pattern.turnOnNote([13]);
       break;
 
       case 85:
       case 68: //F#
-        pattern.turnOnNote("F#");
+        pattern.turnOnNote([7]);
       break;
 
       case 54:
       case 87:
       case 78: //G
-        pattern.turnOnNote("G");
+        pattern.turnOnNote([1, 16]);
       break;
 
       case 49:
       case 79:
       case 71:
       case 90: //G#
-        pattern.turnOnNote("G#");
+        pattern.turnOnNote([9, 10]);
       break;
 
       case 56:
       case 82: //A
-        pattern.turnOnNote("A");
+        pattern.turnOnNote([3, 18]);
       break;
 
       case 51:
       case 74:
       case 67: //A#
-        pattern.turnOnNote("A#");
+        pattern.turnOnNote([12]);
       break;
 
       case 48:
       case 89:
       case 83: //B
-        pattern.turnOnNote("B");
+        pattern.turnOnNote([6]);
       break;
     }
 }
@@ -147,72 +148,72 @@ function releasedKey(btn){
       case 81:
       case 66:
       case 76: //C
-        pattern.turnOffNote("C");
+        pattern.turnOffNote([0, 14, 15]);
       break;
 
       case 73:
       case 70: //C#
-        pattern.turnOffNote("C#");
+        pattern.turnOffNote([8]);
       break;
 
       case 55:
       case 69:
       case 77: //D
-        pattern.turnOffNote("D");
+        pattern.turnOffNote([2, 17]);
       break;
 
       case 50:
       case 80:
       case 72:
       case 88: //D#
-        pattern.turnOffNote("D#");
+        pattern.turnOffNote([11]);
       break;
 
       case 57:
       case 84:
       case 65: //E
-        pattern.turnOffNote("E");
+        pattern.turnOffNote([4, 5]);
       break;
 
       case 52:
       case 75:
       case 86: //F
-        pattern.turnOffNote("F");
+        pattern.turnOffNote([13]);
       break;
 
       case 85:
       case 68: //F#
-        pattern.turnOffNote("F#");
+        pattern.turnOffNote([7]);
       break;
 
       case 54:
       case 87:
       case 78: //G
-        pattern.turnOffNote("G");
+        pattern.turnOffNote([1, 16]);
       break;
 
       case 49:
       case 79:
       case 71:
       case 90: //G#
-        pattern.turnOffNote("G#");
+        pattern.turnOffNote([9, 10]);
       break;
 
       case 56:
       case 82: //A
-        pattern.turnOffNote("A");
+        pattern.turnOffNote([3, 18]);
       break;
 
       case 51:
       case 74:
       case 67: //A#
-        pattern.turnOffNote("A#");
+        pattern.turnOffNote([12]);
       break;
 
       case 48:
       case 89:
       case 83: //B
-        pattern.turnOffNote("B");
+        pattern.turnOffNote([6]);
       break;
     }
 }
@@ -1476,6 +1477,7 @@ document.addEventListener('keyup', voicingOff);
 /*        :::::::::::            SCALE CHANGE BEHAVIOUR            :::::::::::        */
 
 window.triggerScaleChange = function(e){
+  pattern.redrawRequired = true;
   pattern.resetNoteStatus();
   actualScale = e.value;
   console.log("Scala da visualizzare: " + e.value);
