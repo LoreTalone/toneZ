@@ -161,17 +161,17 @@ class basicPattern {
     }
   }
 
-  turnOnNote(noteName){
-    let note;
-    for (note of this.notesList){
-      if (note.id == noteName) note.isActive = true;
+  turnOnNote(notePosition){
+    let position;
+    for (position of notePosition){
+      this.notesList[position].isActive = true;
     }
   }
 
-  turnOffNote(noteName){
-    let note;
-    for (note of this.notesList){
-      if (note.id == noteName) note.isActive = false;
+  turnOffNote(notePosition){
+    let position;
+    for (position of notePosition){
+      this.notesList[position].isActive = false;
     }
   }
 
@@ -184,7 +184,6 @@ class basicPattern {
   }
 
   turnOnScaleNotes(array){
-    pattern.redrawRequired = true;
     let scaleNote, gridNote;
     for (scaleNote of array){
       for(gridNote of pattern.notesList){
@@ -199,11 +198,9 @@ class basicPattern {
       note.isRoot = false;
       note.isScale = false;
     }
-    pattern.redrawRequired = true;
   }
 
   changeNoteId(array){
-    pattern.redrawRequired = true;
     for(var i=0; i<array.length; i++){
       var noteId = array[i];
       this.notesList[i].setNoteId = noteId;
@@ -229,8 +226,6 @@ class Note {
   draw(canvas) {
     if (this.isActive === true){
       canvas.fill(colorNoteActive);
-    } else if (this.isVoice === true) {
-      canvas.fill(colorVoicing);
     } else if (this.isScale === true) {
       canvas.fill(colorScale);
     } else {
@@ -240,11 +235,18 @@ class Note {
     canvas.noStroke();
     canvas.circle(this.x, this.y, 70);
 
+    if (this.isVoice == true){
+      canvas.strokeWeight(2);
+      canvas.stroke(colorVoicing);
+      canvas.noFill();
+      canvas.circle(this.x, this.y, 70);
+    }
+
     if (this.isRoot === true) {
       canvas.strokeWeight(2);
       canvas.stroke(colorRoot);
       canvas.noFill();
-      canvas.circle(this.x, this.y, 70);
+      canvas.circle(this.x, this.y, 65);
     }
 
     canvas.textAlign(CENTER, CENTER);
