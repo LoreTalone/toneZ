@@ -12,8 +12,6 @@ var colorText = "#e6e6e6"
 var colorGhost = "#ff0000";
 var colorVoicing = "#ff00f9";
 
-var musicalModes = ["ionian", "dorian", "phrygian", "lydian", "mixolydian", "aeolian", "locrian"];
-
 const nonEnharmonicExchangedScale = ["C", "G", "D", "A", "E", "E", "B", "F#", "C#", "G#", "G#", "D#", "A#", "F", "C", "C", "G", "D", "A", "E"];
 
 let scaleMap = new Map();
@@ -37,7 +35,7 @@ scaleNotes.set("D", ["D", "E", "F#", "G", "A", "B", "C#"]);
 scaleNotes.set("Dshrp", ["D#", "E#", "F##", "G#", "A#", "B#", "C##"]);
 scaleNotes.set("E", ["E", "F#", "G#", "A", "B", "C#", "D#"]);
 scaleNotes.set("F", ["F", "G", "A", "Bb", "C", "D", "E"]);
-scaleNotes.set("Fshrp", ["C", "D", "E", "F", "G", "A", "B"]);
+scaleNotes.set("Fshrp", ["F#", "G#", "A#", "B", "C#", "D#", "E#"]);
 scaleNotes.set("G", ["G", "A", "B", "C", "D", "E", "F#"]);
 scaleNotes.set("Gshrp", ["G#", "A#", "B#", "C#", "D#", "E#", "F##"]);
 scaleNotes.set("A", ["A", "B", "C#", "D", "E", "F#", "G#"]);

@@ -48,10 +48,14 @@
               <option value="dorian">Dorian</option>
               <option value="phrygian">Phrygian</option>
               <option value="lydian">Lydian</option>
-              <option value="myxolydian">Myxolydian</option>
+              <option value="mixolydian">Mixolydian</option>
               <option value="aeolian">Aeolian</option>
               <option value="locrian">Locrian</option>
             </select>
+          </li>
+          <li>
+            <label for="voicing" class="navbar-text">Show voicings </label>
+            <input type="checkbox" id="voicing-checkbox" name="voicing" onchange="triggerVoicingChange(this);">
           </li>
           <li>
             <label class="navbar-text" for="oscillators">Oscillator type:  </label>

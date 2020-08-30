@@ -37,26 +37,34 @@ function getMIDIMessage(message){
         case 144: // noteOn
             if (velocity > 0) {
                 noteOn(note, velocity);
+                //pattern.redrawRequired = true;
             } else {
                 noteOff(note);
             }
             break;
         case 128: // noteOff
             noteOff(note);
+            //pattern.redrawRequired = true;
             break;
         // we could easily expand this switch statement to cover other types of commands such as controllers or sysex
     }
 }
 
 function noteOn(note, velocity){
-    activateNoteOnGrid(note);
     playNote(note, velocity);
+    let equivalentKeyCode = midiToEquivalentKeycode(note);
+    if(showVoicings==true){
+        voicingOn(equivalentKeyCode);
+    }
+    activateNoteOnGrid(note);
     pattern.redrawRequired = true; //in order to trigger the redraw function
 }
 
 function noteOff(note){
-    deactivateNoteOnGrid(note);
     releaseNote(note);
+    let equivalentKeyCode = midiToEquivalentKeycode(note);
+    voicingOff(equivalentKeyCode);
+    deactivateNoteOnGrid(note);
     pattern.redrawRequired = true; //in order to trigger the redraw function
 }
 
@@ -185,6 +193,36 @@ function deactivateNoteOnGrid(note){
     }
 }
 
+function midiToEquivalentKeycode(note){
+    let noteNumber = note % 12;
+
+    switch(noteNumber){
+        case 0: //C
+            return 53;
+        case 1: //C#
+            return 73;
+        case 2: //D
+            return 55;
+        case 3: //D#
+            return 50;
+        case 4: //E
+            return 57;
+        case 5: //F
+            return 52;
+        case 6: //F#
+            return 68;
+        case 7: //G
+            return 54;
+       case 8: //G#
+            return 49;
+       case 9: //A
+            return 56;
+        case 10: //A#
+            return 51;
+        case 11: //B
+            return 48;
+   }
+}
 
 
 //SOUND

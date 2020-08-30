@@ -1,6 +1,7 @@
 //p5.disableFriendlyErrors = true;
 var currentScale;
 var currentMode = "ionian";
+var showVoicings = "false";
 
 /*        :::::::::::            GRAPHICS SETUP            :::::::::::        */
 function setup (){
@@ -223,11 +224,21 @@ document.addEventListener('keyup', releasedKey);
 
 
 /*        :::::::::::            VOICING REPRESENTATION           :::::::::::        */
-
-function voicingOn(btn){
-  pattern.redrawRequired = true;
+function keyVoicingOn(btn){
   code = btn.keyCode;
+  if(showVoicings == true){
+    voicingOn(code);
+  }
+}
 
+function keyVoicingOff(btn){
+  code = btn.keyCode;
+  voicingOff(code);
+}
+
+function voicingOn(code){
+  //pattern.redrawRequired = true;
+  
 //FOR EACH SCALE, we check the pressed note. NOW, FOR EACH NOTE we can highlights the relative3rd and 7th note for the voicing criteria
 //for some pressed notes THERE AREN'T higlighted note !! it depends on the selected scales on musicalScales
   if (currentScale == "C") {
@@ -845,9 +856,9 @@ function voicingOn(btn){
   }
 }
 
-function voicingOff(btn){
-  pattern.redrawRequired = true;
-  code = btn.keyCode;
+function voicingOff(code){
+  //pattern.redrawRequired = true;
+  
 
   if (currentScale == "C") {
     switch(code){
@@ -1464,8 +1475,9 @@ function voicingOff(btn){
   }
 }
 
-document.addEventListener('keydown', voicingOn);
-document.addEventListener('keyup', voicingOff);
+  document.addEventListener('keydown', keyVoicingOn);
+  document.addEventListener('keyup', keyVoicingOff);
+
 
 
 /*        :::::::::::            GHOST FUNCTION            :::::::::::        */
@@ -1477,10 +1489,10 @@ document.addEventListener('keyup', voicingOff);
 /*        :::::::::::            SCALE CHANGE BEHAVIOUR            :::::::::::        */
 const basicNotes = ["C", "Cshrp", "D", "Dshrp", "E", "F", "Fshrp", "G", "Gshrp", "A", "Ashrp", "B"];
 
-function activateScaleNotes(){
+function activateScaleNotes(rootNote){
   let offset;
   let equivalentIonian;
-  let notePosition = basicNotes.indexOf(currentScale);
+  let notePosition = basicNotes.indexOf(rootNote);
 
   switch(currentMode){
     case "ionian":
@@ -1501,7 +1513,7 @@ function activateScaleNotes(){
         offset = -7;
       else offset = 5;
       break;  
-    case "myxolydian":
+    case "mixolydian":
       if(notePosition-7 < 0)  
         offset = -5;
       else offset = 7;
@@ -1532,7 +1544,12 @@ window.triggerScaleChange = function(e){
   currentScale = e.value;
   console.log("Scala da visualizzare: " + currentScale + " " + currentMode);
   if(currentScale != "none") {
-    activateScaleNotes();
+    activateScaleNotes(currentScale);
+  }
+  else {
+    activateScaleNotes("C");
+    pattern.resetNoteStatus();
+    //This is to show the "simplest" note names if no scale is selected
   }
   
 };
@@ -1542,7 +1559,13 @@ window.triggerModeChange = function(e){
   currentMode = e.value;
   console.log("Scala da visualizzare: " + currentScale + " " + currentMode);
   if(currentScale != "none") {
-    activateScaleNotes();
+    activateScaleNotes(currentScale);
   }
+}
+
+window.triggerVoicingChange = function(e){
+  console.log("Valore checkbox voicing: " + e.checked);
+  showVoicings = e.checked;
+  console.log("Valore showVoicings: " + showVoicings);
 }
 
