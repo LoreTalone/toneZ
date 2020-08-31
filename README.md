@@ -12,6 +12,7 @@ See [Tonnetz][1], [Isochord][2] and [Neo-Remannian Theory][3] for more info.
 ## Getting Started
 
 You just need to serve the main folder and then navigate to the ```index.html``` file to run the software.
+You can also find the web app [here](https://loretalone.github.io/toneZ/) (GitHub Host service).
 If your browser supports the Web MIDI API, you can use toneZ with any MIDI-enabled instrument otherwise you can use your computer's keyboard to control the app.
 Here the built-in keyboard mapping.
 ![screenshot](images/built_in_keyboard_mapping.png)
@@ -57,7 +58,7 @@ Copyright (C) 2020  Antonio Giganti & Lorenzo Talone
 ## Links
 
 * [Videos](https://www.youtube.com/) - WIP
-* [GitHub repository](https://github.com/) - WIP
+* [GitHub repository](https://github.com/LoreTalone/toneZ)
 
 [1]: https://en.wikipedia.org/wiki/Tonnetz "Wikipedia article about the Tonnetz"
 [2]: https://www.researchgate.net/publication/221474662_Isochords_visualizing_structure_in_music "Conference Paper regarding the Tonnetz musical structure visualization"
