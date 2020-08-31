@@ -7,9 +7,7 @@ var colorChordActive = "#3b8c37";
 var colorChord = "#000000";
 var colorRoot = "#ff0000";
 var colorScale = "#3e3e3e";
-var colorText = "#e6e6e6"
-
-var colorGhost = "#ff0000";
+var colorText = "#e6e6e6";
 var colorVoicing = "#ff00f9";
 
 var colorGame = "#e6e600";

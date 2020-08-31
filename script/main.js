@@ -1,32 +1,28 @@
-//p5.disableFriendlyErrors = true;
 var currentScale;
 var currentMode = "ionian";
 var showVoicings = "false";
 
 /*        :::::::::::            GRAPHICS SETUP            :::::::::::        */
 function setup (){
-  createCanvas (windowWidth, windowHeight);
-  frameRate(30);
-  //pixelDensity(1);
-  pattern = new basicPattern(0,0);
+    createCanvas (windowWidth, windowHeight);
+    frameRate(30);
+    pattern = new basicPattern(0,0);
 }
 
 function draw(){
-  //cyclic call
-  //when we have changes we have to redraw the grid
+//redraw the entire grid only when we have changes in the off screen canvas. CPU friendly :)
   if (pattern.redrawRequired) redrawAll();
 }
 
-/*        :::::::::::            GRID GENERATOR            :::::::::::        */
 function redrawAll(){
-  pattern.offScr.clear(); //this resolve the previous graphical bugs
+  pattern.offScr.clear();
   background(colorBackground);
-  translate(0,-150); //in order to avoid the blank part of the repeated grid
-  pattern.drawPattern(pattern.offScr); //draw the basic pattern into a graphic buffer
+  translate(0,-150);
+  pattern.drawPattern(pattern.offScr);
 
-  //we generate the entire grid, placing each graphic buffer image next to each other
+/*        :::::::::::            GRID GENERATOR            :::::::::::        */
   let shift = 0;
-  //adjust variables for the full screen view
+
   adj_row = 1;
   adj_col = 2;
   off_x = -2400;
@@ -49,19 +45,16 @@ function redrawAll(){
       pop();
     }
   }
-  //once we have redrawed all, we can set the redrawRequired to false, to prevent the looping draw behaviour, so less cpu consuption
+
   pattern.redrawRequired = false;
 }
 
 function windowResized() {
-  //resize/redraw the sketch every time we resize the window
   resizeCanvas(windowWidth, windowHeight);
   pattern.redrawRequired = true;
 }
 
 /*        :::::::::::            KEY EVENT            :::::::::::        */
-
-
 function pressedKey(btn){
   pattern.redrawRequired = true;
   code = btn.keyCode;
@@ -238,10 +231,6 @@ function keyVoicingOff(btn){
 }
 
 function voicingOn(code){
-  //pattern.redrawRequired = true;
-  
-//FOR EACH SCALE, we check the pressed note. NOW, FOR EACH NOTE we can highlights the relative3rd and 7th note for the voicing criteria
-//for some pressed notes THERE AREN'T higlighted note !! it depends on the selected scales on musicalScales
   if (currentScale == "C") {
     switch(code){
       case 53:
@@ -858,9 +847,6 @@ function voicingOn(code){
 }
 
 function voicingOff(code){
-  //pattern.redrawRequired = true;
-  
-
   if (currentScale == "C") {
     switch(code){
       case 53:
@@ -1480,14 +1466,7 @@ function voicingOff(code){
   document.addEventListener('keyup', keyVoicingOff);
 
 
-
-/*        :::::::::::            GHOST FUNCTION            :::::::::::        */
-
-
-//queue qrray for an highlights decay
-
-
-/*        :::::::::::            SCALE CHANGE BEHAVIOUR            :::::::::::        */
+/*        :::::::::::            SCALE CHANGE FUNCTION            :::::::::::        */
 const basicNotes = ["C", "Cshrp", "D", "Dshrp", "E", "F", "Fshrp", "G", "Gshrp", "A", "Ashrp", "B"];
 
 function activateScaleNotes(rootNote){
@@ -1502,32 +1481,32 @@ function activateScaleNotes(rootNote){
       offset = 0;
       break;
     case "dorian":
-      if(notePosition-2 < 0)  
+      if(notePosition-2 < 0)
         offset = -10;
       else offset = 2;
       break;
     case "phrygian":
-      if(notePosition-4 < 0)  
+      if(notePosition-4 < 0)
         offset = -8;
       else offset = 4;
       break;
     case "lydian":
-      if(notePosition-5 < 0)  
+      if(notePosition-5 < 0)
         offset = -7;
       else offset = 5;
-      break;  
+      break;
     case "mixolydian":
-      if(notePosition-7 < 0)  
+      if(notePosition-7 < 0)
         offset = -5;
       else offset = 7;
       break;
     case "aeolian":
-      if(notePosition-9 < 0)  
+      if(notePosition-9 < 0)
         offset = -3;
       else offset = 9;
       break;
     case "locrian":
-      if(notePosition-11 < 0)  
+      if(notePosition-11 < 0)
         offset = -1;
       else offset = 11;
       break;
@@ -1541,7 +1520,7 @@ function activateScaleNotes(rootNote){
   pattern.turnOnScaleNotes(scaleNotes.get(equivalentIonian));
 }
 
-
+//DOM interaction
 window.triggerScaleChange = function(e){
   pattern.resetNoteStatus();
   currentScale = e.value;
@@ -1554,7 +1533,6 @@ window.triggerScaleChange = function(e){
     pattern.resetNoteStatus();
     //This is to show the "simplest" note names if no scale is selected
   }
-  
 };
 
 window.triggerModeChange = function(e){
