@@ -17,7 +17,7 @@
 
 <body>
   <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Tonnetz</a>
+      <a class="navbar-brand" href="./index.html">Tonnetz</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span >Options</span>
       </button>
@@ -75,12 +75,11 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">Game Mode</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
         </div>
         <div class="modal-body">
-          Play the chords shown in yellow on your MIDI keyboard, learn the tonnetz grid system! <br> <br> BE CAREFUL: every wrong note makes you lose one life! But every correct chord makes you gain one
+          Play the chords shown in yellow on your MIDI keyboard, learn the tonnetz grid system! 
+          <br><br>
+          BE CAREFUL: every wrong note makes you lose one life! But every correct chord makes you gain one.
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="iterateGame()">Begin!</button>
@@ -94,15 +93,12 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle2">Game Over!</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
         </div>
         <div class="modal-body">
           Keep it up! Next time it will be better ;)
         </div>
         <div class="modal-footer">
-          <a href="./index.html" class="btn btn-primary" data-dismiss="modal">Return to Main Menu</a>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="returnToMainMenu()">Return to Main Menu</button>
         </div>
       </div>
     </div>

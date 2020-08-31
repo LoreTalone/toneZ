@@ -294,42 +294,42 @@ function iterateGame(){
         
     console.log("Notes: " + notedisplayed1 + " " + notedisplayed2 + " " + notedisplayed3);
 
-    //listen to midi messages and retrieve names of note being played
-        
-    //console.log("Notes being played: " + notesBeingPlayed);
-        for (var note of notesBeingPlayed){
-            console.log("Nota di notesBeingPlayed: " + note);
-            if(notedisplayed1 != note && notedisplayed2 != note && notedisplayed3 != note){
-                console.log("Nota sbagliata!");
-                synth.releaseAll();
-                notesBeingPlayed = [];
-                let currentLife = "#life" + lives;
-                console.log("Vita da rimuovere: " + currentLife);
-                $(currentLife).removeClass('life');
-                alert("Wrong note!");
-                lives --;
-                newNotesRequired = true;
-                iterateGame();
-            }
-        }
     
     
-        if(notesBeingPlayed.includes(notedisplayed1) && notesBeingPlayed.includes(notedisplayed2) && notesBeingPlayed.includes(notedisplayed3)){
-            console.log("Nota corretta!");
-            synth.releaseAll();
+    for (var note of notesBeingPlayed){
+        console.log("Nota di notesBeingPlayed: " + note);
+        if(notedisplayed1 != note && notedisplayed2 != note && notedisplayed3 != note){
+            console.log("Nota sbagliata!");
             notesBeingPlayed = [];
-            alert("Correct chord!");
-            if(lives<6){
-                lives++;
-                let currentLife = "#life" + lives;
-                console.log("Vita da aggiungere: " + currentLife);
-                $(currentLife).addClass('life');
-
-            }
-            totalScore ++;
+            let currentLife = "#life" + lives;
+            console.log("Vita da rimuovere: " + currentLife);
+            $(currentLife).removeClass('life');
+            synth.releaseAll(Tone.now() + 0.3);
+            alert("Wrong note! " + note + " is not present in the chord" );
+            lives --;
             newNotesRequired = true;
             iterateGame();
         }
+    }
+
+
+    if(notesBeingPlayed.includes(notedisplayed1) && notesBeingPlayed.includes(notedisplayed2) && notesBeingPlayed.includes(notedisplayed3)){
+        console.log("Nota corretta!");
+        notesBeingPlayed = [];
+        synth.releaseAll(Tone.now() + 0.3);
+        alert("Correct chord!");
+        if(lives<6){
+            lives++;
+            let currentLife = "#life" + lives;
+            console.log("Vita da aggiungere: " + currentLife);
+            $(currentLife).addClass('life');
+        }
+        totalScore ++;
+        newNotesRequired = true;
+        iterateGame();
+    }
 }
 
-
+function returnToMainMenu(){
+    window.location.href = "index.html";
+}
