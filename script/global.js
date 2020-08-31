@@ -7,9 +7,7 @@ var colorChordActive = "#3b8c37";
 var colorChord = "#000000";
 var colorRoot = "#ff0000";
 var colorScale = "#3e3e3e";
-var colorText = "#e6e6e6"
-
-var colorGhost = "#ff0000";
+var colorText = "#e6e6e6";
 var colorVoicing = "#ff00f9";
 
 const nonEnharmonicExchangedScale = ["C", "G", "D", "A", "E", "E", "B", "F#", "C#", "G#", "G#", "D#", "A#", "F", "C", "C", "G", "D", "A", "E"];

@@ -1,3 +1,4 @@
+/*        :::::::::::            MIDI CONFIG            :::::::::::        */
 window.onload = function() {
     var audioCtx = new AudioContext();
     audioCtx.resume();
@@ -37,14 +38,12 @@ function getMIDIMessage(message){
         case 144: // noteOn
             if (velocity > 0) {
                 noteOn(note, velocity);
-                //pattern.redrawRequired = true;
             } else {
                 noteOff(note);
             }
             break;
         case 128: // noteOff
             noteOff(note);
-            //pattern.redrawRequired = true;
             break;
         // we could easily expand this switch statement to cover other types of commands such as controllers or sysex
     }
@@ -57,7 +56,7 @@ function noteOn(note, velocity){
         voicingOn(equivalentKeyCode);
     }
     activateNoteOnGrid(note);
-    pattern.redrawRequired = true; //in order to trigger the redraw function
+    pattern.redrawRequired = true;
 }
 
 function noteOff(note){
@@ -65,12 +64,12 @@ function noteOff(note){
     let equivalentKeyCode = midiToEquivalentKeycode(note);
     voicingOff(equivalentKeyCode);
     deactivateNoteOnGrid(note);
-    pattern.redrawRequired = true; //in order to trigger the redraw function
+    pattern.redrawRequired = true;
 }
 
 function activateNoteOnGrid(note){
     let noteNumber = note % 12;
-    
+
     switch(noteNumber){
         case 0: //C
             pattern.turnOnNote([0, 14, 15]);
@@ -208,7 +207,7 @@ function midiToEquivalentKeycode(note){
 }
 
 
-//SOUND
+/*        :::::::::::            SYNTH            :::::::::::        */
 function returnNoteNameString(note){
     let noteNumber = note % 12;
     let octaveNumber = Math.floor(note/12);
@@ -275,7 +274,7 @@ function setRelease(value){
 
 
 
-//KEY EVENT
+/*        :::::::::::            KEYBOARDS EVENT            :::::::::::        */
 function pressedKeySound(btn){
   code = btn.keyCode;
   let velocity = 120;

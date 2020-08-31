@@ -5,9 +5,8 @@ class basicPattern {
     this.y = y;
     this.redrawRequired = true;
     this.offScr = createGraphics(1200, 619);
-    this.ghostQueue = [];
 
-    /*        :::::::::::            NOTESs ARRAY            :::::::::::        */
+/*        :::::::::::            NOTESs ARRAY            :::::::::::        */
     this.notesList = [];
     this.notesList.push(new Note("C",0,0));          //0
     this.notesList.push(new Note("G",200,0));        //1
@@ -30,7 +29,7 @@ class basicPattern {
     this.notesList.push(new Note("A",900,519));      //18
     this.notesList.push(new Note("E",1100,519));     //19
 
-    /*        :::::::::::            INTERVALs ARRAY            :::::::::::        */
+/*        :::::::::::            INTERVALs ARRAY            :::::::::::        */
     this.intervalsList = [];
     this.intervalsList.push(new Interval(this.notesList[0],this.notesList[1]));  //1st ROW
     this.intervalsList.push(new Interval(this.notesList[1],this.notesList[2]));
@@ -90,7 +89,7 @@ class basicPattern {
 
     this.intervalsList.push(new Interval(this.notesList[14],this.notesList[18]));  //6th
 
-    /*        :::::::::::            CHORDs ARRAY            :::::::::::        */
+/*        :::::::::::            CHORDs ARRAY            :::::::::::        */
     this.chordsList = [];
     this.chordsList.push(new Chord(this.notesList[0],this.notesList[1],this.notesList[5]));     //1st ROW DOWN
     this.chordsList.push(new Chord(this.notesList[1],this.notesList[2],this.notesList[6]));
@@ -137,14 +136,6 @@ class basicPattern {
 
   getArrayElement(i) {
     return this.notesList[i];
-  }
-
-  getGhostElement(i) {
-    return this.ghostQueue[i];
-  }
-
-  getIntervalArrayElement(i) {
-    return this.intervalsList[i];
   }
 
   turnOnVoiceNote(noteName){
@@ -220,7 +211,6 @@ class Note {
     this.isVoice = false;
     this.isRoot = false;
     this.isScale = false;
-    this.isGhost = false;
   }
 
   draw(canvas) {
@@ -275,7 +265,6 @@ class Interval {
     this.note1 = note1;
     this.note2 = note2;
     this.isActive = false;
-    this.isGhost = false;
   }
 
   draw(canvas) {
@@ -298,7 +287,6 @@ class Chord {
     this.note2 = note2;
     this.note3 = note3;
     this.isActive = false;
-    this.isGhost = false;
   }
 
   draw(canvas){

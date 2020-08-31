@@ -3,6 +3,7 @@
 Tonnetz is a tonnetz diagram viewer built for browser in html5+css3+javascript using [p5.js](https://p5js.org/) for graphics and the [Tone.js](https://tonejs.github.io/) for sound.
 
 The Tonnetz is a lattice diagram representing tonal space. It can be used to visualize harmonic relationships in music. Each node in the diagram corresponds to one of the 12 tones and is connected to 6 adjacent nodes. The 'neighbours' of each tone are related to it either by a third (major or minor) or by a perfect fifth, depending on their relative position in the diagram.
+![screenshot](images/grid_screenshot_0.png)
 
 See [Tonnetz][1], [Isochord][2] and [Neo-Remannian Theory][3] for more info.
 
