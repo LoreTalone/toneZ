@@ -5,10 +5,10 @@ var showVoicings = "false";
 
 /*        :::::::::::            GRAPHICS SETUP            :::::::::::        */
 function setup (){
-    createCanvas (windowWidth, windowHeight);
-    frameRate(30);
-    //pixelDensity(1);
-    pattern = new basicPattern(0,0);
+  createCanvas (windowWidth, windowHeight);
+  frameRate(30);
+  //pixelDensity(1);
+  pattern = new basicPattern(0,0);
 }
 
 function draw(){
@@ -1571,4 +1571,3 @@ window.triggerVoicingChange = function(e){
   showVoicings = e.checked;
   console.log("Valore showVoicings: " + showVoicings);
 }
-
