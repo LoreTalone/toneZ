@@ -7,6 +7,8 @@ const synth = new Tone.PolySynth().toDestination();
 
 const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
+var notesBeingPlayed = [];
+
 
 if (navigator.requestMIDIAccess) {
     console.log('This browser supports WebMIDI!');
@@ -57,6 +59,8 @@ function noteOn(note, velocity){
         voicingOn(equivalentKeyCode);
     }
     activateNoteOnGrid(note);
+    notesBeingPlayed.push(returnNoteNameStringNoOctave(note));
+    //console.log("Notes being played: " + notesBeingPlayed);
     pattern.redrawRequired = true; //in order to trigger the redraw function
 }
 
@@ -65,6 +69,9 @@ function noteOff(note){
     let equivalentKeyCode = midiToEquivalentKeycode(note);
     voicingOff(equivalentKeyCode);
     deactivateNoteOnGrid(note);
+    let index = notesBeingPlayed.indexOf(returnNoteNameStringNoOctave(note));
+    notesBeingPlayed.splice(index);
+    //console.log("Notes being played: " + notesBeingPlayed);
     pattern.redrawRequired = true; //in order to trigger the redraw function
 }
 
@@ -213,6 +220,11 @@ function returnNoteNameString(note){
     let noteNumber = note % 12;
     let octaveNumber = Math.floor(note/12);
     return notes[noteNumber] + octaveNumber;
+}
+
+function returnNoteNameStringNoOctave(note){
+  let noteNumber = note % 12;
+  return notes[noteNumber];
 }
 
 function playNote(note, velocity){

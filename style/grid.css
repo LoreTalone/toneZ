@@ -26,10 +26,14 @@ body{
     position: absolute;
 }
 
-.col-2{
+.col-2, .col-3{
     background-color: rgb(233, 235, 235);
 }
 
 .life{
     color: red;
+}
+
+#instruction-modal{
+    position: absolute;
 }

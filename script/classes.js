@@ -244,11 +244,6 @@ class Note {
       canvas.fill(colorNoteActive);
     } else if (this.isScale === true) {
       canvas.fill(colorScale);
-    } else if (this.isGame === true){
-      canvas.fill(colorGame);
-      if(this.isActive === true){
-        this.isGame = false;
-      }
     } else {
       canvas.fill(colorBackground);
     }
@@ -264,7 +259,7 @@ class Note {
     }
 
     if (this.isRoot === true) {
-      canvas.strokeWeight(2);
+      canvas.strokeWeight(1.5);
       canvas.stroke(colorRoot);
       canvas.noFill();
       canvas.circle(this.x, this.y, 65);

@@ -7,7 +7,7 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <meta charset="utf-8">
-  <link rel="stylesheet" href="/style/grid.css">
+  <link rel="stylesheet" href="./style/grid.css">
 
   <title>Tonnetz</title>
 
@@ -57,14 +57,58 @@
     <div class="col-2 pt-3">
       <h1 class="display-4" id="score-value"> </h1>
     </div>
-    <div class="col-2">
+    <div class="col-3">
       <div class="row justify-content-center">
-        <h1 class="display-2 col-3 life" id="life1">&#9829;</h1>
-        <h1 class="display-2 col-3 life" id="life2">&#9829;</h1>
-        <h1 class="display-2 col-3 life" id="life3">&#9829;</h1>
+        <h1 class="display-2 col-2 life" id="life1">&#9829;</h1>
+        <h1 class="display-2 col-2 life" id="life2">&#9829;</h1>
+        <h1 class="display-2 col-2 life" id="life3">&#9829;</h1>
+        <h1 class="display-2 col-2 life" id="life4">&#9829;</h1>
+        <h1 class="display-2 col-2 life" id="life5">&#9829;</h1>
+        <h1 class="display-2 col-2 life" id="life6">&#9829;</h1>
       </div>
     </div>
   </div>
+
+
+  <div class="modal fade" id="instruction-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Game Mode</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Play the chords shown in yellow on your MIDI keyboard, learn the tonnetz grid system! <br> <br> BE CAREFUL: every wrong note makes you lose one life! But every correct chord makes you gain one
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="iterateGame()">Begin!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="game-over-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle2">Game Over!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Keep it up! Next time it will be better ;)
+        </div>
+        <div class="modal-footer">
+          <a href="./index.html" class="btn btn-primary" data-dismiss="modal">Return to Main Menu</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
@@ -75,7 +119,6 @@
   <script type="text/javascript" src="./script/classes.js"></script>
   <script type="text/javascript" src="./script/global.js"></script>
   <script type="text/javascript" src="./script/main.js"></script>
-  <script type="text/javascript" src="./script/synth.js"></script>
   <script type="text/javascript" src="./script/game.js"></script>
   </body>
   <!--------------------------------->
