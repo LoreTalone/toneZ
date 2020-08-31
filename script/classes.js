@@ -244,11 +244,6 @@ class Note {
       canvas.fill(colorNoteActive);
     } else if (this.isScale === true) {
       canvas.fill(colorScale);
-    } else if (this.isGame === true){
-      canvas.fill(colorGame);
-      if(this.isActive === true){
-        this.isGame = false;
-      }
     } else {
       canvas.fill(colorBackground);
     }

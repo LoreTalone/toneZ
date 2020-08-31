@@ -239,7 +239,7 @@ function keyVoicingOff(btn){
 
 function voicingOn(code){
   //pattern.redrawRequired = true;
-  
+
 //FOR EACH SCALE, we check the pressed note. NOW, FOR EACH NOTE we can highlights the relative3rd and 7th note for the voicing criteria
 //for some pressed notes THERE AREN'T higlighted note !! it depends on the selected scales on musicalScales
   if (currentScale == "C") {
@@ -859,7 +859,7 @@ function voicingOn(code){
 
 function voicingOff(code){
   //pattern.redrawRequired = true;
-  
+
 
   if (currentScale == "C") {
     switch(code){
@@ -1502,32 +1502,32 @@ function activateScaleNotes(rootNote){
       offset = 0;
       break;
     case "dorian":
-      if(notePosition-2 < 0)  
+      if(notePosition-2 < 0)
         offset = -10;
       else offset = 2;
       break;
     case "phrygian":
-      if(notePosition-4 < 0)  
+      if(notePosition-4 < 0)
         offset = -8;
       else offset = 4;
       break;
     case "lydian":
-      if(notePosition-5 < 0)  
+      if(notePosition-5 < 0)
         offset = -7;
       else offset = 5;
-      break;  
+      break;
     case "mixolydian":
-      if(notePosition-7 < 0)  
+      if(notePosition-7 < 0)
         offset = -5;
       else offset = 7;
       break;
     case "aeolian":
-      if(notePosition-9 < 0)  
+      if(notePosition-9 < 0)
         offset = -3;
       else offset = 9;
       break;
     case "locrian":
-      if(notePosition-11 < 0)  
+      if(notePosition-11 < 0)
         offset = -1;
       else offset = 11;
       break;
@@ -1554,7 +1554,7 @@ window.triggerScaleChange = function(e){
     pattern.resetNoteStatus();
     //This is to show the "simplest" note names if no scale is selected
   }
-  
+
 };
 
 window.triggerModeChange = function(e){

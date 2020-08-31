@@ -4,9 +4,8 @@ var lives = 3;
 var gameChordDisplayed;
 
 function startGame(){
-    pattern.resetNoteStatus();
-
     pattern.redrawRequired = true;
+
 
     document.getElementById('score-value').innerHTML = "Score: " + totalScore;
     gameChordDisplayed = gameChords[Math.floor(Math.random() * gameChords.length)];
@@ -15,9 +14,20 @@ function startGame(){
     pattern.turnOnGameNote(gameChordDisplayed);
 }
 
+//TEST TEST
+
+function endGame(){
+  pattern.redrawRequired = true;
+
+  pattern.turnOffGameNote(gameChordDisplayed);
+}
+
+document.addEventListener('mousedown', startGame);
+document.addEventListener('mouseup', endGame);
+
 
 //while(lives > 0){
-    
+
 
 
     /*
