@@ -188,6 +188,21 @@ class basicPattern {
     for (note of this.notesList){
       note.isRoot = false;
       note.isScale = false;
+      note.isGame = false;
+    }
+  }
+
+  turnOnGameNote(notePosition){
+    let position;
+    for (position of notePosition){
+      this.notesList[position].isGame = true;
+    }
+  }
+
+  turnOffGameNote(notePosition){
+    let position;
+    for (position of notePosition){
+      this.notesList[position].isGame = false;
     }
   }
 
@@ -211,6 +226,7 @@ class Note {
     this.isVoice = false;
     this.isRoot = false;
     this.isScale = false;
+    this.isGame = false;
   }
 
   draw(canvas) {
@@ -233,10 +249,17 @@ class Note {
     }
 
     if (this.isRoot === true) {
-      canvas.strokeWeight(2);
+      canvas.strokeWeight(1.5);
       canvas.stroke(colorRoot);
       canvas.noFill();
       canvas.circle(this.x, this.y, 65);
+    }
+
+    if (this.isGame === true) {
+      canvas.strokeWeight(2);
+      canvas.stroke(colorGame);
+      canvas.noFill();
+      canvas.circle(this.x, this.y, 70);
     }
 
     canvas.textAlign(CENTER, CENTER);
@@ -271,6 +294,9 @@ class Interval {
     if (this.note1.isActive === true && this.note2.isActive === true){
       canvas.strokeWeight(10);
       canvas.stroke(colorIntervalActive);
+    } else if (this.note1.isGame === true && this.note2.isGame === true){
+      canvas.strokeWeight(10);
+      canvas.stroke(colorIntervalGame);
     } else {
       canvas.strokeWeight(2);
       canvas.stroke(colorInterval);
@@ -292,6 +318,8 @@ class Chord {
   draw(canvas){
     if (this.note1.isActive === true && this.note2.isActive === true && this.note3.isActive === true){
       canvas.fill(colorChordActive);
+    } else if(this.note1.isGame === true && this.note2.isGame === true && this.note3.isGame === true){
+      canvas.fill(colorChordGame);
     } else {
       canvas.fill(colorChord);
     }

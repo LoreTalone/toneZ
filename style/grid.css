@@ -11,8 +11,29 @@ body{
 .navbar{
     position: fixed;
     width:100%;
+    z-index: 1;
 }
 
 .navbar-text{
     color: rgba(255, 255, 255, 0.75);
+}
+
+#info-bar{
+    z-index: 0;
+    margin-top: 55px;
+    width: 100%;
+    padding-left: 2em;
+    position: absolute;
+}
+
+.col-2, .col-3{
+    background-color: rgb(233, 235, 235);
+}
+
+.life{
+    color: red;
+}
+
+#instruction-modal{
+    position: absolute;
 }

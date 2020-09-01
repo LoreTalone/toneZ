@@ -10,6 +10,10 @@ var colorScale = "#3e3e3e";
 var colorText = "#e6e6e6";
 var colorVoicing = "#ff00f9";
 
+var colorGame = "#e6e600";
+var colorIntervalGame = "#b3b300";
+var colorChordGame = "#ffff80";
+
 const nonEnharmonicExchangedScale = ["C", "G", "D", "A", "E", "E", "B", "F#", "C#", "G#", "G#", "D#", "A#", "F", "C", "C", "G", "D", "A", "E"];
 
 let scaleMap = new Map();
