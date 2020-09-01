@@ -35,7 +35,7 @@ You can also enable the "show voicings" options in order to visualize for each n
 
 Furthermore you can also find a synthesizer composed by a selectable oscillator and a built-in and customizable ADSR envelope.
 
-<p align="center"><img width="460" height="300" src="images/synth.gif"></p>
+<p align="center"><img width="390" height="300" src="images/synth.gif"></p>
 
 
 ## Game Mode
