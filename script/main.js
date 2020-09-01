@@ -167,7 +167,7 @@ function releasedKey(btn){
       case 57:
       case 84:
       case 65: //E
-        pattern.turnOffNote([4, 5]);
+        pattern.turnOffNote([4, 5, 19]);
       break;
 
       case 52:
