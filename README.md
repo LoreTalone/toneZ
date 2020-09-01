@@ -3,8 +3,8 @@
 **toneZ** is a tonnetz diagram viewer built for browser in html5+css3+javascript using [p5.js](https://p5js.org/) for graphics and the [Tone.js](https://tonejs.github.io/) for sound.
 
 The tonnetz is a lattice diagram representing tonal space. It can be used to visualize harmonic relationships in music. Each node in the diagram corresponds to one of the 12 tones and is connected to 6 adjacent nodes. The 'neighbours' of each tone are related to it either by a third (major or minor) or by a perfect fifth, depending on their relative position in the diagram.
-![screenshot](images/grid_screenshot_0.png)
-![screenshot](images/grid_screenshot_0.png) //INTERVALS ???
+![screenshot](images/grid_interval_examples.png)
+![Alt Text](images/chord.gif) 
 
 See [Tonnetz][1], [Isochord][2] and [Neo-Remannian Theory][3] for more info.
 
@@ -20,10 +20,12 @@ Here the built-in keyboard mapping.
 
 ## Standard Mode
 In this mode you can find the standard tonnetz grid enhanced with the possibility of showing all the different diatonic scales in all keys and modes.
+![Alt Text](images/scale.gif)
+![Alt Text](images/mode.gif)
 You can also enable the "show voicings" options in order to visualize for each note its 3rd and 7th grade according to the current key and mode.
-Furthermore you can also find a synthesizer composed by a selectable oscillator and a built-in and customizable ADSR envelope. 
-![screenshot](images/????????.png) ///GIF chord &  ON/OFF scale change & voicing feature MULTIPLE 
-
+![Alt Text](images/voicing.gif)
+Furthermore you can also find a synthesizer composed by a selectable oscillator and a built-in and customizable ADSR envelope.
+![Alt Text](images/synth.gif)  
 ## Game Mode
 Here you can have fun learning the tonnetz system on your MIDI keyboard. The program shows some triads on the grid and you will have to find and play the right chords on the keyboard. Beware! Every wrong note makes you lose a life!!
 
