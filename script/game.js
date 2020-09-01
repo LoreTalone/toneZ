@@ -58,7 +58,7 @@ function noteOn(note, velocity){
     playNote(note, velocity);
     activateNoteOnGrid(note);
     notesBeingPlayed.push(returnNoteNameStringNoOctave(note));
-    console.log("Notes being played: " + notesBeingPlayed);
+    //console.log("Notes being played: " + notesBeingPlayed);
     iterateGame();
     pattern.redrawRequired = true; //in order to trigger the redraw function
 }
@@ -68,13 +68,13 @@ function noteOff(note){
     deactivateNoteOnGrid(note);
     let index = notesBeingPlayed.indexOf(returnNoteNameStringNoOctave(note));
     notesBeingPlayed.splice(index);
-    console.log("Notes being played: " + notesBeingPlayed);
+    //console.log("Notes being played: " + notesBeingPlayed);
     pattern.redrawRequired = true; //in order to trigger the redraw function
 }
 
 function activateNoteOnGrid(note){
     let noteNumber = note % 12;
-    
+
     switch(noteNumber){
         case 0: //C
             pattern.turnOnNote([0, 14, 15]);
@@ -181,7 +181,8 @@ function deactivateNoteOnGrid(note){
 }
 
 
-//SOUND
+/*        :::::::::::            SOUND            :::::::::::        */
+
 function returnNoteNameString(note){
     let noteNumber = note % 12;
     let octaveNumber = Math.floor(note/12);
@@ -252,21 +253,7 @@ function setRelease(value){
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// GAME LOGIC
-
+/*        :::::::::::            GAME LOGIC            :::::::::::        */
 
 $(document).ready(function(){
     $('#instruction-modal').modal('show');
@@ -291,18 +278,18 @@ function iterateGame(){
     }
 
     document.getElementById('score-value').innerHTML = "Score: " + totalScore;
-        
-    console.log("Notes: " + notedisplayed1 + " " + notedisplayed2 + " " + notedisplayed3);
 
-    
-    
+    //console.log("Notes: " + notedisplayed1 + " " + notedisplayed2 + " " + notedisplayed3);
+
+
+
     for (var note of notesBeingPlayed){
-        console.log("Nota di notesBeingPlayed: " + note);
+        //console.log("Nota di notesBeingPlayed: " + note);
         if(notedisplayed1 != note && notedisplayed2 != note && notedisplayed3 != note){
-            console.log("Nota sbagliata!");
+            //console.log("Nota sbagliata!");
             notesBeingPlayed = [];
             let currentLife = "#life" + lives;
-            console.log("Vita da rimuovere: " + currentLife);
+            //console.log("Vita da rimuovere: " + currentLife);
             $(currentLife).removeClass('life');
             synth.releaseAll(Tone.now() + 0.3);
             alert("Wrong note! " + note + " is not present in the chord" );
@@ -314,14 +301,14 @@ function iterateGame(){
 
 
     if(notesBeingPlayed.includes(notedisplayed1) && notesBeingPlayed.includes(notedisplayed2) && notesBeingPlayed.includes(notedisplayed3)){
-        console.log("Nota corretta!");
+        //console.log("Nota corretta!");
         notesBeingPlayed = [];
         synth.releaseAll(Tone.now() + 0.3);
         alert("Correct chord!");
         if(lives<6){
             lives++;
             let currentLife = "#life" + lives;
-            console.log("Vita da aggiungere: " + currentLife);
+            //console.log("Vita da aggiungere: " + currentLife);
             $(currentLife).addClass('life');
         }
         totalScore ++;

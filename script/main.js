@@ -1524,7 +1524,7 @@ function activateScaleNotes(rootNote){
 window.triggerScaleChange = function(e){
   pattern.resetNoteStatus();
   currentScale = e.value;
-  console.log("Scala da visualizzare: " + currentScale + " " + currentMode);
+  //console.log("Scala da visualizzare: " + currentScale + " " + currentMode);
   if(currentScale != "none") {
     activateScaleNotes(currentScale);
   }
@@ -1538,14 +1538,14 @@ window.triggerScaleChange = function(e){
 window.triggerModeChange = function(e){
   pattern.resetNoteStatus();
   currentMode = e.value;
-  console.log("Scala da visualizzare: " + currentScale + " " + currentMode);
+  //console.log("Scala da visualizzare: " + currentScale + " " + currentMode);
   if(currentScale != "none") {
     activateScaleNotes(currentScale);
   }
 }
 
 window.triggerVoicingChange = function(e){
-  console.log("Valore checkbox voicing: " + e.checked);
+  //console.log("Valore checkbox voicing: " + e.checked);
   showVoicings = e.checked;
-  console.log("Valore showVoicings: " + showVoicings);
+  //console.log("Valore showVoicings: " + showVoicings);
 }

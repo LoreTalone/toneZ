@@ -33,7 +33,7 @@ function getMIDIMessage(message){
     var note = message.data[1];
     var velocity = (message.data.length > 2) ? message.data[2] : 0; // a velocity value might not be included with a noteOff command
 
-    console.log("Command: " + command + "; Note: " + note + "; Velocity: " + velocity);
+    //console.log("Command: " + command + "; Note: " + note + "; Velocity: " + velocity);
 
     switch (command) {
         case 144: // noteOn
@@ -222,14 +222,14 @@ function returnNoteNameStringNoOctave(note){
 
 function playNote(note, velocity){
     noteName = returnNoteNameString(note);
-    console.log("Note played: " + noteName);
+    //console.log("Note played: " + noteName);
     let now = Tone.now();
     synth.triggerAttack(noteName, now, velocity/127);
 }
 
 function releaseNote(note){
     noteName = returnNoteNameString(note);
-    console.log("Note released: " + noteName);
+    //console.log("Note released: " + noteName);
     synth.triggerRelease(noteName);
 }
 
@@ -239,7 +239,7 @@ function changeOscillatorType(type){
             "type": type
         }
     });
-    console.log("oscillator changed to: " + type)
+    //console.log("oscillator changed to: " + type)
 }
 
 window.triggerOscillatorChange = function(e){
