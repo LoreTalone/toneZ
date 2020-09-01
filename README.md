@@ -1,6 +1,6 @@
 # toneZ
 
-**toneZ** is a tonnetz diagram viewer built for browser in html5+css3+javascript using [p5.js](https://p5js.org/) for graphics and the [Tone.js](https://tonejs.github.io/) for sound.
+**toneZ** is a tonnetz diagram viewer built for browser in *html5 + css3 + javascript* using [p5.js](https://p5js.org/) for graphics and the [Tone.js](https://tonejs.github.io/) for sound.
 
 The tonnetz is a lattice diagram representing tonal space. It can be used to visualize harmonic relationships in music. \
 Each node in the diagram corresponds to one of the 12 tones and is connected to 6 adjacent nodes. \
@@ -15,9 +15,9 @@ See [Tonnetz][1], [Isochord][2] and [Neo-Remannian Theory][3] for more info.
 
 ## Getting Started
 
-You just need to serve the main folder and then navigate to the ```index.html``` file to run the software.
-You can also find the web app [here](https://loretalone.github.io/toneZ/) (GitHub Host service).
-If your browser supports the Web MIDI API, you can use toneZ with any MIDI-enabled instrument otherwise you can use your computer's keyboard to control the app.
+You just need to serve the main folder and then navigate to the ```index.html``` file to run the software. \
+If your browser supports the Web MIDI API, you can use **toneZ** with any MIDI-enabled instrument otherwise you can use your computer's keyboard to control the app. \
+You can also find the web app **[here](https://loretalone.github.io/toneZ/)** (GitHub Host service). \
 Here the built-in keyboard mapping.
 
 <p align="center"><img src="images/built_in_keyboard_mapping.png"></p>
@@ -39,7 +39,8 @@ Furthermore you can also find a synthesizer composed by a selectable oscillator 
 
 
 ## Game Mode
-Here you can have fun learning the tonnetz system on your MIDI keyboard. The program shows some triads on the grid and you will have to find and play the right chords on the keyboard. Beware! Every wrong note makes you lose a life!!
+Here you can have fun learning the tonnetz system on your MIDI keyboard. The program shows some triads on the grid and you will have to find and play the right chords on the keyboard. \ 
+**Beware!** Every wrong note makes you lose a life!
 
 
 ## Browser Compatibility
@@ -57,8 +58,8 @@ This project is compatible with most common browsers. However, MIDI functionalit
 
 ## Authors
 
-* **Antonio Giganti** - [Antonio Giganti](https://github.com/antonelse)
-* **Lorenzo Talone** - [Lorenzo Talone](https://github.com/LoreTalone)
+* **Antonio Giganti** - [GitHub](https://github.com/antonelse)
+* **Lorenzo Talone** - [GitHub](https://github.com/LoreTalone)
 
 
 ## License
