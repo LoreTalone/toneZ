@@ -73,7 +73,7 @@ Copyright (C) 2020  Antonio Giganti & Lorenzo Talone
 
 ## Links
 
-* [Videos](https://youtu.be/6UYUe8NLkVk) - on YouTube
+* [Video](https://youtu.be/6UYUe8NLkVk) - on YouTube
 * [GitHub repository](https://github.com/LoreTalone/toneZ)
 
 [1]: https://en.wikipedia.org/wiki/Tonnetz "Wikipedia article about the Tonnetz"
