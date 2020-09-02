@@ -57,7 +57,6 @@ function noteOn(note, velocity){
         voicingOn(equivalentKeyCode);
     }
     activateNoteOnGrid(note);
-    pattern.redrawRequired = true;
 }
 
 function noteOff(note){
@@ -65,10 +64,10 @@ function noteOff(note){
     let equivalentKeyCode = midiToEquivalentKeycode(note);
     voicingOff(equivalentKeyCode);
     deactivateNoteOnGrid(note);
-    pattern.redrawRequired = true;
 }
 
 function activateNoteOnGrid(note){
+    pattern.redrawRequired = true;
     let noteNumber = note % 12;
 
     switch(noteNumber){
@@ -123,6 +122,7 @@ function activateNoteOnGrid(note){
 }
 
 function deactivateNoteOnGrid(note){
+    pattern.redrawRequired = true;
     let noteNumber = note % 12;
 
     switch(noteNumber){

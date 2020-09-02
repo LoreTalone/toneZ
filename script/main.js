@@ -15,10 +15,9 @@ function draw(){
 }
 
 function redrawAll(){
-  pattern.offScr.clear();
   background(colorBackground);
   translate(0,-150);
-  pattern.drawPattern(pattern.offScr);
+  pattern.drawPattern();
 
 /*        :::::::::::            GRID GENERATOR            :::::::::::        */
   let shift = 0;
@@ -56,7 +55,6 @@ function windowResized() {
 
 /*        :::::::::::            KEY EVENT            :::::::::::        */
 function pressedKey(btn){
-  pattern.redrawRequired = true;
   code = btn.keyCode;
 
   switch(code){
@@ -132,10 +130,10 @@ function pressedKey(btn){
         pattern.turnOnNote([6]);
       break;
     }
+    document.addEventListener('keydown', keyVoicingOn);
 }
 
 function releasedKey(btn){
-    pattern.redrawRequired = true;
     code = btn.keyCode;
 
     switch(code){
@@ -211,6 +209,7 @@ function releasedKey(btn){
         pattern.turnOffNote([6]);
       break;
     }
+    document.addEventListener('keyup', keyVoicingOff);
 }
 
 document.addEventListener('keydown', pressedKey);
@@ -1461,9 +1460,6 @@ function voicingOff(code){
     }
   }
 }
-
-  document.addEventListener('keydown', keyVoicingOn);
-  document.addEventListener('keyup', keyVoicingOff);
 
 
 /*        :::::::::::            SCALE CHANGE FUNCTION            :::::::::::        */

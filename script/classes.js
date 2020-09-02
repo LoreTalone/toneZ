@@ -122,7 +122,10 @@ class basicPattern {
     this.chordsList.push(new Chord(this.notesList[18],this.notesList[19],this.notesList[14]));
   }
 
-  drawPattern(canvas) {
+  drawPattern() {
+    this.offScr.clear();
+    let canvas = this.offScr;
+    this.redrawRequired = true;
     for (let i = 0; i < this.chordsList.length; i++){
       this.chordsList[i].draw(canvas);
     }
@@ -153,6 +156,7 @@ class basicPattern {
   }
 
   turnOnNote(notePosition){
+    pattern.redrawRequired = true;
     let position;
     for (position of notePosition){
       this.notesList[position].isActive = true;
@@ -160,6 +164,7 @@ class basicPattern {
   }
 
   turnOffNote(notePosition){
+    pattern.redrawRequired = true;
     let position;
     for (position of notePosition){
       this.notesList[position].isActive = false;
