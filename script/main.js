@@ -1522,9 +1522,11 @@ window.triggerScaleChange = function(e){
   currentScale = e.value;
   //console.log("Scala da visualizzare: " + currentScale + " " + currentMode);
   if(currentScale != "none") {
+    currentMode = document.getElementById("modes").value;
     activateScaleNotes(currentScale);
   }
   else {
+    currentMode = "ionian";
     activateScaleNotes("C");
     pattern.resetNoteStatus();
     //This is to show the "simplest" note names if no scale is selected

@@ -8,7 +8,7 @@ The 'neighbours' of each tone are related to it either by a third (major or mino
 
 <p align="center"><img src="images/grid_interval_examples.png"></p>
 
-<p align="center"><img width="460" height="300" src="images/chord.gif"></p>
+<p align="center"><img src="images/chord.gif"></p>
 
 See [Tonnetz][1], [Isochord][2] and [Neo-Remannian Theory][3] for more info.
 
@@ -25,16 +25,16 @@ You can also use the web app **[here](https://loretalone.github.io/toneZ/)** (Gi
 ## Standard Mode
 In this mode, you can find the standard tonnetz grid enhanced with the possibility of showing all the different diatonic scales in all keys and modes.
 
-<p align="center"><img width="460" height="300" src="images/scale.gif"></p>
-<p align="center"><img width="460" height="300" src="images/mode.gif"></p>
+<p align="center"><img src="images/scale.gif"></p>
+<p align="center"><img src="images/mode.gif"></p>
 
 You can also enable the "show voicings" options in order to visualize for each note its 3rd and 7th grade according to the current key and mode.
 
-<p align="center"><img width="460" height="300" src="images/voicing.gif"></p>
+<p align="center"><img src="images/voicing.gif"></p>
 
 Furthermore, you can also find a synthesizer composed by a selectable oscillator and a built-in and customizable ADSR envelope.
 
-<p align="center"><img width="390" height="300" src="images/synth.gif"></p>
+<p align="center"><img src="images/synth.gif"></p>
 
 
 ## Game Mode
