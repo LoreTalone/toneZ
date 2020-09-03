@@ -15,12 +15,12 @@ See [Tonnetz][1], [Isochord][2] and [Neo-Remannian Theory][3] for more info.
 
 ## Getting Started
 
-You just need to serve the main folder and then navigate to the ```index.html``` file to run the software. \
+You just need to serve the main folder and then navigate to the ```index.html``` file to run the software.
+Alternatively, you can also use the web app directly online **[HERE](https://loretalone.github.io/toneZ/)**  (GitHub Host service).\
 If your browser supports the Web MIDI API, you can use **toneZ** with any MIDI-enabled instrument otherwise you can use your computer's keyboard to control the app with the built-in keyboard mapping depicted below.
 
 <p align="center"><img src="images/built_in_keyboard_mapping.png"></p>
 
-You can also use the web app **[here](https://loretalone.github.io/toneZ/)** (GitHub Host service).
 
 ## Standard Mode
 In this mode, you can find the standard tonnetz grid enhanced with the possibility of showing all the different diatonic scales in all keys and modes.
