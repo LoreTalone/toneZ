@@ -14,6 +14,8 @@ const notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"];
 
 var notesBeingPlayed = [];
 
+var wrongNotes = [];
+
 var newNotesRequired = true;
 
 var iterationNeeded = false;
@@ -288,7 +290,14 @@ function iterateGame(){
             //console.log("Nota corretta!");
             notesBeingPlayed = [];
             synth.releaseAll(Tone.now() + 0.3);
-            alert("Correct chord!");
+            //alert("Correct chord!");
+            swal({
+                title: "Correct chord!",
+                icon: "success",
+                text: " ",
+                button: false,
+                timer: 1500,
+            });
             if(lives<6){
                 lives++;
                 let currentLife = "#life" + lives;
@@ -302,33 +311,54 @@ function iterateGame(){
 
         
         do{
+
             for (var note of notesBeingPlayed){
-                console.log("Prima della valutazione: " + notesBeingPlayed);
-                console.log("Nota di notesBeingPlayed: " + note);
+                //console.log("Prima della valutazione: " + notesBeingPlayed);
+                //console.log("Nota di notesBeingPlayed: " + note);
                 if(notedisplayed1 != note && notedisplayed2 != note && notedisplayed3 != note){
                     //console.log("Nota sbagliata!");
-                    console.log("Dopo la valutazione: " + notesBeingPlayed);
+                    //console.log("Dopo la valutazione: " + notesBeingPlayed);
                     let currentLife = "#life" + lives;
                     //console.log("Vita da rimuovere: " + currentLife);
                     $(currentLife).removeClass('life');
                     synth.releaseAll(Tone.now() + 0.3);
-                    alert("Wrong note! " + note + " is not present in the chord" );
+                    //alert("Wrong note! " + note + " is not present in the chord" );
+                    wrongNotes.push(note);
                     notesBeingPlayed.splice(notesBeingPlayed.indexOf(note), 1);
                     lives --;
-                    console.log("Lunghezza notesBeingPlayed: " + notesBeingPlayed.length);
+                    //console.log("Lunghezza notesBeingPlayed: " + notesBeingPlayed.length);
                     iterationNeeded = true;
                     
                 }
                 else{
                     notesBeingPlayed.splice(notesBeingPlayed.indexOf(note), 1);
                 }
+
             }
         } while(notesBeingPlayed.length != 0);
     
         
     
         if(iterationNeeded && !notesBeingPlayed.length){
-            console.log("Dentro l'if")
+            if(wrongNotes.length == 1){
+                swal({
+                    title: "Wrong note!",
+                    text: wrongNotes[0] + " is not present in the chord!",
+                    icon: "error",
+                    button: false,
+                    timer: 2500,
+                });
+            } else{
+                swal({
+                    title: "Wrong notes!",
+                    text: wrongNotes.toString() + " are not present in the chord!",
+                    icon: "error",
+                    button: false,
+                    timer: 2500,
+                });
+            }
+            
+            wrongNotes.splice(0);
             newNotesRequired = true;
             iterationNeeded = false;
             iterateGame();

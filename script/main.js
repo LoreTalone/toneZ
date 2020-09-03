@@ -2,6 +2,8 @@ var currentScale;
 var currentMode = "ionian";
 var showVoicings = "false";
 
+var equivalentIonian;
+
 /*        :::::::::::            GRAPHICS SETUP            :::::::::::        */
 function setup (){
     createCanvas (windowWidth, windowHeight);
@@ -231,7 +233,7 @@ function keyVoicingOff(btn){
 }
 
 function voicingOn(code){
-  if (currentScale == "C") {
+  if (equivalentIonian == "C") {
     switch(code){
       case 53:
       case 81:
@@ -282,7 +284,7 @@ function voicingOn(code){
         pattern.turnOnVoiceNote("A");
       break;
     }
-  } else if (currentScale == "Cshrp") {
+  } else if (equivalentIonian == "Cshrp") {
     switch(code){
       case 73:
       case 70: //C#
@@ -334,7 +336,7 @@ function voicingOn(code){
         pattern.turnOnVoiceNote("A#");
       break;
     }
-  } else if (currentScale == "D"){
+  } else if (equivalentIonian == "D"){
     switch(code){
       case 55:
       case 69:
@@ -382,7 +384,7 @@ function voicingOn(code){
         pattern.turnOnVoiceNote("B");
       break;
     }
-  } else if (currentScale == "Dshrp"){
+  } else if (equivalentIonian == "Dshrp"){
     switch(code){
       case 50:
       case 80:
@@ -436,7 +438,7 @@ function voicingOn(code){
         pattern.turnOnVoiceNote("B#");
       break;
     }
-  } else if (currentScale == "E"){
+  } else if (equivalentIonian == "E"){
     switch(code){
       case 57:
       case 84:
@@ -486,7 +488,7 @@ function voicingOn(code){
         pattern.turnOnVoiceNote("C#");
       break;
     }
-  } else if (currentScale == "F"){
+  } else if (equivalentIonian == "F"){
     switch(code){
       case 52:
       case 75:
@@ -537,7 +539,7 @@ function voicingOn(code){
         pattern.turnOnVoiceNote("D");
       break;
     }
-  } else if (currentScale == "Fshrp"){
+  } else if (equivalentIonian == "Fshrp"){
     switch(code){
       case 85:
       case 68: //F#
@@ -588,7 +590,7 @@ function voicingOn(code){
         pattern.turnOnVoiceNote("D#");
       break;
     }
-  } else if (currentScale == "G"){
+  } else if (equivalentIonian == "G"){
     switch(code){
       case 54:
       case 87:
@@ -638,7 +640,7 @@ function voicingOn(code){
         pattern.turnOnVoiceNote("E");
       break;
     }
-  } else if (currentScale == "Gshrp"){
+  } else if (equivalentIonian == "Gshrp"){
     switch(code){
       case 49:
       case 79:
@@ -691,7 +693,7 @@ function voicingOn(code){
         pattern.turnOnVoiceNote("E#");
       break;
     }
-  } else if (currentScale == "A"){
+  } else if (equivalentIonian == "A"){
     switch(code){
       case 56:
       case 82: //A
@@ -740,7 +742,7 @@ function voicingOn(code){
         pattern.turnOnVoiceNote("F#");
       break;
     }
-  } else if (currentScale == "Ashrp"){
+  } else if (equivalentIonian == "Ashrp"){
     switch(code){
       case 51:
       case 74:
@@ -792,7 +794,7 @@ function voicingOn(code){
         pattern.turnOnVoiceNote("F##");
       break;
     }
-  } else if (currentScale == "B"){
+  } else if (equivalentIonian == "B"){
     switch(code){
       case 48:
       case 89:
@@ -847,7 +849,7 @@ function voicingOn(code){
 }
 
 function voicingOff(code){
-  if (currentScale == "C") {
+  if (equivalentIonian == "C") {
     switch(code){
       case 53:
       case 81:
@@ -898,7 +900,7 @@ function voicingOff(code){
         pattern.turnOffVoiceNote("A");
       break;
     }
-  } else if (currentScale == "Cshrp") {
+  } else if (equivalentIonian == "Cshrp") {
     switch(code){
       case 73:
       case 70: //C#
@@ -950,7 +952,7 @@ function voicingOff(code){
         pattern.turnOffVoiceNote("A#");
       break;
     }
-  } else if (currentScale == "D"){
+  } else if (equivalentIonian == "D"){
     switch(code){
       case 55:
       case 69:
@@ -998,7 +1000,7 @@ function voicingOff(code){
         pattern.turnOffVoiceNote("B");
       break;
     }
-  } else if (currentScale == "Dshrp"){
+  } else if (equivalentIonian == "Dshrp"){
     switch(code){
       case 50:
       case 80:
@@ -1052,7 +1054,7 @@ function voicingOff(code){
         pattern.turnOffVoiceNote("B#");
       break;
     }
-  } else if (currentScale == "E"){
+  } else if (equivalentIonian == "E"){
     switch(code){
       case 57:
       case 84:
@@ -1102,7 +1104,7 @@ function voicingOff(code){
         pattern.turnOffVoiceNote("C#");
       break;
     }
-  } else if (currentScale == "F"){
+  } else if (equivalentIonian == "F"){
     switch(code){
       case 52:
       case 75:
@@ -1153,7 +1155,7 @@ function voicingOff(code){
         pattern.turnOffVoiceNote("D");
       break;
     }
-  } else if (currentScale == "Fshrp"){
+  } else if (equivalentIonian == "Fshrp"){
     switch(code){
       case 85:
       case 68: //F#
@@ -1204,7 +1206,7 @@ function voicingOff(code){
         pattern.turnOffVoiceNote("D#");
       break;
     }
-  } else if (currentScale == "G"){
+  } else if (equivalentIonian == "G"){
     switch(code){
       case 54:
       case 87:
@@ -1254,7 +1256,7 @@ function voicingOff(code){
         pattern.turnOffVoiceNote("E");
       break;
     }
-  } else if (currentScale == "Gshrp"){
+  } else if (equivalentIonian == "Gshrp"){
     switch(code){
       case 49:
       case 79:
@@ -1307,7 +1309,7 @@ function voicingOff(code){
         pattern.turnOffVoiceNote("E#");
       break;
     }
-  } else if (currentScale == "A"){
+  } else if (equivalentIonian == "A"){
     switch(code){
       case 56:
       case 82: //A
@@ -1356,7 +1358,7 @@ function voicingOff(code){
         pattern.turnOffVoiceNote("F#");
       break;
     }
-  } else if (currentScale == "Ashrp"){
+  } else if (equivalentIonian == "Ashrp"){
     switch(code){
       case 51:
       case 74:
@@ -1408,7 +1410,7 @@ function voicingOff(code){
         pattern.turnOffVoiceNote("F##");
       break;
     }
-  } else if (currentScale == "B"){
+  } else if (equivalentIonian == "B"){
     switch(code){
       case 48:
       case 89:
@@ -1473,7 +1475,7 @@ function activateScaleNotes(rootNote){
   pattern.redrawRequired = true;
 
   let offset;
-  let equivalentIonian;
+  
   let notePosition = basicNotes.indexOf(rootNote);
 
   switch(currentMode){
