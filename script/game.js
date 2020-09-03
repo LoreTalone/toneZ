@@ -267,7 +267,7 @@ $(document).ready(function(){
 function iterateGame(){
 
     setTimeout(function(){
-        if(lives == 0){
+        if(lives <= 0){
             $('#game-over-modal').modal('show');
         }
     
