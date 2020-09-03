@@ -263,6 +263,14 @@ $(document).ready(function(){
     $('#instruction-modal').modal('show');
 });
 
+document.addEventListener('keydown', function(){
+    swal({
+        title: "Warning!",
+        icon: "warning",
+        text: "Game mode works with MIDI KEYBOARD only",
+    });
+})
+
 
 function iterateGame(){
 
