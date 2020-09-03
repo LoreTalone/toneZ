@@ -73,8 +73,10 @@ Copyright (C) 2020  Antonio Giganti & Lorenzo Talone
 
 ## Links
 
-* [Video](https://youtu.be/6UYUe8NLkVk) - on YouTube
+* [Video Demo](https://youtu.be/6UYUe8NLkVk) - on YouTube
+* [Video Demo using VCV Rack](https://www.youtube.com/watch?v=xCi4-gF1kcQ) - on YouTube
 * [GitHub repository](https://github.com/LoreTalone/toneZ)
+
 
 [1]: https://en.wikipedia.org/wiki/Tonnetz "Wikipedia article about the Tonnetz"
 [2]: https://www.researchgate.net/publication/221474662_Isochords_visualizing_structure_in_music "Conference Paper regarding the Tonnetz musical structure visualization"
