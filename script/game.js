@@ -64,7 +64,6 @@ function noteOn(note, velocity){
     notesBeingPlayed.push(returnNoteNameStringNoOctave(note));
     //console.log("Notes being played: " + notesBeingPlayed);
     iterateGame();
-    pattern.redrawRequired = true; //in order to trigger the redraw function
 }
 
 function noteOff(note){
@@ -73,10 +72,10 @@ function noteOff(note){
     let index = notesBeingPlayed.indexOf(returnNoteNameStringNoOctave(note));
     notesBeingPlayed.splice(index);
     //console.log("Notes being played: " + notesBeingPlayed);
-    pattern.redrawRequired = true; //in order to trigger the redraw function
 }
 
 function activateNoteOnGrid(note){
+    pattern.redrawRequired = true;
     let noteNumber = note % 12;
 
     switch(noteNumber){
@@ -131,6 +130,7 @@ function activateNoteOnGrid(note){
 }
 
 function deactivateNoteOnGrid(note){
+    pattern.redrawRequired = true;
     let noteNumber = note % 12;
 
     switch(noteNumber){
