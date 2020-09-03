@@ -16,6 +16,8 @@ var notesBeingPlayed = [];
 
 var newNotesRequired = true;
 
+var iterationNeeded = false;
+
 var notedisplayed1;
 var notedisplayed2;
 var notedisplayed3;
@@ -262,59 +264,83 @@ $(document).ready(function(){
 
 function iterateGame(){
 
-    if(lives == 0){
-        $('#game-over-modal').modal('show');
-    }
-
-    if(newNotesRequired){
-        pattern.resetNoteStatus();
-        pattern.redrawRequired = true;
-        gameChordDisplayed = gameChords[Math.floor(Math.random() * gameChords.length)];
-        pattern.turnOnGameNote(gameChordDisplayed);
-        notedisplayed1 = pattern.getArrayElement(gameChordDisplayed[0]).id;
-        notedisplayed2 = pattern.getArrayElement(gameChordDisplayed[1]).id;
-        notedisplayed3 = pattern.getArrayElement(gameChordDisplayed[2]).id;
-        newNotesRequired = false;
-    }
-
-    document.getElementById('score-value').innerHTML = "Score: " + totalScore;
-
-    //console.log("Notes: " + notedisplayed1 + " " + notedisplayed2 + " " + notedisplayed3);
-
-
-
-    for (var note of notesBeingPlayed){
-        //console.log("Nota di notesBeingPlayed: " + note);
-        if(notedisplayed1 != note && notedisplayed2 != note && notedisplayed3 != note){
-            //console.log("Nota sbagliata!");
+    setTimeout(function(){
+        if(lives == 0){
+            $('#game-over-modal').modal('show');
+        }
+    
+        if(newNotesRequired){
+            pattern.resetNoteStatus();
+            pattern.redrawRequired = true;
+            gameChordDisplayed = gameChords[Math.floor(Math.random() * gameChords.length)];
+            pattern.turnOnGameNote(gameChordDisplayed);
+            notedisplayed1 = pattern.getArrayElement(gameChordDisplayed[0]).id;
+            notedisplayed2 = pattern.getArrayElement(gameChordDisplayed[1]).id;
+            notedisplayed3 = pattern.getArrayElement(gameChordDisplayed[2]).id;
+            newNotesRequired = false;
+        }
+    
+        document.getElementById('score-value').innerHTML = "Score: " + totalScore;
+    
+        //console.log("Notes: " + notedisplayed1 + " " + notedisplayed2 + " " + notedisplayed3);
+    
+        if(notesBeingPlayed.includes(notedisplayed1) && notesBeingPlayed.includes(notedisplayed2) && notesBeingPlayed.includes(notedisplayed3)){
+            //console.log("Nota corretta!");
             notesBeingPlayed = [];
-            let currentLife = "#life" + lives;
-            //console.log("Vita da rimuovere: " + currentLife);
-            $(currentLife).removeClass('life');
             synth.releaseAll(Tone.now() + 0.3);
-            alert("Wrong note! " + note + " is not present in the chord" );
-            lives --;
+            alert("Correct chord!");
+            if(lives<6){
+                lives++;
+                let currentLife = "#life" + lives;
+                //console.log("Vita da aggiungere: " + currentLife);
+                $(currentLife).addClass('life');
+            }
+            totalScore ++;
             newNotesRequired = true;
             iterateGame();
         }
-    }
 
-
-    if(notesBeingPlayed.includes(notedisplayed1) && notesBeingPlayed.includes(notedisplayed2) && notesBeingPlayed.includes(notedisplayed3)){
-        //console.log("Nota corretta!");
-        notesBeingPlayed = [];
-        synth.releaseAll(Tone.now() + 0.3);
-        alert("Correct chord!");
-        if(lives<6){
-            lives++;
-            let currentLife = "#life" + lives;
-            //console.log("Vita da aggiungere: " + currentLife);
-            $(currentLife).addClass('life');
+        
+        do{
+            for (var note of notesBeingPlayed){
+                console.log("Prima della valutazione: " + notesBeingPlayed);
+                console.log("Nota di notesBeingPlayed: " + note);
+                if(notedisplayed1 != note && notedisplayed2 != note && notedisplayed3 != note){
+                    //console.log("Nota sbagliata!");
+                    console.log("Dopo la valutazione: " + notesBeingPlayed);
+                    let currentLife = "#life" + lives;
+                    //console.log("Vita da rimuovere: " + currentLife);
+                    $(currentLife).removeClass('life');
+                    synth.releaseAll(Tone.now() + 0.3);
+                    alert("Wrong note! " + note + " is not present in the chord" );
+                    notesBeingPlayed.splice(notesBeingPlayed.indexOf(note), 1);
+                    lives --;
+                    console.log("Lunghezza notesBeingPlayed: " + notesBeingPlayed.length);
+                    iterationNeeded = true;
+                    
+                }
+                else{
+                    notesBeingPlayed.splice(notesBeingPlayed.indexOf(note), 1);
+                }
+            }
+        } while(notesBeingPlayed.length != 0);
+    
+        
+    
+        if(iterationNeeded && !notesBeingPlayed.length){
+            console.log("Dentro l'if")
+            newNotesRequired = true;
+            iterationNeeded = false;
+            iterateGame();
         }
-        totalScore ++;
-        newNotesRequired = true;
-        iterateGame();
-    }
+    
+        
+    
+    
+        
+    }, 150);
+
+    
 }
 
 function returnToMainMenu(){
