@@ -73,7 +73,7 @@ Copyright (C) 2020  Antonio Giganti & Lorenzo Talone
 
 ## Links
 
-* [Video Demo](https://youtu.be/6UYUe8NLkVk) - on YouTube
+* [Video Demo](https://www.youtube.com/watch?v=hdk3Amg2u1s) - on YouTube
 * [Video Demo using VCV Rack](https://www.youtube.com/watch?v=xCi4-gF1kcQ) - on YouTube
 * [GitHub repository](https://github.com/LoreTalone/toneZ)
 
