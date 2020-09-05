@@ -335,6 +335,58 @@ function voicingOn(code){
         pattern.turnOnVoiceNote("A#");
       break;
     }
+  } else if (equivalentIonian == "Db") {
+    switch(code){
+      case 73:
+      case 70: //Db
+        pattern.turnOnVoiceNote("F");
+        pattern.turnOnVoiceNote("C");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //Eb
+        pattern.turnOnVoiceNote("Gb");
+        pattern.turnOnVoiceNote("Db");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOnVoiceNote("Ab");
+        pattern.turnOnVoiceNote("Eb");
+      break;
+
+      case 85:
+      case 68: //Gb
+        pattern.turnOnVoiceNote("Bb");
+        pattern.turnOnVoiceNote("F");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //Ab
+        pattern.turnOnVoiceNote("C");
+        pattern.turnOnVoiceNote("Gb");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //Bb
+        pattern.turnOnVoiceNote("Db");
+        pattern.turnOnVoiceNote("Ab");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C
+        pattern.turnOnVoiceNote("Eb");
+        pattern.turnOnVoiceNote("Bb");
+      break;
+    }
   } else if (equivalentIonian == "D"){
     switch(code){
       case 55:
@@ -437,6 +489,60 @@ function voicingOn(code){
         pattern.turnOnVoiceNote("B#");
       break;
     }
+  } else if (equivalentIonian == "Eb"){
+    switch(code){
+      case 50:
+      case 80:
+      case 72:
+      case 88: //Eb
+        pattern.turnOnVoiceNote("G");
+        pattern.turnOnVoiceNote("D");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOnVoiceNote("Ab");
+        pattern.turnOnVoiceNote("Eb");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOnVoiceNote("Bb");
+        pattern.turnOnVoiceNote("F");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //Ab
+        pattern.turnOnVoiceNote("C");
+        pattern.turnOnVoiceNote("G");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //Bb
+        pattern.turnOnVoiceNote("D");
+        pattern.turnOnVoiceNote("Ab");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C
+        pattern.turnOnVoiceNote("Eb");
+        pattern.turnOnVoiceNote("Bb");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D
+        pattern.turnOnVoiceNote("F");
+        pattern.turnOnVoiceNote("C");
+      break;
+    }
   } else if (equivalentIonian == "E"){
     switch(code){
       case 57:
@@ -485,6 +591,57 @@ function voicingOn(code){
       case 88: //D#
         pattern.turnOnVoiceNote("F#");
         pattern.turnOnVoiceNote("C#");
+      break;
+    }
+  } else if (equivalentIonian == "Eshrp"){
+    switch(code){
+      case 52:
+      case 75:
+      case 86: //E#
+        pattern.turnOnVoiceNote("G##");
+        pattern.turnOnVoiceNote("D##");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //F##
+        pattern.turnOnVoiceNote("A#");
+        pattern.turnOnVoiceNote("E#");
+      break;
+
+      case 56:
+      case 82: //G##
+        pattern.turnOnVoiceNote("B#");
+        pattern.turnOnVoiceNote("F##");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //A#
+        pattern.turnOnVoiceNote("C##");
+        pattern.turnOnVoiceNote("G##");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //B#
+        pattern.turnOnVoiceNote("D##");
+        pattern.turnOnVoiceNote("A#");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //C##
+        pattern.turnOnVoiceNote("E#");
+        pattern.turnOnVoiceNote("B#");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //D##
+        pattern.turnOnVoiceNote("F##");
+        pattern.turnOnVoiceNote("C##");
       break;
     }
   } else if (equivalentIonian == "F"){
@@ -587,6 +744,57 @@ function voicingOn(code){
       case 86: //F (E#)
         pattern.turnOnVoiceNote("G#");
         pattern.turnOnVoiceNote("D#");
+      break;
+    }
+  } else if (equivalentIonian == "Gb"){
+    switch(code){
+      case 85:
+      case 68: //Gb
+        pattern.turnOnVoiceNote("Bb");
+        pattern.turnOnVoiceNote("F");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //Ab
+        pattern.turnOnVoiceNote("Cb");
+        pattern.turnOnVoiceNote("Gb");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //Bb
+        pattern.turnOnVoiceNote("Db");
+        pattern.turnOnVoiceNote("Ab");
+      break;
+
+      case 48:
+      case 89:
+      case 83: //Cb
+        pattern.turnOnVoiceNote("Eb");
+        pattern.turnOnVoiceNote("Bb");
+      break;
+
+      case 73:
+      case 70: //Db
+        pattern.turnOnVoiceNote("F");
+        pattern.turnOnVoiceNote("Cb");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //Eb
+        pattern.turnOnVoiceNote("Gb");
+        pattern.turnOnVoiceNote("Db");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOnVoiceNote("Ab");
+        pattern.turnOnVoiceNote("Eb");
       break;
     }
   } else if (equivalentIonian == "G"){
@@ -692,6 +900,59 @@ function voicingOn(code){
         pattern.turnOnVoiceNote("E#");
       break;
     }
+  } else if (equivalentIonian == "Ab"){
+    switch(code){
+      case 49:
+      case 79:
+      case 71:
+      case 90: //Ab
+        pattern.turnOnVoiceNote("C");
+        pattern.turnOnVoiceNote("G");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //Bb
+        pattern.turnOnVoiceNote("Db");
+        pattern.turnOnVoiceNote("Ab");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C
+        pattern.turnOnVoiceNote("Eb");
+        pattern.turnOnVoiceNote("Bb");
+      break;
+
+      case 73:
+      case 70: //Db
+        pattern.turnOnVoiceNote("F");
+        pattern.turnOnVoiceNote("Cb");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //Eb
+        pattern.turnOnVoiceNote("G");
+        pattern.turnOnVoiceNote("Db");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOnVoiceNote("Ab");
+        pattern.turnOnVoiceNote("Eb");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOnVoiceNote("Bb");
+        pattern.turnOnVoiceNote("F");
+      break;
+    }
   } else if (equivalentIonian == "A"){
     switch(code){
       case 56:
@@ -791,6 +1052,58 @@ function voicingOn(code){
       case 82: //A (G##)
         pattern.turnOnVoiceNote("B#");
         pattern.turnOnVoiceNote("F##");
+      break;
+    }
+  } else if (equivalentIonian == "Bb"){
+    switch(code){
+      case 51:
+      case 74:
+      case 67: //Bb
+        pattern.turnOnVoiceNote("D");
+        pattern.turnOnVoiceNote("A");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C
+        pattern.turnOnVoiceNote("Eb");
+        pattern.turnOnVoiceNote("Bb");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D
+        pattern.turnOnVoiceNote("F");
+        pattern.turnOnVoiceNote("C");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //Eb
+        pattern.turnOnVoiceNote("G");
+        pattern.turnOnVoiceNote("D");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOnVoiceNote("A");
+        pattern.turnOnVoiceNote("Eb");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOnVoiceNote("Bb");
+        pattern.turnOnVoiceNote("F");
+      break;
+
+      case 56:
+      case 82: //A
+        pattern.turnOnVoiceNote("C");
+        pattern.turnOnVoiceNote("G");
       break;
     }
   } else if (equivalentIonian == "B"){
@@ -951,6 +1264,58 @@ function voicingOff(code){
         pattern.turnOffVoiceNote("A#");
       break;
     }
+  } else if (equivalentIonian == "Db") {
+    switch(code){
+      case 73:
+      case 70: //Db
+        pattern.turnOffVoiceNote("F");
+        pattern.turnOffVoiceNote("C");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //Eb
+        pattern.turnOffVoiceNote("Gb");
+        pattern.turnOffVoiceNote("Db");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOffVoiceNote("Ab");
+        pattern.turnOffVoiceNote("Eb");
+      break;
+
+      case 85:
+      case 68: //Gb
+        pattern.turnOffVoiceNote("Bb");
+        pattern.turnOffVoiceNote("F");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //Ab
+        pattern.turnOffVoiceNote("C");
+        pattern.turnOffVoiceNote("Gb");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //Bb
+        pattern.turnOffVoiceNote("Db");
+        pattern.turnOffVoiceNote("Ab");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C
+        pattern.turnOffVoiceNote("Eb");
+        pattern.turnOffVoiceNote("Bb");
+      break;
+    }
   } else if (equivalentIonian == "D"){
     switch(code){
       case 55:
@@ -1053,6 +1418,60 @@ function voicingOff(code){
         pattern.turnOffVoiceNote("B#");
       break;
     }
+  } else if (equivalentIonian == "Eb"){
+    switch(code){
+      case 50:
+      case 80:
+      case 72:
+      case 88: //Eb
+        pattern.turnOffVoiceNote("G");
+        pattern.turnOffVoiceNote("D");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOffVoiceNote("Ab");
+        pattern.turnOffVoiceNote("Eb");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOffVoiceNote("Bb");
+        pattern.turnOffVoiceNote("F");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //Ab
+        pattern.turnOffVoiceNote("C");
+        pattern.turnOffVoiceNote("G");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //Bb
+        pattern.turnOffVoiceNote("D");
+        pattern.turnOffVoiceNote("Ab");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C
+        pattern.turnOffVoiceNote("Eb");
+        pattern.turnOffVoiceNote("Bb");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D
+        pattern.turnOffVoiceNote("F");
+        pattern.turnOffVoiceNote("C");
+      break;
+    }
   } else if (equivalentIonian == "E"){
     switch(code){
       case 57:
@@ -1101,6 +1520,57 @@ function voicingOff(code){
       case 88: //D#
         pattern.turnOffVoiceNote("F#");
         pattern.turnOffVoiceNote("C#");
+      break;
+    }
+  } else if (equivalentIonian == "Eshrp"){
+    switch(code){
+      case 52:
+      case 75:
+      case 86: //E#
+        pattern.turnOffVoiceNote("G##");
+        pattern.turnOffVoiceNote("D##");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //F##
+        pattern.turnOffVoiceNote("A#");
+        pattern.turnOffVoiceNote("E#");
+      break;
+
+      case 56:
+      case 82: //G##
+        pattern.turnOffVoiceNote("B#");
+        pattern.turnOffVoiceNote("F##");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //A#
+        pattern.turnOffVoiceNote("C##");
+        pattern.turnOffVoiceNote("G##");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //B#
+        pattern.turnOffVoiceNote("D##");
+        pattern.turnOffVoiceNote("A#");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //C##
+        pattern.turnOffVoiceNote("E#");
+        pattern.turnOffVoiceNote("B#");
+      break;
+
+      case 57:
+      case 84:
+      case 65: //D##
+        pattern.turnOffVoiceNote("F##");
+        pattern.turnOffVoiceNote("C##");
       break;
     }
   } else if (equivalentIonian == "F"){
@@ -1203,6 +1673,57 @@ function voicingOff(code){
       case 86: //F (E#)
         pattern.turnOffVoiceNote("G#");
         pattern.turnOffVoiceNote("D#");
+      break;
+    }
+  } else if (equivalentIonian == "Gb"){
+    switch(code){
+      case 85:
+      case 68: //Gb
+        pattern.turnOffVoiceNote("Bb");
+        pattern.turnOffVoiceNote("F");
+      break;
+
+      case 49:
+      case 79:
+      case 71:
+      case 90: //Ab
+        pattern.turnOffVoiceNote("Cb");
+        pattern.turnOffVoiceNote("Gb");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //Bb
+        pattern.turnOffVoiceNote("Db");
+        pattern.turnOffVoiceNote("Ab");
+      break;
+
+      case 48:
+      case 89:
+      case 83: //Cb
+        pattern.turnOffVoiceNote("Eb");
+        pattern.turnOffVoiceNote("Bb");
+      break;
+
+      case 73:
+      case 70: //Db
+        pattern.turnOffVoiceNote("F");
+        pattern.turnOffVoiceNote("Cb");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //Eb
+        pattern.turnOffVoiceNote("Gb");
+        pattern.turnOffVoiceNote("Db");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOffVoiceNote("Ab");
+        pattern.turnOffVoiceNote("Eb");
       break;
     }
   } else if (equivalentIonian == "G"){
@@ -1308,6 +1829,59 @@ function voicingOff(code){
         pattern.turnOffVoiceNote("E#");
       break;
     }
+  } else if (equivalentIonian == "Ab"){
+    switch(code){
+      case 49:
+      case 79:
+      case 71:
+      case 90: //Ab
+        pattern.turnOffVoiceNote("C");
+        pattern.turnOffVoiceNote("G");
+      break;
+
+      case 51:
+      case 74:
+      case 67: //Bb
+        pattern.turnOffVoiceNote("Db");
+        pattern.turnOffVoiceNote("Ab");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C
+        pattern.turnOffVoiceNote("Eb");
+        pattern.turnOffVoiceNote("Bb");
+      break;
+
+      case 73:
+      case 70: //Db
+        pattern.turnOffVoiceNote("F");
+        pattern.turnOffVoiceNote("Cb");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //Eb
+        pattern.turnOffVoiceNote("G");
+        pattern.turnOffVoiceNote("Db");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOffVoiceNote("Ab");
+        pattern.turnOffVoiceNote("Eb");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOffVoiceNote("Bb");
+        pattern.turnOffVoiceNote("F");
+      break;
+    }
   } else if (equivalentIonian == "A"){
     switch(code){
       case 56:
@@ -1407,6 +1981,58 @@ function voicingOff(code){
       case 82: //A (G##)
         pattern.turnOffVoiceNote("B#");
         pattern.turnOffVoiceNote("F##");
+      break;
+    }
+  } else if (equivalentIonian == "Bb"){
+    switch(code){
+      case 51:
+      case 74:
+      case 67: //Bb
+        pattern.turnOffVoiceNote("D");
+        pattern.turnOffVoiceNote("A");
+      break;
+
+      case 53:
+      case 81:
+      case 66:
+      case 76: //C
+        pattern.turnOffVoiceNote("Eb");
+        pattern.turnOffVoiceNote("Bb");
+      break;
+
+      case 55:
+      case 69:
+      case 77: //D
+        pattern.turnOffVoiceNote("F");
+        pattern.turnOffVoiceNote("C");
+      break;
+
+      case 50:
+      case 80:
+      case 72:
+      case 88: //Eb
+        pattern.turnOffVoiceNote("G");
+        pattern.turnOffVoiceNote("D");
+      break;
+
+      case 52:
+      case 75:
+      case 86: //F
+        pattern.turnOffVoiceNote("A");
+        pattern.turnOffVoiceNote("Eb");
+      break;
+
+      case 54:
+      case 87:
+      case 78: //G
+        pattern.turnOffVoiceNote("Bb");
+        pattern.turnOffVoiceNote("F");
+      break;
+
+      case 56:
+      case 82: //A
+        pattern.turnOffVoiceNote("C");
+        pattern.turnOffVoiceNote("G");
       break;
     }
   } else if (equivalentIonian == "B"){
@@ -1513,9 +2139,33 @@ function activateScaleNotes(rootNote){
   var equivalentIonianIndex = notePosition - offset;
   equivalentIonian = basicNotes[equivalentIonianIndex];
   var array = scaleMap.get(equivalentIonian);
+
+  if((currentScale == "C" && currentMode == "locrian") || (currentScale == "F" && currentMode == "phrygian")){
+    array = scaleMap.get("Db");
+    equivalentIonian = "Db";
+  }else if((currentScale == "C" && currentMode == "aeolian") || (currentScale == "D" && currentMode == "locrian") || (currentScale == "F" && currentMode == "dorian") || (currentScale == "G" && currentMode == "phrygian")){
+    array = scaleMap.get("Eb");
+    equivalentIonian = "Eb";
+  }else if((currentScale == "F" && currentMode == "locrian")){
+    array = scaleMap.get("Gb");
+    equivalentIonian = "Gb";
+  }else if((currentScale == "C" && currentMode == "phrygian") || (currentScale == "F" && currentMode == "aeolian") || (currentScale == "G" && currentMode == "locrian")){
+    array = scaleMap.get("Ab");
+    equivalentIonian = "Ab";
+  }else if((currentScale == "C" && currentMode == "dorian") || (currentScale == "D" && currentMode == "phrygian") || (currentScale == "F" && currentMode == "mixolydian") || (currentScale == "G" && currentMode == "aeolian") || (currentScale == "A" && currentMode == "locrian")){
+    array = scaleMap.get("Bb");
+    equivalentIonian = "Bb";
+  }else if((currentScale == "Ashrp" && currentMode == "lydian")){
+    array = scaleMap.get("Eshrp");
+    equivalentIonian = "Eshrp";
+  }
+  
   pattern.changeNoteId(array);
   pattern.turnOnRootNote(currentScale);
   pattern.turnOnScaleNotes(scaleNotes.get(equivalentIonian));
+
+
+  
 }
 
 //DOM interaction

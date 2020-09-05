@@ -323,6 +323,8 @@ class Chord {
   draw(canvas){
     if (this.note1.isActive === true && this.note2.isActive === true && this.note3.isActive === true){
       canvas.fill(colorChordActive);
+    } else if(this.note1.isScale === true && this.note2.isScale === true && this.note3.isScale === true){
+      canvas.fill(colorScaleChord);
     } else if(this.note1.isGame === true && this.note2.isGame === true && this.note3.isGame === true){
       canvas.fill(colorChordGame);
     } else {
