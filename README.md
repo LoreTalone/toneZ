@@ -8,7 +8,7 @@ The 'neighbours' of each tone are related to it either by a third (major or mino
 
 <p align="center"><img src="images/grid_interval_examples.png"></p>
 
-<p align="center"><img src="images/chord.gif"></p>
+<p align="center"><img src="images/chords_shape.gif"></p>
 
 See [Tonnetz][1], [Isochord][2] and [Neo-Remannian Theory][3] for more info.
 
